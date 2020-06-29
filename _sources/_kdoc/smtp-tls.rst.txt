@@ -1,0 +1,88 @@
+**RFC 2487**
+
+
+StartTLS Extension
+------------------
+
+If #OpenSSL is available when building libESMTP, support for the STARTTLS
+extension can be enabled.  If support is not enabled, the following APIs
+will always fail:
+- smtp_starttls_set_password_cb()
+- smtp_starttls_set_ctx()
+- smtp_starttls_enable()
+
+.. see_also:: [OpenSSL](https://www.openssl.org/)
+
+.. c:function:: int smtp_starttls_set_password_cb (smtp_starttls_passwordcb_t cb, void * arg)
+
+
+**Parameters**
+
+``smtp_starttls_passwordcb_t cb``
+  Password callback with signature #smtp_starttls_passwordcb_t.
+
+``void * arg``
+  User data passed to the callback.
+
+**Description**
+
+Set password callback function for OpenSSL. Unusually this API does not
+require a :c:type:`typedef smtp_session_t <smtp_session_t>` as the data it sets is global.
+
+N.B.  If this API is not called and OpenSSL requires a password, it
+      will supply a default callback which prompts on the user's tty.
+      This is likely to be undesired behaviour, so the app should
+      supply a callback using this function.
+
+**Return**
+
+Zero on failure, non-zero on success.
+
+
+.. c:function:: int smtp_starttls_set_ctx (smtp_session_t session, SSL_CTX * ctx)
+
+
+**Parameters**
+
+``smtp_session_t session``
+  The session.
+
+``SSL_CTX * ctx``
+  An SSL_CTX initialised by the application.
+
+**Description**
+
+Use an SSL_CTX created and initialised by the application.  The SSL_CTX
+must be created by the application which is assumed to have also initialised
+the OpenSSL library.
+
+If not used, or **ctx** is ``NULL``, OpenSSL is automatically initialised before
+calling any of the OpenSSL API functions.
+
+**Return**
+
+Zero on failure, non-zero on success.
+
+
+.. c:function:: int smtp_starttls_enable (smtp_session_t session, enum starttls_option how)
+
+
+**Parameters**
+
+``smtp_session_t session``
+  The session.
+
+``enum starttls_option how``
+  A :c:type:`enum starttls_option <starttls_option>`
+
+**Description**
+
+Enable the SMTP STARTTLS verb if **how** is not ``Starttls_DISABLED``.  If set to
+``Starttls_REQUIRED`` the protocol will quit rather than transferring any
+messages if the STARTTLS extension is not available.
+
+**Return**
+
+Zero on failure, non-zero on success.
+
+

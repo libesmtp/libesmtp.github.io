@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>libESMTP Types &mdash; libESMTP 1.0.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Core API" href="smtp-api.html" />
+    <link rel="prev" title="Introduction" href="../introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+          
+
+          
+            
+            <img src="../_static/pillarbox.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../libesmtp.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rationale.html">Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../retrospective.html">Retrospective</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">libESMTP Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html">Core API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#delivery-status-notification-dsn">Delivery Status Notification (DSN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#size-extention">Size Extention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#bit-mime-transport-extension">8bit-MIME Transport Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#deliver-by-extension">Deliver By Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#id1">Core API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-auth.html">Auth Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-tls.html">StartTLS Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-callbacks.html">Message Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference.html#auth-client">Auth Client</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ChangeLog.html">ChangeLog (unmaintained)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">libESMTP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../reference.html">API Reference</a> &raquo;</li>
+        
+      <li>libESMTP Types</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_kdoc/libesmtp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><strong>libESMTP Types</strong></p>
+<div class="section" id="libesmtp-types">
+<h1>libESMTP Types<a class="headerlink" href="#libesmtp-types" title="Permalink to this headline">¶</a></h1>
+<p>The following types are defined by libESMTP.</p>
+<dl class="type">
+<dt id="c.smtp_enumerate_messagecb_t">
+<code class="descname">smtp_enumerate_messagecb_t</code><a class="headerlink" href="#c.smtp_enumerate_messagecb_t" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Typedef</strong>: Message callback.</p>
+</dd></dl>
+
+<p><strong>Syntax</strong></p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">smtp_enumerate_messagecb_t</span> <span class="pre">(smtp_message_t</span> <span class="pre">message,</span> <span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg);</span></code></div></blockquote>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
+<dd>The session.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
+<dd>User data passed to smtp_enumerate_messages().</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Callback function to handle a message.</p>
+<dl class="type">
+<dt id="c.smtp_enumerate_recipientcb_t">
+<code class="descname">smtp_enumerate_recipientcb_t</code><a class="headerlink" href="#c.smtp_enumerate_recipientcb_t" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Typedef</strong>: Recipient callback.</p>
+</dd></dl>
+
+<p><strong>Syntax</strong></p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">smtp_enumerate_recipientcb_t</span> <span class="pre">(smtp_recipient_t</span> <span class="pre">recipient,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">mailbox,</span> <span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg);</span></code></div></blockquote>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt>
+<dd>The recipient.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">mailbox</span></code></dt>
+<dd>Mailbox name.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
+<dd>User data passed to smtp_enumerate_recipients().</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Callback to process a recipient.</p>
+<dl class="type">
+<dt id="c.rfc2822_timeouts">
+enum <code class="descname">rfc2822_timeouts</code><a class="headerlink" href="#c.rfc2822_timeouts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify timeout.</p>
+</dd></dl>
+
+<p><strong>Constants</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">Timeout_GREETING</span></code></dt>
+<dd>Timeout waiting for server greeting.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Timeout_ENVELOPE</span></code></dt>
+<dd>Timeout for envelope responses.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Timeout_DATA</span></code></dt>
+<dd>Timeout waiting for data transfer to begin.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Timeout_TRANSFER</span></code></dt>
+<dd>Timeout for data transfer phase.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Timeout_DATA2</span></code></dt>
+<dd>Timeout for ? phase.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Timeout flags.</p>
+<dl class="type">
+<dt id="c.ret_flags">
+enum <code class="descname">ret_flags</code><a class="headerlink" href="#c.ret_flags" title="Permalink to this definition">¶</a></dt>
+<dd><p>DSN request flags.</p>
+</dd></dl>
+
+<p><strong>Constants</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">Ret_NOTSET</span></code></dt>
+<dd>DSN is not requested.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ret_FULL</span></code></dt>
+<dd>Request full message in DSN.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ret_HDRS</span></code></dt>
+<dd>Request only headers in DSN.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>DSN flags specifying requested notification.</p>
+<dl class="type">
+<dt id="c.notify_flags">
+enum <code class="descname">notify_flags</code><a class="headerlink" href="#c.notify_flags" title="Permalink to this definition">¶</a></dt>
+<dd><p>DSN notification conditions.</p>
+</dd></dl>
+
+<p><strong>Constants</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">Notify_NOTSET</span></code></dt>
+<dd>Notify options not requested.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Notify_NEVER</span></code></dt>
+<dd>Never notify.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Notify_SUCCESS</span></code></dt>
+<dd>Notify delivery success.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Notify_FAILURE</span></code></dt>
+<dd>Notify delivery failure.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Notify_DELAY</span></code></dt>
+<dd>Notify delivery is delayed.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>DSN notify flags.</p>
+<dl class="type">
+<dt id="c.e8bitmime_body">
+enum <code class="descname">e8bitmime_body</code><a class="headerlink" href="#c.e8bitmime_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Message body type.</p>
+</dd></dl>
+
+<p><strong>Constants</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">E8bitmime_NOTSET</span></code></dt>
+<dd>Body type not declared.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">E8bitmime_7BIT</span></code></dt>
+<dd>Body conforms with RFC 5322.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">E8bitmime_8BITMIME</span></code></dt>
+<dd>Body uses 8 bit encoding.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">E8bitmime_BINARYMIME</span></code></dt>
+<dd>Body uses BINARYMIME encoding.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>8BITMIME extension flags.</p>
+<dl class="type">
+<dt id="c.by_mode">
+enum <code class="descname">by_mode</code><a class="headerlink" href="#c.by_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delivery flags.</p>
+</dd></dl>
+
+<p><strong>Constants</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">By_NOTSET</span></code></dt>
+<dd>Deliver-by notification not requested.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">By_NOTIFY</span></code></dt>
+<dd>FIXME</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">By_RETURN</span></code></dt>
+<dd>FIXME</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>DELIVERBY (RFC 2852) extension flags.</p>
+<dl class="type">
+<dt id="c.starttls_option">
+enum <code class="descname">starttls_option</code><a class="headerlink" href="#c.starttls_option" title="Permalink to this definition">¶</a></dt>
+<dd><p>TLS mode options</p>
+</dd></dl>
+
+<p><strong>Constants</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">Starttls_DISABLED</span></code></dt>
+<dd>Do not use TLS, even if offered by the MTA.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Starttls_ENABLED</span></code></dt>
+<dd>Use TLS if offered by the MTA.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Starttls_REQUIRED</span></code></dt>
+<dd>Exit session if TLS is not offered by the MTA.</dd>
+</dl>
+<dl class="type">
+<dt id="c.smtp_starttls_passwordcb_t">
+<code class="descname">smtp_starttls_passwordcb_t</code><a class="headerlink" href="#c.smtp_starttls_passwordcb_t" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Typedef</strong>: Password callback signature.</p>
+</dd></dl>
+
+<p><strong>Syntax</strong></p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">smtp_starttls_passwordcb_t</span> <span class="pre">(char</span> <span class="pre">*</span> <span class="pre">buf,</span> <span class="pre">int</span> <span class="pre">buflen,</span> <span class="pre">int</span> <span class="pre">rwflag,</span> <span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg);</span></code></div></blockquote>
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*</span> <span class="pre">buf</span></code></dt>
+<dd>Buffer to receive the password.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">buflen</span></code></dt>
+<dd>Length of the buffer.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">rwflag</span></code></dt>
+<dd>0 for reading/decryption, 1 for writing/encryption.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
+<dd>User data passed to smtp_starttls_set_password_cb().</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>The callback function declaration is cleverly chosen to be the same as
+the OpenSSL declaration.</p>
+<p><strong>Return</strong></p>
+<p>Actual length of password.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="smtp-api.html" class="btn btn-neutral float-right" title="Core API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Brian Stafford
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

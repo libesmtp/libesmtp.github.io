@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Remote Message Queue Starting (ETRN) &mdash; libESMTP 1.0.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Auth Extension" href="smtp-auth.html" />
+    <link rel="prev" title="Core API" href="smtp-api.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+          
+
+          
+            
+            <img src="../_static/pillarbox.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../libesmtp.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rationale.html">Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../retrospective.html">Retrospective</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libesmtp.html">libESMTP Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html">Core API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#delivery-status-notification-dsn">Delivery Status Notification (DSN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#size-extention">Size Extention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#bit-mime-transport-extension">8bit-MIME Transport Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#deliver-by-extension">Deliver By Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#id1">Core API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Remote Message Queue Starting (ETRN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-auth.html">Auth Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-tls.html">StartTLS Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-callbacks.html">Message Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference.html#auth-client">Auth Client</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ChangeLog.html">ChangeLog (unmaintained)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">libESMTP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../reference.html">API Reference</a> &raquo;</li>
+        
+      <li>Remote Message Queue Starting (ETRN)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_kdoc/smtp-etrn.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><strong>RFC 1985</strong></p>
+<div class="section" id="remote-message-queue-starting-etrn">
+<h1>Remote Message Queue Starting (ETRN)<a class="headerlink" href="#remote-message-queue-starting-etrn" title="Permalink to this headline">¶</a></h1>
+<p>The SMTP ETRN extension is used to request a remote MTA to start its
+delivery queue for the specified domain.  If the application requests
+the use if the ETRN extension and the remote MTA does not list ETRN,
+libESMTP will use the event callback to notify the application.</p>
+<dl class="function">
+<dt id="c.smtp_etrn_add_node">
+smtp_etrn_node_t <code class="descname">smtp_etrn_add_node</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, int<em>&nbsp;option</em>, const char *<em>&nbsp;domain</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_add_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
+<dd>The session.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">option</span></code></dt>
+<dd>The option character.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">domain</span></code></dt>
+<dd>Request mail for this domain.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Add an ETRN node to the SMTP session.</p>
+<p><strong>Return</strong></p>
+<p>An <code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">smtp_etrn_node_t</span></code> or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> on failure.</p>
+<dl class="function">
+<dt id="c.smtp_etrn_enumerate_nodes">
+int <code class="descname">smtp_etrn_enumerate_nodes</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, smtp_etrn_enumerate_nodecb_t<em>&nbsp;cb</em>, void *<em>&nbsp;arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_enumerate_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
+<dd>The session.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_enumerate_nodecb_t</span> <span class="pre">cb</span></code></dt>
+<dd>Callback function</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
+<dd>Argument (closure) passed to callback.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Call the callback function once for each ETRN node in the SMTP session.</p>
+<p><strong>Return</strong></p>
+<p>Zero on failure, non-zero on success.</p>
+<dl class="function">
+<dt id="c.smtp_etrn_node_status">
+const smtp_status_t * <code class="descname">smtp_etrn_node_status</code><span class="sig-paren">(</span>smtp_etrn_node_t<em>&nbsp;node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_node_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt>
+<dd>An #smtp_etrn_node_t</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Retrieve the ETRN node success/failure status from a previous SMTP session.
+This includes SMTP status codes, RFC 2034 enhanced status codes, if
+available and text from the server describing the status.</p>
+<p><strong>Return</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no status information is available,
+otherwise a pointer to the status information.  The pointer remains valid
+until the next call to libESMTP in the same thread.</p>
+<dl class="function">
+<dt id="c.smtp_etrn_set_application_data">
+void * <code class="descname">smtp_etrn_set_application_data</code><span class="sig-paren">(</span>smtp_etrn_node_t<em>&nbsp;node</em>, void *<em>&nbsp;data</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_set_application_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt>
+<dd>An #smtp_etrn_node_t</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt>
+<dd>Application data to set</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Associate application defined data with the opaque ETRN structure.</p>
+<p><strong>Return</strong></p>
+<p>Previously set application data or <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+<dl class="function">
+<dt id="c.smtp_etrn_get_application_data">
+void * <code class="descname">smtp_etrn_get_application_data</code><span class="sig-paren">(</span>smtp_etrn_node_t<em>&nbsp;node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_get_application_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt>
+<dd>An #smtp_etrn_node_t</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Retrieve application data from the opaque ETRN structure.</p>
+<p><strong>Return</strong></p>
+<p>Application data or <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="smtp-auth.html" class="btn btn-neutral float-right" title="Auth Extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="smtp-api.html" class="btn btn-neutral float-left" title="Core API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Brian Stafford
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

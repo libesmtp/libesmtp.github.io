@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>StartTLS Extension &mdash; libESMTP 1.0.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Message Callbacks" href="message-callbacks.html" />
+    <link rel="prev" title="Auth Extension" href="smtp-auth.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+          
+
+          
+            
+            <img src="../_static/pillarbox.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../libesmtp.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rationale.html">Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../retrospective.html">Retrospective</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libesmtp.html">libESMTP Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html">Core API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#delivery-status-notification-dsn">Delivery Status Notification (DSN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#size-extention">Size Extention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#bit-mime-transport-extension">8bit-MIME Transport Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#deliver-by-extension">Deliver By Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#id1">Core API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-auth.html">Auth Extension</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">StartTLS Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-callbacks.html">Message Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference.html#auth-client">Auth Client</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ChangeLog.html">ChangeLog (unmaintained)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">libESMTP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../reference.html">API Reference</a> &raquo;</li>
+        
+      <li>StartTLS Extension</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_kdoc/smtp-tls.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><strong>RFC 2487</strong></p>
+<div class="section" id="starttls-extension">
+<h1>StartTLS Extension<a class="headerlink" href="#starttls-extension" title="Permalink to this headline">¶</a></h1>
+<p>If #OpenSSL is available when building libESMTP, support for the STARTTLS
+extension can be enabled.  If support is not enabled, the following APIs
+will always fail:
+- smtp_starttls_set_password_cb()
+- smtp_starttls_set_ctx()
+- smtp_starttls_enable()</p>
+<dl class="function">
+<dt id="c.smtp_starttls_set_password_cb">
+int <code class="descname">smtp_starttls_set_password_cb</code><span class="sig-paren">(</span><a class="reference internal" href="libesmtp.html#c.smtp_starttls_passwordcb_t" title="smtp_starttls_passwordcb_t">smtp_starttls_passwordcb_t</a><em>&nbsp;cb</em>, void *<em>&nbsp;arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_starttls_set_password_cb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_starttls_passwordcb_t</span> <span class="pre">cb</span></code></dt>
+<dd>Password callback with signature #smtp_starttls_passwordcb_t.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
+<dd>User data passed to the callback.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Set password callback function for OpenSSL. Unusually this API does not
+require a <code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">smtp_session_t</span></code> as the data it sets is global.</p>
+<dl class="docutils">
+<dt>N.B.  If this API is not called and OpenSSL requires a password, it</dt>
+<dd>will supply a default callback which prompts on the user’s tty.
+This is likely to be undesired behaviour, so the app should
+supply a callback using this function.</dd>
+</dl>
+<p><strong>Return</strong></p>
+<p>Zero on failure, non-zero on success.</p>
+<dl class="function">
+<dt id="c.smtp_starttls_set_ctx">
+int <code class="descname">smtp_starttls_set_ctx</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, SSL_CTX *<em>&nbsp;ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_starttls_set_ctx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
+<dd>The session.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">SSL_CTX</span> <span class="pre">*</span> <span class="pre">ctx</span></code></dt>
+<dd>An SSL_CTX initialised by the application.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Use an SSL_CTX created and initialised by the application.  The SSL_CTX
+must be created by the application which is assumed to have also initialised
+the OpenSSL library.</p>
+<p>If not used, or <strong>ctx</strong> is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, OpenSSL is automatically initialised before
+calling any of the OpenSSL API functions.</p>
+<p><strong>Return</strong></p>
+<p>Zero on failure, non-zero on success.</p>
+<dl class="function">
+<dt id="c.smtp_starttls_enable">
+int <code class="descname">smtp_starttls_enable</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, enum <a class="reference internal" href="libesmtp.html#c.starttls_option" title="starttls_option">starttls_option</a><em>&nbsp;how</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_starttls_enable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
+<dd>The session.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">starttls_option</span> <span class="pre">how</span></code></dt>
+<dd>A <a class="reference internal" href="libesmtp.html#c.starttls_option" title="starttls_option"><code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">starttls_option</span></code></a></dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Enable the SMTP STARTTLS verb if <strong>how</strong> is not <code class="docutils literal notranslate"><span class="pre">Starttls_DISABLED</span></code>.  If set to
+<code class="docutils literal notranslate"><span class="pre">Starttls_REQUIRED</span></code> the protocol will quit rather than transferring any
+messages if the STARTTLS extension is not available.</p>
+<p><strong>Return</strong></p>
+<p>Zero on failure, non-zero on success.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="message-callbacks.html" class="btn btn-neutral float-right" title="Message Callbacks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="smtp-auth.html" class="btn btn-neutral float-left" title="Auth Extension" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Brian Stafford
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

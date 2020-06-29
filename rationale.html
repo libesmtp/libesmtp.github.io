@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Rationale &mdash; libESMTP 1.0.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Retrospective" href="retrospective.html" />
+    <link rel="prev" title="FAQ" href="faq.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+          
+
+          
+            
+            <img src="_static/pillarbox.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="libesmtp.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Rationale</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-case-for-libesmtp">The case for libESMTP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="retrospective.html">Retrospective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ChangeLog.html">ChangeLog (unmaintained)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libESMTP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Rationale</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/rationale.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rationale">
+<h1>Rationale<a class="headerlink" href="#rationale" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-case-for-libesmtp">
+<h2>The case for libESMTP<a class="headerlink" href="#the-case-for-libesmtp" title="Permalink to this headline">¶</a></h2>
+<p>In the good old days of Un*x when men were real men, women were real women and
+timesharing systems were real timesharing systems and networks were not
+commonplace, the <em>“pipe it into sendmail”</em> approach was a good one.  Sendmail
+can handle many diverse means of mail transport and can parse and translate
+addresses and message headers to suit the underlying transport’s
+characteristics.  It is convenient for programmers, just shell out to
+sendmail and pipe the message into sendmail’s standard input.  Not much
+code is required to do this which is good, less code means fewer bugs.</p>
+<p>However, things have changed over the years.  Nowadays, personal workstations
+are normal and electronic mail transported using the SMTP protocol is
+ubiquitous.  The mail server (known as a Mail Transport Agent or MTA) that is
+supposed to handle mail submission is almost invariably remote from the
+workstation. There are many other MTAs to choose from than sendmail, and the
+alternatives are typically easier to install and maintain.</p>
+<p>Unfortunately, the MUAs have not changed much in the way they work.  They still
+shell out to sendmail.  This means that MTA authors must provide a sendmail
+command to wrap the way their program really works.  Users on workstations need
+a sendmail-like MTA on the local host which can be an administrative
+nightmare.  There are many command line options which must be accepted but do
+nothing; useful SMTP extensions that are not supported via the command line
+options (or just not supporetd). Where is sendmail really installed on this
+system?  Does the emulation implement every obscure feature an MTA might need?</p>
+<p>The solution is simple, an MUA uses SMTP to submit its mail to the MTA.  SMTP
+is defined in open standards that are easy to obtain, all MTAs implement it and
+it breaks the dependency on an external program’s idiosyncrasies and calling
+conventions.  Furthermore, it works across a network.  Sendmail talks SMTP so
+its ability to transport mail using other mechanisms is not lost.  Nowadays,
+most, if not all, users are on workstations and the MTA is on a remote system.
+Using SMTP directly surely must be the solution.</p>
+<p>Unfortunately, while interacting by the use of standardised protocols is the
+solution for the modern networked environment, writing the client side of even
+a simple protocol like SMTP is not that trivial.  Quite a lot of code is needed
+just to implement the communications between client and server, never mind the
+protocol itself.  There are many SMTP extensions which are desirable but not so
+easy to implement.  There are restrictions on the format of many of the
+protocol elements, for example, the domain of an email address should not
+reference a CNAME in the DNS.  MUA authors are caught between the Devil and the
+deep blue sea.  Either they opt for the simple solution which requires
+installation of a complex piece of MTA software or they choose the protocol
+solution which is difficult to implement.</p>
+<p>By having a library that implements an electronic mail submission API, it
+becomes as easy for programmers to use SMTP for mail submission as it is to use
+sendmail.  The library is isolated from the application since it interfaces
+only via the API.  On modern systems implementing dynamic linking, the library
+can be upgraded without disturbing the application.</p>
+<p>Given a simple and intuitive API  and a robust implementation, programmers will
+adopt it.  Direct use of SMTP eliminates the necessity for sendmail or any
+other MTA to be present on workstations.</p>
+<p><strong>libESMTP</strong> is my attempt at implementing just such a library.</p>
+<hr class="docutils" />
+<p>Brian Stafford, November 2000.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="retrospective.html" class="btn btn-neutral float-right" title="Retrospective" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="faq.html" class="btn btn-neutral float-left" title="FAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Brian Stafford
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

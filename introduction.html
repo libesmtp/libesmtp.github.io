@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; libESMTP 1.0.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="libESMTP Types" href="_kdoc/libesmtp.html" />
+    <link rel="prev" title="API Reference" href="reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+          
+
+          
+            
+            <img src="_static/pillarbox.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="libesmtp.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rationale.html">Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retrospective.html">Retrospective</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference">Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opaque-pointers">Opaque Pointers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thread-safety">Thread Safety</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signal-handling">Signal Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/libesmtp.html">libESMTP Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html">Core API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#delivery-status-notification-dsn">Delivery Status Notification (DSN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#size-extention">Size Extention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#bit-mime-transport-extension">8bit-MIME Transport Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#deliver-by-extension">Deliver By Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#id1">Core API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-auth.html">Auth Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-tls.html">StartTLS Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/message-callbacks.html">Message Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#auth-client">Auth Client</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ChangeLog.html">ChangeLog (unmaintained)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libESMTP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="reference.html">API Reference</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>For the most part, the libESMTP API is a relatively thin layer over SMTP
+protocol operations, that is, most API functions and their arguments are
+similar to the corresponding protocol commands.  Further API functions
+manage a callback mechanism which is used to read messages from the
+application and to report protocol progress to the application.  The
+remainder of the API is devoted to reporting on a completed SMTP session.</p>
+<p>Although the API closely models the protocol itself, libESMTP relieves the
+programmer of all the work needed to properly implement RFC 5321 (formerly
+RFC 2821, formerly RFC 821) and avoids many of the pitfalls in typical SMTP
+implementations.  It constructs SMTP commands, parses responses, provides
+socket buffering and pipelining, where appropriate provides for TLS
+connections and provides a failover mechanism based on DNS allowing multiple
+redundant MSAs.  Furthermore, support for the SMTP extension mechanism is
+incorporated by design rather than as an afterthought.</p>
+<p>There is limited support for processing RFC 5322 message headers.  This is
+intended to ensure that messages copied to the SMTP server have their
+correct complement of headers.  Headers that should not be present are
+stripped and reasonable defaults are provided for missing headers.  In
+addition, the header API allows the defaults to be tuned and provides a
+mechanism to specify message headers when this might be difficult to do
+directly in the message data.</p>
+<p>libESMTP <em>does not implement MIME [RFC 2045]</em> since MIME is, in the words
+of RFC 2045, <em>orthogonal</em> to RFC 5322.  The developer is expected to use a
+separate library to construct MIME documents or the application should
+construct them directly.  libESMTP ensures that top level MIME headers are
+passed unaltered and the header API functions are guaranteed to fail if any
+header in the name space reserved for MIME is specified, thus ensuring that
+MIME documents are not accidentally corrupted.</p>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<p>The libESMTP API is a relatively small and lightweight interface to the SMTP
+protocol and its extensions. Internal structures are opaque to the
+application accessible only through API calls. The majority of the API is
+used to define the messages and recipients to be transferred to the SMTP
+server during the protocol session.  Similarly a number of functions are
+used to query the status of the transfer after the event.  The entire SMTP
+protocol session is performed by a single function call.</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>To use the libESMTP API, include the following header files:
+<code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">c</span>
+<span class="pre">#include</span> <span class="pre">&lt;auth-client.h&gt;</span>
+<span class="pre">#include</span> <span class="pre">&lt;libesmtp.h&gt;</span>
+<span class="pre">`</span></code></p>
+<p>Declarations for deprecated symbols must be requested explicitly; define the
+macro <code class="docutils literal notranslate"><span class="pre">LIBESMTP_ENABLE_DEPRECATED_SYMBOLS</span></code> to be non-zero before including
+libesmtp.h. for example:
+<code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">c</span>
+<span class="pre">#define</span> <span class="pre">LIBESMTP_ENABLE_DEPRECATED_SYMBOLS</span> <span class="pre">1</span>
+<span class="pre">#include</span> <span class="pre">&lt;libesmtp.h&gt;</span>
+<span class="pre">`</span></code></p>
+<p>Internally libESMTP creates and maintains structures to track the state of
+an SMTP protocol session.  Opaque pointers to these structures are passed
+back to the application by the API and must be supplied in various other API
+calls.  The API provides for a callback functions or a simple event
+reporting mechanism as appropriate so that the application can provide data
+to libESMTP or track the session’s progress.  Further API functions allow
+the session status to be queried after the event.  The entire SMTP protocol
+session is performed by only one function call.</p>
+</div>
+<div class="section" id="opaque-pointers">
+<h2>Opaque Pointers<a class="headerlink" href="#opaque-pointers" title="Permalink to this headline">¶</a></h2>
+<p>All structures and pointers maintained by libESMTP are opaque, that is,
+the internal detail of libESMTP structures is not made available to the
+application.  Object oriented programmers may wish to regard the pointers
+as instances of private classes within libESMTP.</p>
+<p>Three pointer types are declared as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">struct</span> <span class="n">smtp_session</span> <span class="o">*</span><span class="n">smtp_session_t</span><span class="p">;</span>
+<span class="n">typedef</span> <span class="n">struct</span> <span class="n">smtp_message</span> <span class="o">*</span><span class="n">smtp_message_t</span><span class="p">;</span>
+<span class="n">typedef</span> <span class="n">struct</span> <span class="n">smtp_recipient</span> <span class="o">*</span><span class="n">smtp_recipient_t</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="thread-safety">
+<h2>Thread Safety<a class="headerlink" href="#thread-safety" title="Permalink to this headline">¶</a></h2>
+<p>LibESMTP is thread-aware, however the application is responsible for
+observing the restrictions below to ensure full thread safety.</p>
+<p>Do not access a smtp_session_t, smtp_message_t or smtp_recipient_t
+from more than one thread at a time.  A mutex can be used to protect API calls
+if the application logic cannot guarantee this.  It is especially important to
+observe this restriction during a call to smtp_start_session().</p>
+</div>
+<div class="section" id="signal-handling">
+<h2>Signal Handling<a class="headerlink" href="#signal-handling" title="Permalink to this headline">¶</a></h2>
+<p>It is advisable for your application to catch or ignore SIGPIPE.  libESMTP
+sets timeouts as it progresses through the protocol.  In addition the remote
+server might close its socket at any time.  Consequently libESMTP may
+sometimes try to write to a socket with no reader.  Catching or ignoring
+SIGPIPE ensures the application isn’t killed accidentally when this happens
+during the protocol session.</p>
+<p>Code similar to the following may be used to do this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;signal.h&gt;</span>
+
+<span class="n">void</span>
+<span class="n">ignore_sigpipe</span> <span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">struct</span> <span class="n">sigaction</span> <span class="n">sa</span><span class="p">;</span>
+
+  <span class="n">sa</span><span class="o">.</span><span class="n">sa_handler</span> <span class="o">=</span> <span class="n">SIG_IGN</span><span class="p">;</span>
+  <span class="n">sigemptyset</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">sa</span><span class="o">.</span><span class="n">sa_mask</span><span class="p">);</span>
+  <span class="n">sa</span><span class="o">.</span><span class="n">sa_flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">sigaction</span> <span class="p">(</span><span class="n">SIGPIPE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">sa</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="_kdoc/libesmtp.html" class="btn btn-neutral float-right" title="libESMTP Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="reference.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Brian Stafford
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

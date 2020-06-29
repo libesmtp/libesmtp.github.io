@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Benefits &mdash; libESMTP 1.0.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Download" href="download.html" />
+    <link rel="prev" title="libESMTP" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+          
+
+          
+            
+            <img src="_static/pillarbox.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Benefits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simple">Simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#efficient">Efficient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#thread-safety">Thread Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extensions">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#target-applications">Target Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rationale.html">Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retrospective.html">Retrospective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ChangeLog.html">ChangeLog (unmaintained)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libESMTP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Benefits</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/libesmtp.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="benefits">
+<h1>Benefits<a class="headerlink" href="#benefits" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="simple">
+<h2>Simple<a class="headerlink" href="#simple" title="Permalink to this headline">¶</a></h2>
+<p>libESMTP offloads the developer of the need to handle the complexity of
+negotiating the SMTP protocol and its extensions by providing a simple API
+which configures a connection to the mail server (a “session”), adds messages
+to the session and adds recipients addresses to the messages.  A callback
+function is supplied to read the message.  Submission is then performed in a
+single API call.</p>
+</div>
+<div class="section" id="efficient">
+<h2>Efficient<a class="headerlink" href="#efficient" title="Permalink to this headline">¶</a></h2>
+<p>libESMTP’s primary goal is to be efficient.  Because it buffers all network
+traffic and supports the SMTP PIPELINING (RFC 2920) extension when connecting
+to a pipelining SMTP server, libESMTP significantly increases network
+performance, especially on slow connections or those with high latency.  Even
+without a pipelining server libESMTP offers much better performance than would
+be expected with a simple client.</p>
+</div>
+<div class="section" id="thread-safety">
+<h2>Thread Safety<a class="headerlink" href="#thread-safety" title="Permalink to this headline">¶</a></h2>
+<p>Providing a few simple restrictions are observed, libESMTP is thread-safe.</p>
+</div>
+<div class="section" id="extensions">
+<h2>Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h2>
+<p>libESMTP supports many standard SMTP extensions, useful to mail submission
+agents (MSA).</p>
+<ul class="simple">
+<li>[RFC 3463, RFC 2034] ENHANCEDSTATUSCODES</li>
+<li>[RFC 2920] PIPELINING</li>
+<li>[RFC 3461] DSN</li>
+<li>[RFC 4954] AUTH (SASL)</li>
+<li>[RFC 3207] STARTTLS</li>
+<li>[RFC 1870] SIZE</li>
+<li>[RFC 3030] CHUNKING</li>
+<li>[RFC 3030] BINARYMIME</li>
+<li>[RFC 6152] 8BITMIME</li>
+<li>[RFC 2852] DELIVERBY</li>
+<li>[RFC 1985] ETRN</li>
+<li>[sendmail] XUSR - <em>notify sendmail this is an initial submission</em></li>
+<li>[exchange] XEXCH50</li>
+</ul>
+<p>Many of these are used automatically if advertised by the MTA. Certain
+extensions require extra information supplied by associated API calls.</p>
+</div>
+<div class="section" id="target-applications">
+<h2>Target Applications<a class="headerlink" href="#target-applications" title="Permalink to this headline">¶</a></h2>
+<p>libESMTP is intended for use with any application that needs to submit mail;
+that is where a message is first submitted into the transport and delivery
+infrastructure. For example, an application which resubmits messages sent to a
+mailing list, an on-line application that mails notifications to users or, of
+course, an email program.</p>
+<p>A major difference with clients which are part of a mail transport agent is
+that libESMTP does not perfrom MX resolution and next-hop determination.  This
+is intentional since this is undesirable behaviour in a program that is not an
+MTA, and may even be detrimental if the client is behind a firewall which
+blocks access to port 25 on the Internet.</p>
+<p>The availability of a reliable, lightweight and thread-safe SMTP client eases
+the task of coding for software authors thus improving the quality of the
+resulting code.  See the <a class="reference internal" href="rationale.html"><span class="doc">rationale</span></a> for development of this
+library.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="download.html" class="btn btn-neutral float-right" title="Download" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="libESMTP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Brian Stafford
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

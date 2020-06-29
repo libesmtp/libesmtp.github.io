@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Download &mdash; libESMTP 1.0.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reporting Bugs" href="bugreport.html" />
+    <link rel="prev" title="Benefits" href="libesmtp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+          
+
+          
+            
+            <img src="_static/pillarbox.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="libesmtp.html">Benefits</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Download</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#openssl">OpenSSL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dlopen">dlopen()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getaddrinfo">getaddrinfo()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rationale.html">Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retrospective.html">Retrospective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ChangeLog.html">ChangeLog (unmaintained)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libESMTP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Download</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/download.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="download">
+<h1>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h1>
+<p>LibESMTP is considered stable.  Source code is available from
+<a class="reference external" href="https://github.com/libesmtp/libESMTP">GitHub</a>.
+Clone the repository using:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/libesmtp/libESMTP.git
+</pre></div>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="openssl">
+<h3>OpenSSL<a class="headerlink" href="#openssl" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.openssl.org/">OpenSSL v1.1.0</a> or later is required to build the
+SMTP STARTTLS extension and to build the SASL NTLM authentication module.
+libESMTP may be built without OpenSSL, however most contemporary mail
+submission agents require TLS connections.</p>
+</div>
+<div class="section" id="dlopen">
+<h3>dlopen()<a class="headerlink" href="#dlopen" title="Permalink to this headline">¶</a></h3>
+<p>libESMTP requires dlopen() to dynamically load authentication modules.</p>
+</div>
+<div class="section" id="getaddrinfo">
+<h3>getaddrinfo()<a class="headerlink" href="#getaddrinfo" title="Permalink to this headline">¶</a></h3>
+<p>Most modern resolver libraries provide the getaddrinfo() API defined in
+RFC 2553.  The Lightweight Resolver (lwres), provided by the
+<a class="reference external" href="https://www.isc.org/">ISC BIND 9</a> library, may be used in preference to the
+standard resolver. BIND 9 also provides getaddrinfo() as part of the standard
+resolver should it be unavailable on the target platform.</p>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>LibESMTP uses the
+<a class="reference external" href="https://mesonbuild.com/Getting-meson.html">Meson build system</a>.
+Refer to the Meson manual for standard configuration options.</p>
+<p>Meson supports multiple build system backends.  To build with
+<a class="reference external" href="https://ninja-build.org/">Ninja</a> do the following:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ meson <span class="o">[</span>options<span class="o">]</span> --buildtype<span class="o">=</span>release builddir
+$ ninja -C builddir install
+</pre></div>
+</div>
+<p>Note that the meson/ninja installer does not require an explicit <code class="docutils literal notranslate"><span class="pre">sudo</span></code>,
+instead it will prompt for a password during install. This avoids polluting
+builddir with files owned by root.</p>
+<p>As well as the standard meson options, the following are supported:</p>
+<ul>
+<li><p class="first">-Dpthreads=[enabled|disabled|auto]</p>
+<p>build with support for Posix threads (default: auto)</p>
+</li>
+<li><p class="first">-Dtls=[enabled|disabled|auto]</p>
+<p>support the STARTTLS extension and NTLM authentication (default: auto)</p>
+</li>
+<li><p class="first">-Dlwres=[enabled|disabled|auto]</p>
+<p>use the ISC lightweight resolver (default: disabled)</p>
+</li>
+<li><p class="first">-Dbdat=[true|false]</p>
+<p>enable SMTP BDAT extension (default: true)</p>
+</li>
+<li><p class="first">-Detrn=[true|false]</p>
+<p>enable SMTP ETRN extension (default: true)</p>
+</li>
+<li><p class="first">-Dxusr=[true|false]</p>
+<p>enable sendmail XUSR extension (default: true)</p>
+</li>
+</ul>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>To build the documentation, you will need <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a>
+and the <code class="docutils literal notranslate"><span class="pre">kernel-doc</span></code> script, and therefore <a class="reference external" href="https://www.perl.org/">Perl</a>, from
+the <a class="reference external" href="https://www.kernel.org/">Linux Kernel</a> distribution. It may be found in
+the <code class="docutils literal notranslate"><span class="pre">scripts/</span></code> directory.</p>
+<p>Change to the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> directory and run <code class="docutils literal notranslate"><span class="pre">gendoc.sh</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bugreport.html" class="btn btn-neutral float-right" title="Reporting Bugs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="libesmtp.html" class="btn btn-neutral float-left" title="Benefits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Brian Stafford
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

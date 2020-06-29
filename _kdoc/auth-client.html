@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Auth Client &mdash; libESMTP 1.0.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ChangeLog (unmaintained)" href="../ChangeLog.html" />
+    <link rel="prev" title="Errors" href="errors.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+          
+
+          
+            
+            <img src="../_static/pillarbox.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../libesmtp.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rationale.html">Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../retrospective.html">Retrospective</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libesmtp.html">libESMTP Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html">Core API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#delivery-status-notification-dsn">Delivery Status Notification (DSN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#size-extention">Size Extention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#bit-mime-transport-extension">8bit-MIME Transport Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#deliver-by-extension">Deliver By Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#id1">Core API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-auth.html">Auth Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-tls.html">StartTLS Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-callbacks.html">Message Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../reference.html#auth-client">Auth Client</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Auth Client</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ChangeLog.html">ChangeLog (unmaintained)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">libESMTP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../reference.html">API Reference</a> &raquo;</li>
+        
+      <li>Auth Client</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_kdoc/auth-client.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><strong>Auth Client</strong></p>
+<div class="section" id="auth-client">
+<h1>Auth Client<a class="headerlink" href="#auth-client" title="Permalink to this headline">¶</a></h1>
+<p>The auth client is a simple SASL implementation supporting the
+SMTP AUTH extension.</p>
+<dl class="function">
+<dt id="c.auth_client_init">
+void <code class="descname">auth_client_init</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.auth_client_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise the auth client.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">void</span></code></dt>
+<dd>no arguments</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Perform any preparation necessary for the auth client modules.  Call this
+before any other auth client APIs.</p>
+<dl class="function">
+<dt id="c.auth_client_exit">
+void <code class="descname">auth_client_exit</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.auth_client_exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy the auth client.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">void</span></code></dt>
+<dd>no arguments</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>This clears any work done by auth_client_init() or any global state that may
+be created by the authentication modules.  Auth client APIs after this is
+called may fail unpredictably or crash.</p>
+<dl class="function">
+<dt id="c.auth_create_context">
+auth_context_t <code class="descname">auth_create_context</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.auth_create_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an authentication context.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">void</span></code></dt>
+<dd>no arguments</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Create a new authentication context.</p>
+<p><strong>Return</strong></p>
+<p>The <code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">auth_context_t</span></code>.</p>
+<dl class="function">
+<dt id="c.auth_destroy_context">
+int <code class="descname">auth_destroy_context</code><span class="sig-paren">(</span>auth_context_t<em>&nbsp;context</em><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_destroy_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy an authentication context.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">auth_context_t</span> <span class="pre">context</span></code></dt>
+<dd>The authentication context.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Destroy an authentication context, releasing any resources used.</p>
+<p><strong>Return</strong></p>
+<p>Zero on failure, non-zero on success.</p>
+<dl class="function">
+<dt id="c.auth_set_mechanism_flags">
+int <code class="descname">auth_set_mechanism_flags</code><span class="sig-paren">(</span>auth_context_t<em>&nbsp;context</em>, unsigned<em>&nbsp;set</em>, unsigned<em>&nbsp;clear</em><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_set_mechanism_flags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set authentication flags.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">auth_context_t</span> <span class="pre">context</span></code></dt>
+<dd>The authentication context.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">set</span></code></dt>
+<dd>Flags to set.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">clear</span></code></dt>
+<dd>Flags to clear.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Configure authentication mechanism flags which may affect operation of the
+authentication modules. The <code class="docutils literal notranslate"><span class="pre">AUTH_PLUGIN_EXTERNAL</span></code> flag is excluded from the
+allowable flags.</p>
+<p><strong>Return</strong></p>
+<p>Zero on failure, non-zero on success.</p>
+<dl class="function">
+<dt id="c.auth_set_mechanism_ssf">
+int <code class="descname">auth_set_mechanism_ssf</code><span class="sig-paren">(</span>auth_context_t<em>&nbsp;context</em>, int<em>&nbsp;min_ssf</em><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_set_mechanism_ssf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set security factor.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">auth_context_t</span> <span class="pre">context</span></code></dt>
+<dd>The authentication context.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">min_ssf</span></code></dt>
+<dd>The minimum security factor.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Set the minimum acceptable security factor.  The exact meaning of the
+security factor depends on the authentication type.</p>
+<p><strong>Return</strong></p>
+<p>Zero on failure, non-zero on success.</p>
+<dl class="function">
+<dt id="c.auth_set_external_id">
+int <code class="descname">auth_set_external_id</code><span class="sig-paren">(</span>auth_context_t<em>&nbsp;context</em>, const char *<em>&nbsp;identity</em><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_set_external_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the external id.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">auth_context_t</span> <span class="pre">context</span></code></dt>
+<dd>The authentication context.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">identity</span></code></dt>
+<dd>Authentication identity.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Set the authentication identity for the EXTERNAL SASL mechanism.  This call
+also configures the built-in EXTERNAL authenticator.</p>
+<p>The EXTERNAL mechanism is used in conjunction with authentication which has
+already occurred at a lower level in the network stack, such as TLS.  For
+X.509 the identity is normally that used in the relevant certificate.</p>
+<p><strong>Return</strong></p>
+<p>Zero on failure, non-zero on success.</p>
+<dl class="function">
+<dt id="c.auth_client_enabled">
+int <code class="descname">auth_client_enabled</code><span class="sig-paren">(</span>auth_context_t<em>&nbsp;context</em><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_client_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if mechanism is enabled.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">auth_context_t</span> <span class="pre">context</span></code></dt>
+<dd>The authentication context.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Perform various checks to ensure SASL is usable.</p>
+<p>Note that this does not check for loaded plugins.  This is checked when
+negotiating a mechanism with the MTA.</p>
+<p><strong>Return</strong></p>
+<p>Non-zero if the SASL is usable, zero otherwise.</p>
+<dl class="function">
+<dt id="c.auth_set_mechanism">
+int <code class="descname">auth_set_mechanism</code><span class="sig-paren">(</span>auth_context_t<em>&nbsp;context</em>, const char *<em>&nbsp;name</em><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_set_mechanism" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select authentication mechanism.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">auth_context_t</span> <span class="pre">context</span></code></dt>
+<dd>The authentication context.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">name</span></code></dt>
+<dd>Name of the authentication mechanism.</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Perform checks, including acceptable security levels and select
+the authentication mechanism if successful.</p>
+<p><strong>Return</strong></p>
+<p>Zero on failure, non-zero on success.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ChangeLog.html" class="btn btn-neutral float-right" title="ChangeLog (unmaintained)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="errors.html" class="btn btn-neutral float-left" title="Errors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Brian Stafford
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

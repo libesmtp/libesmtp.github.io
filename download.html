@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Download &mdash; libESMTP 1.0.7 documentation</title>
+  <title>Download &mdash; libESMTP 1.0.6 documentation</title>
   
 
   
@@ -106,6 +106,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ChangeLog.html">ChangeLog (unmaintained)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errata.html">libESMTP Repository Notes</a></li>
 </ul>
 
             
@@ -175,10 +176,12 @@
 <h1>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h1>
 <p>LibESMTP is considered stable.  Source code is available from
 <a class="reference external" href="https://github.com/libesmtp/libESMTP">GitHub</a>.
-Clone the repository using:</p>
+Clone the repository as follows, however please also refer to
+<a class="reference internal" href="errata.html"><span class="doc">the errata</span></a> for further important information.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/libesmtp/libESMTP.git
 </pre></div>
 </div>
+<p>libESMTP v1.0.6 may be found on the branch <code class="docutils literal notranslate"><span class="pre">libesmtp-1.0.6</span></code>.</p>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="openssl">
@@ -205,7 +208,8 @@ resolver should it be unavailable on the target platform.</p>
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>LibESMTP uses the
 <a class="reference external" href="https://mesonbuild.com/Getting-meson.html">Meson build system</a>.
-Refer to the Meson manual for standard configuration options.</p>
+Refer to the Meson manual for standard configuration options.
+<em>Note that the libesmtp-1.0.6 branch still uses autotools.</em></p>
 <p>Meson supports multiple build system backends.  To build with
 <a class="reference external" href="https://ninja-build.org/">Ninja</a> do the following:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ meson <span class="o">[</span>options<span class="o">]</span> --buildtype<span class="o">=</span>release builddir

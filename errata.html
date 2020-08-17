@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>libESMTP Repository Notes &mdash; libESMTP 1.0.6 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="ChangeLog (unmaintained)" href="ChangeLog.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+          
+
+          
+            
+            <img src="_static/pillarbox.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="libesmtp.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rationale.html">Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="retrospective.html">Retrospective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ChangeLog.html">ChangeLog (unmaintained)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">libESMTP Repository Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#minor-differences">Minor Differences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-in">configure.in</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remedial-action">Remedial Action</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libESMTP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>libESMTP Repository Notes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/errata.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="libesmtp-repository-notes">
+<h1>libESMTP Repository Notes<a class="headerlink" href="#libesmtp-repository-notes" title="Permalink to this headline">¶</a></h1>
+<p>The libESMTP git repository has been rebuilt by hand from the collection of
+released tarballs. A few errors or inconsistencies occurred during this
+process meaning that a tarball built from the repository will differ from the
+original.</p>
+<p>The intention was not to provide byte-identical record of released tarballs,
+rather, it was to be able to review how source code changed should the need
+arise. For example, there was a regression in X.509 certificate validation at
+one point.  Consequently only the latest release, v1.0.6, was properly
+validated as buildable.</p>
+<p>The majority of differences are minor, most are due to the decision to exclude
+generated files from the repository (autotools pollutes the source with a large
+number of files).</p>
+<div class="section" id="minor-differences">
+<h2>Minor Differences<a class="headerlink" href="#minor-differences" title="Permalink to this headline">¶</a></h2>
+<p>Files generated by GNU autotools and associated tools such as <code class="docutils literal notranslate"><span class="pre">libtoolize</span></code>
+were removed, with the following caveats:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">acinclude.m4</span></code> should have been removed but was not.</li>
+<li><code class="docutils literal notranslate"><span class="pre">stamp-h.in</span></code> should have been removed but was not.</li>
+<li><code class="docutils literal notranslate"><span class="pre">libesmtp.spec</span></code> was removed but accidentally added back in v0.8.1. Removed
+again in v0.8.7.</li>
+<li><code class="docutils literal notranslate"><span class="pre">acconfig.h</span></code> is generated from v0.8.2 but was not removed from the repository.</li>
+</ul>
+<p>v0.8.5 renamed <code class="docutils literal notranslate"><span class="pre">rfc822date.[ch]</span></code> to <code class="docutils literal notranslate"><span class="pre">rfc2822date.[ch]</span></code>.  The latter were added
+as new files to the repository rather than using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">mv</span></code>. The old files were
+not removed until revision <code class="docutils literal notranslate"><span class="pre">bdbc6c2c15e7</span></code>.</p>
+<p>The files COPYING and COPYING.GPL are incorrect wrt the tarballs from v1.0.4.</p>
+</div>
+<div class="section" id="configure-in">
+<h2>configure.in<a class="headerlink" href="#configure-in" title="Permalink to this headline">¶</a></h2>
+<p>A more serious error occurred when the v0.8.5 tarball reverted <code class="docutils literal notranslate"><span class="pre">configure.ac</span></code>
+to <code class="docutils literal notranslate"><span class="pre">configure.in</span></code> due to autoconf version problems (who knew?).
+Here is the comment from <code class="docutils literal notranslate"><span class="pre">Changelog</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">configure</span><span class="o">.</span><span class="ow">in</span> <span class="n">acinclude</span><span class="o">.</span><span class="n">m4</span> <span class="n">acconfig</span><span class="o">.</span><span class="n">h</span>
+
+<span class="n">Reverted</span> <span class="n">to</span> <span class="n">configure</span><span class="o">.</span><span class="ow">in</span><span class="p">,</span> <span class="n">reinstated</span> <span class="n">acconfig</span><span class="o">.</span><span class="n">h</span> <span class="ow">and</span> <span class="n">added</span>
+<span class="n">some</span> <span class="n">compatibility</span> <span class="n">stuff</span> <span class="n">to</span> <span class="n">acinclude</span><span class="o">.</span><span class="n">m4</span><span class="o">.</span>  <span class="n">All</span> <span class="n">this</span> <span class="n">to</span> <span class="k">try</span>
+<span class="ow">and</span> <span class="n">be</span> <span class="n">compatible</span> <span class="k">with</span> <span class="n">autoconf</span> <span class="mf">2.5</span> <span class="o">*</span><span class="ow">and</span><span class="o">*</span> <span class="mf">2.13</span><span class="o">.</span>  <span class="n">I</span> <span class="n">really</span>
+<span class="n">hate</span> <span class="n">autoconf</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This step was unfortunately missed when adding v0.8.5 to the repository.
+If you need to build previous releases for any reason this is a problem
+as the correct revision of <code class="docutils literal notranslate"><span class="pre">configure.in</span></code> is missing from the repository.</p>
+<p><code class="docutils literal notranslate"><span class="pre">configure.ac</span></code> was reinstated in v1.0.6. Unfortunately this was not noticed as
+only v1.0.6 was validated to build as noted above. My personal view is that
+if older versions of libESMTP must be built then it would be significantly
+easier to back-port the Meson build files.</p>
+</div>
+<div class="section" id="remedial-action">
+<h2>Remedial Action<a class="headerlink" href="#remedial-action" title="Permalink to this headline">¶</a></h2>
+<p>Since it is not recommended to use versions of libESMTP prior to 1.0.6 no
+action is taken to correct these.  The notes above should be sufficient to
+correctly build earlier versions if absolutely required.</p>
+<p>A branch for v1.0.6 is created and patched to ensure consistency with the
+widely distributed tarball, however README is updated to the current
+repository.</p>
+<p>Since autotools is completely removed and libESMTP migrated to Meson at
+revision <code class="docutils literal notranslate"><span class="pre">5ea5d5ec7c7f</span></code> no further action is taken.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="ChangeLog.html" class="btn btn-neutral float-left" title="ChangeLog (unmaintained)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Brian Stafford
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

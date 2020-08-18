@@ -89,6 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="libesmtp.html">Benefits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Reporting Bugs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#github-issue-tracker">GitHub Issue Tracker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-to-report">What to Report</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#coding-errors">Coding Errors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#missing-library-calls">Missing Library Calls</a></li>
@@ -115,10 +116,6 @@
 <li class="toctree-l1"><a class="reference internal" href="rationale.html">Rationale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="retrospective.html">Retrospective</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ChangeLog.html">ChangeLog (unmaintained)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="errata.html">libESMTP Repository Notes</a></li>
 </ul>
 
             
@@ -186,8 +183,6 @@
             
   <div class="section" id="reporting-bugs">
 <h1>Reporting Bugs<a class="headerlink" href="#reporting-bugs" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what-to-report">
-<h2>What to Report<a class="headerlink" href="#what-to-report" title="Permalink to this headline">¶</a></h2>
 <p>libESMTP will not be changed without good justification.  SMTP and mail related
 documents in general have been subject to rigorous peer review in public by the
 <a class="reference external" href="https://www.ietf.org/">IETF</a> before being accepted as standard.  Since mail is
@@ -197,6 +192,15 @@ vital that the infrastructure is not compromised by buggy implementations.</p>
 In SMTP, as with many internet protocols, the distinction is subtle at times.
 The following paragraphs are examples of what might constitute a bug.  The list
 is by no means exhaustive.</p>
+<div class="section" id="github-issue-tracker">
+<h2>GitHub Issue Tracker<a class="headerlink" href="#github-issue-tracker" title="Permalink to this headline">¶</a></h2>
+<p>All bug reports should be made using the GitHub issue tracker.  This is only
+for discussion of libESMTP sources within, or for pull requests against the git
+repository.  Issues opened solely against the libESMTP tarballs will be deleted
+without explanation.</p>
+</div>
+<div class="section" id="what-to-report">
+<h2>What to Report<a class="headerlink" href="#what-to-report" title="Permalink to this headline">¶</a></h2>
 <p>If, after reading the following, you are convinced that libESMTP does not do
 something it should, or vice-versa, get hold of the relevant RFC or other
 standard and read the relevant parts.  Send a bug report which references the

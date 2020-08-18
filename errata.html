@@ -191,14 +191,13 @@ not removed until revision <code class="docutils literal notranslate"><span clas
 <p>A more serious error occurred when the v0.8.5 tarball reverted <code class="docutils literal notranslate"><span class="pre">configure.ac</span></code>
 to <code class="docutils literal notranslate"><span class="pre">configure.in</span></code> due to autoconf version problems (who knew?).
 Here is the comment from <code class="docutils literal notranslate"><span class="pre">Changelog</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">configure</span><span class="o">.</span><span class="ow">in</span> <span class="n">acinclude</span><span class="o">.</span><span class="n">m4</span> <span class="n">acconfig</span><span class="o">.</span><span class="n">h</span>
-
-<span class="n">Reverted</span> <span class="n">to</span> <span class="n">configure</span><span class="o">.</span><span class="ow">in</span><span class="p">,</span> <span class="n">reinstated</span> <span class="n">acconfig</span><span class="o">.</span><span class="n">h</span> <span class="ow">and</span> <span class="n">added</span>
-<span class="n">some</span> <span class="n">compatibility</span> <span class="n">stuff</span> <span class="n">to</span> <span class="n">acinclude</span><span class="o">.</span><span class="n">m4</span><span class="o">.</span>  <span class="n">All</span> <span class="n">this</span> <span class="n">to</span> <span class="k">try</span>
-<span class="ow">and</span> <span class="n">be</span> <span class="n">compatible</span> <span class="k">with</span> <span class="n">autoconf</span> <span class="mf">2.5</span> <span class="o">*</span><span class="ow">and</span><span class="o">*</span> <span class="mf">2.13</span><span class="o">.</span>  <span class="n">I</span> <span class="n">really</span>
-<span class="n">hate</span> <span class="n">autoconf</span><span class="o">.</span>
-</pre></div>
-</div>
+<blockquote>
+<div><p>configure.in acinclude.m4 acconfig.h</p>
+<p>Reverted to configure.in, reinstated acconfig.h and added
+some compatibility stuff to acinclude.m4.  All this to try
+and be compatible with autoconf 2.5 <em>and</em> 2.13.  I really
+hate autoconf.</p>
+</div></blockquote>
 <p>This step was unfortunately missed when adding v0.8.5 to the repository.
 If you need to build previous releases for any reason this is a problem
 as the correct revision of <code class="docutils literal notranslate"><span class="pre">configure.in</span></code> is missing from the repository.</p>

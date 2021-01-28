@@ -1,11 +1,11 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Download &mdash; libESMTP 1.0.6 documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -26,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+            <a href="index.html" class="icon icon-home"> libESMTP
           
 
           
@@ -143,6 +145,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -154,7 +158,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/download.md.txt" rel="nofollow"> View page source</a>
           
         
@@ -216,26 +220,47 @@ $ ninja -C builddir install
 instead it will prompt for a password during install. This avoids polluting
 builddir with files owned by root.</p>
 <p>As well as the standard meson options, the following are supported:</p>
-<ul>
-<li><p class="first">-Dpthreads=[enabled|disabled|auto]</p>
-<p>build with support for Posix threads (default: auto)</p>
-</li>
-<li><p class="first">-Dtls=[enabled|disabled|auto]</p>
-<p>support the STARTTLS extension and NTLM authentication (default: auto)</p>
-</li>
-<li><p class="first">-Dlwres=[enabled|disabled|auto]</p>
-<p>use the ISC lightweight resolver (default: disabled)</p>
-</li>
-<li><p class="first">-Dbdat=[true|false]</p>
-<p>enable SMTP BDAT extension (default: true)</p>
-</li>
-<li><p class="first">-Detrn=[true|false]</p>
-<p>enable SMTP ETRN extension (default: true)</p>
-</li>
-<li><p class="first">-Dxusr=[true|false]</p>
-<p>enable sendmail XUSR extension (default: true)</p>
-</li>
-</ul>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Option</th>
+<th>Values</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-Dpthreads</td>
+<td>enabled,disabled,<strong>auto</strong></td>
+<td>build with support for Posix threads</td>
+</tr>
+<tr>
+<td>-Dtls</td>
+<td>enabled,disabled,<strong>auto</strong></td>
+<td>support the STARTTLS extension and NTLM authentication</td>
+</tr>
+<tr>
+<td>-Dlwres</td>
+<td>enabled,<strong>disabled</strong>,auto</td>
+<td>use the ISC lightweight resolver</td>
+</tr>
+<tr>
+<td>-Dbdat</td>
+<td><strong>true</strong>,false</td>
+<td>enable SMTP BDAT extension</td>
+</tr>
+<tr>
+<td>-Detrn</td>
+<td><strong>true</strong>,false</td>
+<td>enable SMTP ETRN extension</td>
+</tr>
+<tr>
+<td>-Dxusr</td>
+<td><strong>true</strong>,false</td>
+<td>enable sendmail XUSR extension</td>
+</tr>
+</tbody>
+</table><p>Options are specified as <code class="docutils literal notranslate"><span class="pre">-D&lt;option&gt;=&lt;value&gt;</span></code>.</p>
 </div>
 <div class="section" id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
@@ -252,37 +277,29 @@ the <code class="docutils literal notranslate"><span class="pre">scripts/</span>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="bugreport.html" class="btn btn-neutral float-right" title="Reporting Bugs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="libesmtp.html" class="btn btn-neutral float-left" title="Benefits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="bugreport.html" class="btn btn-neutral float-right" title="Reporting Bugs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="libesmtp.html" class="btn btn-neutral float-left" title="Benefits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Brian Stafford
+        &#169; Copyright 2020, Brian Stafford.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

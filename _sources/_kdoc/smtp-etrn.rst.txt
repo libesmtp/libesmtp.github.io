@@ -91,9 +91,34 @@ until the next call to libESMTP in the same thread.
 
 Associate application defined data with the opaque ETRN structure.
 
+Only available when ``LIBESMTP_ENABLE_DEPRECATED_SYMBOLS`` is defined.
+Use smtp_etrn_set_application_data_full() instead.
+
 **Return**
 
 Previously set application data or ``NULL``.
+
+
+.. c:function:: void smtp_etrn_set_application_data_full (smtp_etrn_node_t node, void * data, void (*release) (void *))
+
+   Associate data with an ETRN node.
+
+**Parameters**
+
+``smtp_etrn_node_t node``
+  The ETRN node.
+
+``void * data``
+  Application data
+
+``void (*) (void *) release``
+  function to free/unref data.
+
+**Description**
+
+Associate application data with the ETRN node.
+If **release** is non-NULL it is called to free or unreference data when
+changed or the session is destroyed.
 
 
 .. c:function:: void * smtp_etrn_get_application_data (smtp_etrn_node_t node)

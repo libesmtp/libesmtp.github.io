@@ -1,11 +1,11 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>ChangeLog (unmaintained) &mdash; libESMTP 1.0.6 documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -26,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -49,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+            <a href="index.html" class="icon icon-home"> libESMTP
           
 
           
@@ -131,6 +133,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -142,7 +146,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/ChangeLog.md.txt" rel="nofollow"> View page source</a>
           
         
@@ -165,9 +169,9 @@ issues for up to date information.</p>
 <div class="section" id="stable-version-1-0-6-released">
 <h2>2010-08-10 Stable Version 1.0.6 released<a class="headerlink" href="#stable-version-1-0-6-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2010-08-10</p>
+<li><p>2010-08-10</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
 <p>Each component matched by <code class="docutils literal notranslate"><span class="pre">match_domain()</span></code> is either a single ‘*’ which
 matches anything or a case-insensitive comparison with a string of
 alphanumeric characters or a ‘-‘.  This is more restrictive than
@@ -184,15 +188,15 @@ back to commonName only if subjectAltName is not available.</p>
 <div class="section" id="never-released">
 <h2>1.0.5 never released<a class="headerlink" href="#never-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2006-10-31</p>
+<li><p>2006-10-31</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>The Gmail server reports enhanced status codes but then fails to
 provide them in some cases.  The parser is now tolerant of this but
 warns the application using a new event flag<code class="docutils literal notranslate"><span class="pre">SMTP_EV_SYNTAXWARNING</span></code>
 that it is progressing despite the syntax error.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Fixed bug where <code class="docutils literal notranslate"><span class="pre">To</span></code>, <code class="docutils literal notranslate"><span class="pre">Cc</span></code>, <code class="docutils literal notranslate"><span class="pre">Bcc</span></code> etc. accepted only single values instead
 of a list.
 The comparison on the return value of <code class="docutils literal notranslate"><span class="pre">gettimeofday()</span></code> was reversed.</p>
@@ -205,9 +209,9 @@ The comparison on the return value of <code class="docutils literal notranslate"
 <div class="section" id="stable-version-1-0-4-released">
 <h2>2005-12-16 Stable Version 1.0.4 released<a class="headerlink" href="#stable-version-1-0-4-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2005-12-16</p>
+<li><p>2005-12-16</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Replaced static counter used when generating the default Message-Id
 header with <code class="docutils literal notranslate"><span class="pre">getpid()</span></code> to minimise the risk of 2 processes generating
 the same Message-Id.  If the platform provides <code class="docutils literal notranslate"><span class="pre">gettimeofday()</span></code> this is
@@ -215,61 +219,61 @@ used to further reduce the possibility of collision.
 Thanks to <em>Dmitry Maksyoma</em> <a class="reference external" href="mailto:dmaks&#37;&#52;&#48;esphion&#46;com">dmaks<span>&#64;</span>esphion<span>&#46;</span>com</a> for spotting this and
 suggesting the fix.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Makefile.am</span> <span class="pre">*/Makefile.am</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile.am</span> <span class="pre">*/Makefile.am</span></code></p>
 <p>Replace CFLAGS with <code class="docutils literal notranslate"><span class="pre">AM_CFLAGS</span></code> to silence warning from automake.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Makefile.am</span> <span class="pre">COPYING</span> <span class="pre">COPYING.LIB</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile.am</span> <span class="pre">COPYING</span> <span class="pre">COPYING.LIB</span></code></p>
 <p>Fixed the names of the files with the GPL and LGPL.  It seems
 the LGPL version of COPYING got zapped by autoconf at some time
 in the past.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2005-08-29</p>
+<li><p>2005-08-29</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">acinclude.m4</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">acinclude.m4</span></code></p>
 <p>Fix underquoted definition of <code class="docutils literal notranslate"><span class="pre">ACX_WHICH_GETHOSTBYNAME_R</span></code>.  Thanks
 to <em>Matthias Andree</em> <a class="reference external" href="mailto:matthias&#46;andree&#37;&#52;&#48;gmx&#46;de">matthias<span>&#46;</span>andree<span>&#64;</span>gmx<span>&#46;</span>de</a>.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2005-07-25</p>
+<li><p>2005-07-25</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">errors.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">errors.c</span></code></p>
 <p>Added <code class="docutils literal notranslate"><span class="pre">#ifdef</span></code>s for some of the <code class="docutils literal notranslate"><span class="pre">EAI_</span></code> constants used by <code class="docutils literal notranslate"><span class="pre">getaddrinfo()</span></code>
 which are not defined by OSX.
 Thanks to <em>Thomas Deselaers</em> <a class="reference external" href="mailto:deselaers&#37;&#52;&#48;gmail&#46;com">deselaers<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
 </li>
 </ul>
 </li>
-<li><p class="first">2005-07-21</p>
+<li><p>2005-07-21</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">acinclude.m4</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">acinclude.m4</span></code></p>
 <p>Fix cross compiling issue when detecting snprintf as suggested by
 <em>Chris Richards</em> <a class="reference external" href="mailto:Chris&#46;Richards&#37;&#52;&#48;red-m&#46;com">Chris<span>&#46;</span>Richards<span>&#64;</span>red-m<span>&#46;</span>com</a></p>
 </li>
 </ul>
 </li>
-<li><p class="first">2005-07-02</p>
+<li><p>2005-07-02</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
 <p>Plug memory leaks in <code class="docutils literal notranslate"><span class="pre">smtp_destroy_session()</span></code> and <code class="docutils literal notranslate"><span class="pre">smtp_set_server()</span></code>.
 Thanks to <em>Bas ten Berge</em> <a class="reference external" href="mailto:sam&#46;ten&#46;berge&#37;&#52;&#48;hccnet&#46;nl">sam<span>&#46;</span>ten<span>&#46;</span>berge<span>&#64;</span>hccnet<span>&#46;</span>nl</a> for report and patch.
 Also reported by <em>Heikki Lindholm</em> <a class="reference external" href="mailto:heikki&#46;lindholm&#37;&#52;&#48;ipnetworks&#46;fi">heikki<span>&#46;</span>lindholm<span>&#64;</span>ipnetworks<span>&#46;</span>fi</a></p>
 </li>
 </ul>
 </li>
-<li><p class="first">2005-02-03</p>
+<li><p>2005-02-03</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>exts was set with the wrong flag (DSN) when checking if CHUNKING
 is a required extension.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2004-07-16</p>
+<li><p>2004-07-16</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
 <p>Applied OpenSSL patch from Pawel Salek when checking subjectAltName.</p>
 </li>
 </ul>
@@ -280,12 +284,12 @@ is a required extension.</p>
 <div class="section" id="stable-version-1-0-3-released">
 <h2>2004-04-20 Stable Version 1.0.3 released<a class="headerlink" href="#stable-version-1-0-3-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2004-04-20</p>
+<li><p>2004-04-20</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">memrchr.c</span> <span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">memrchr.c</span> <span class="pre">configure.in</span></code></p>
 <p>Added <code class="docutils literal notranslate"><span class="pre">memrchr()</span></code> implementation for systems that don’t have one.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
 <p>Applied patches from Pawel Salek to check subjectAltName for
 wildcarded domain name when validating server certificate.</p>
 </li>
@@ -297,12 +301,12 @@ wildcarded domain name when validating server certificate.</p>
 <div class="section" id="stable-version-1-0-2-released">
 <h2>2004-01-06 Stable Version 1.0.2 released<a class="headerlink" href="#stable-version-1-0-2-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2003-12-01</p>
+<li><p>2003-12-01</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span> <span class="pre">examples/mail-file.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span> <span class="pre">examples/mail-file.c</span></code></p>
 <p>Applied patch from Pawel Salek.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
 <p>Fixed typo in <code class="docutils literal notranslate"><span class="pre">check_file()</span></code> which prevented it from doing quite
 the right thing.
 The domain name check for the server certificate is now implemented
@@ -318,84 +322,83 @@ unusable vs absent files.</p>
 <div class="section" id="stable-version-1-0-1-released">
 <h2>2003-09-12 Stable Version 1.0.1 released<a class="headerlink" href="#stable-version-1-0-1-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2003-09-11</p>
+<li><p>2003-09-11</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-auth.c</span> <span class="pre">smtp-bdat.c</span> <span class="pre">smtp-etrn.c</span> <span class="pre">smtp-tls.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-auth.c</span> <span class="pre">smtp-bdat.c</span> <span class="pre">smtp-etrn.c</span> <span class="pre">smtp-tls.c</span></code></p>
 <p>More thoroughly check return value from <code class="docutils literal notranslate"><span class="pre">read_smtp_response()</span></code>.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp.h</span> <span class="pre">errors.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp.h</span> <span class="pre">errors.c</span></code></p>
 <p>Added new <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">error</span></code> error code.  This is just a cop-out,
 used when an API called by libesmtp fails.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">base64.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">base64.c</span></code></p>
 <p>Make conversions immune to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> source data,</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
 <p>Cleaned up some compiler warnings</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2003-09-02</p>
+<li><p>2003-09-02</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.[hc]</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.[hc]</span></code></p>
 <p>Added a few extra <code class="docutils literal notranslate"><span class="pre">sio_</span></code> calls.  Not actually used in libESMTP though.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2003-07-29</p>
+<li><p>2003-07-29</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">concatenate.c</span> <span class="pre">errors.c</span> <span class="pre">getaddrinfo.c</span> <span class="pre">headers.c</span> <span class="pre">htable.c</span></code></p>
-</li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">siobuf.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">concatenate.c</span> <span class="pre">errors.c</span> <span class="pre">getaddrinfo.c</span> <span class="pre">headers.c</span> <span class="pre">htable.c</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">siobuf.c</span></code></p>
 <p>Don’t perform zero length operations using the <code class="docutils literal notranslate"><span class="pre">memxxx()</span></code> functions.
 This may avoid segfaults on some platforms or libraries.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
 <p>Improved handling of flushes in <code class="docutils literal notranslate"><span class="pre">sio_write()</span></code> particularly in the
 case where data would exactly fill remaining space in the buffer.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2003-07-27</p>
+<li><p>2003-07-27</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">rfc2822date.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">rfc2822date.c</span></code></p>
 <p>Correct leap year compensation for January and February in
 <code class="docutils literal notranslate"><span class="pre">libesmtp_mktime()</span></code>.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2003-07-27</p>
+<li><p>2003-07-27</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">examples/Makefile</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/Makefile</span></code></p>
 <p>Changed compiler flags from <code class="docutils literal notranslate"><span class="pre">-ansi</span></code> to <code class="docutils literal notranslate"><span class="pre">-std=c99</span></code> and added <code class="docutils literal notranslate"><span class="pre">-W</span></code></p>
 </li>
 </ul>
 </li>
-<li><p class="first">2003-03-04</p>
+<li><p>2003-03-04</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Eliminated bug where <code class="docutils literal notranslate"><span class="pre">find_header()</span></code> could pass -1 to the length
 argument of <code class="docutils literal notranslate"><span class="pre">memchr()</span></code> causing a core dump on some architectures.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2003-02-26</p>
+<li><p>2003-02-26</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp-private.h</span> <span class="pre">protocol.c</span> <span class="pre">smtp-bdat.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp-private.h</span> <span class="pre">protocol.c</span> <span class="pre">smtp-bdat.c</span></code></p>
 <p>M$ Exchange does not accept a chunk size of 0 in BDAT 0 LAST as
 explicitly permitted by <a class="reference external" href="#">RFC 3030</a>, <em>sigh</em>.  Hackish workaround
 implemented.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2003-01-27</p>
+<li><p>2003-01-27</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">Makefile.am</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">Makefile.am</span></code></p>
 <p>Added <code class="docutils literal notranslate"><span class="pre">DIST_SUBDIRS</span></code> macro to make sure tarball gets built properly.
 This one slipped past ‘make distcheck’ last time for some reason
 but then autoconf &amp; friends are totally inscruitable.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">ntlm/ntlmdes.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">ntlm/ntlmdes.c</span></code></p>
 <p>OpenSSL 0.9.7 changes some typedefs.  Changed to suit, should
 still be compatible with previous OpenSSL versions.</p>
 </li>
@@ -407,22 +410,22 @@ still be compatible with previous OpenSSL versions.</p>
 <div class="section" id="stable-version-1-0-released">
 <h2>2002-11-09 Stable Version 1.0 released<a class="headerlink" href="#stable-version-1-0-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2002-11-09</p>
+<li><p>2002-11-09</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>All version 1.0 features enabled by default.
 <code class="docutils literal notranslate"><span class="pre">--enable-isoc</span></code> now sets <code class="docutils literal notranslate"><span class="pre">-std=c99</span></code> instead of <code class="docutils literal notranslate"><span class="pre">-ansi</span></code></p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Added missing check for <code class="docutils literal notranslate"><span class="pre">NULL</span></code> pointer in <code class="docutils literal notranslate"><span class="pre">destroy_header_table</span></code>.
 Reversed order of freeing header structures and hash table to
 avoid referencing freed memory. (Wally Yau)</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2002-06-24</p>
+<li><p>2002-06-24</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-etrn.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-etrn.c</span></code></p>
 <p>Compilation fails with
 <code class="docutils literal notranslate"><span class="pre">./configure</span> <span class="pre">--enable-more-warnings=picky</span> <span class="pre">--disable-etrn'</span></code>.
 Added missing <code class="docutils literal notranslate"><span class="pre">__attribute__</span> <span class="pre">((unused))</span></code> markers
@@ -436,24 +439,23 @@ to offending function arguments to avoid this.</p>
 <div class="section" id="version-1-0rc1-released">
 <h2>2002-06-24 Version 1.0rc1 released<a class="headerlink" href="#version-1-0rc1-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2002-06-24</p>
+<li><p>2002-06-24</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">Makefile.am</span> <span class="pre">protocol.c</span> <span class="pre">protocol-states.h</span></code></p>
-</li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span> <span class="pre">smtp-bdat.c</span> <span class="pre">libesmtp.h</span> <span class="pre">libesmtp-private.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">Makefile.am</span> <span class="pre">protocol.c</span> <span class="pre">protocol-states.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span> <span class="pre">smtp-bdat.c</span> <span class="pre">libesmtp.h</span> <span class="pre">libesmtp-private.h</span></code></p>
 <p>Added experimental support for the SMTP CHUNKING extension.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>Enable non-standard AUTH= response by default.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2002-05-31</p>
+<li><p>2002-05-31</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span> <span class="pre">libesmtp.h</span> <span class="pre">libesmtp-private.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span> <span class="pre">libesmtp.h</span> <span class="pre">libesmtp-private.h</span></code></p>
 <p>Added API call to permit protocol timeouts to be set.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">ntlm/ntlmstruct.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">ntlm/ntlmstruct.c</span></code></p>
 <p>Replaced use of byteswap.h and bswap_{16,32} with locally defined
 functions.</p>
 </li>
@@ -465,29 +467,29 @@ functions.</p>
 <div class="section" id="version-0-8-12-released">
 <h2>2002-04-24 Version 0.8.12 released<a class="headerlink" href="#version-0-8-12-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2002-03-14</p>
+<li><p>2002-03-14</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Setting <code class="docutils literal notranslate"><span class="pre">Hdr_PROHIBIT</span></code> did not work properly.  Thanks to Ronald
 F. Guilmette for pointing this out.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2002-03-13</p>
+<li><p>2002-03-13</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span> <span class="pre">libesmtp.h</span> <span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span> <span class="pre">libesmtp.h</span> <span class="pre">configure.in</span></code></p>
 <p>Revoked deprecated status from <code class="docutils literal notranslate"><span class="pre">smtp_option_require_all_recipients</span></code>
 and remove the corresponding <code class="docutils literal notranslate"><span class="pre">--enable-require-all-recipients</span></code>
 parameter to configure.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2002-03-07</p>
+<li><p>2002-03-07</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp.h</span> <span class="pre">libesmtp-private.h</span> <span class="pre">protocol.c</span> <span class="pre">smtp-tls.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp.h</span> <span class="pre">libesmtp-private.h</span> <span class="pre">protocol.c</span> <span class="pre">smtp-tls.c</span></code></p>
 <p><a class="reference external" href="#">RFC 2487</a> is obsoleted by <a class="reference external" href="#">RFC 3207</a>.  Updated references.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>The check for required STARTTLS was omitted when processing the
 HELO command.  If a server did not implement EHLO the session
 would proceed instead of quitting.  Check added and the event
@@ -502,9 +504,9 @@ application.</p>
 <div class="section" id="version-0-8-11-released">
 <h2>2002-03-06 Version 0.8.11 released<a class="headerlink" href="#version-0-8-11-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2002-03-04</p>
+<li><p>2002-03-04</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Fix buffer overflow problem in <code class="docutils literal notranslate"><span class="pre">read_smtp_response</span></code>.  This
 overflow could be exploited by a malicious SMTP server to
 overwrite the stack and hence a carefully crafted response could
@@ -513,13 +515,13 @@ to add a related check for a potential DoS attack which makes
 use of excessively long SMTP responses.  Thanks to Colin Phipps
 for detecting this.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">concatenate.[ch]</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">concatenate.[ch]</span></code></p>
 <p>New function <code class="docutils literal notranslate"><span class="pre">cat_shrink</span></code> to shrink-wrap the allocated buffer.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp.h</span> <span class="pre">errors.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp.h</span> <span class="pre">errors.c</span></code></p>
 <p>New unterminated response error code and description.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">ntlm/ntlmstruct.c</span> <span class="pre">configure.in</span> <span class="pre">crammd5/md5.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">ntlm/ntlmstruct.c</span> <span class="pre">configure.in</span> <span class="pre">crammd5/md5.h</span></code></p>
 <p>stdint.h does not yet seem to be widely available causing
 compilation to fail on some platforms.  Changed <code class="docutils literal notranslate"><span class="pre">uint{16,32}_t</span></code> to
 <code class="docutils literal notranslate"><span class="pre">unsigned{16,32}_t</span></code>, detect correct sizes with autoconf and added
@@ -529,9 +531,9 @@ crammd5/md5.h.  Thanks to Ronald F. Guilmette for spotting this.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2002-02-12</p>
+<li><p>2002-02-12</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">strcasecmp.c</span> <span class="pre">strncasecmp.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">strcasecmp.c</span> <span class="pre">strncasecmp.c</span></code></p>
 <p>These now return the correct sign of result for differing strings.</p>
 </li>
 </ul>
@@ -542,9 +544,9 @@ crammd5/md5.h.  Thanks to Ronald F. Guilmette for spotting this.</p>
 <div class="section" id="version-0-8-10p1-released">
 <h2>2002-01-30 Version 0.8.10p1 released<a class="headerlink" href="#version-0-8-10p1-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2002-01-29</p>
+<li><p>2002-01-29</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">ntlm/Makefile.am</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">ntlm/Makefile.am</span></code></p>
 <p>Added ntlm.h to list of sources.  This omission stopped 0.8.10
 form building.</p>
 </li>
@@ -556,9 +558,9 @@ form building.</p>
 <div class="section" id="version-0-8-10-released">
 <h2>2002-01-29 Version 0.8.10 released<a class="headerlink" href="#version-0-8-10-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2002-01-26</p>
+<li><p>2002-01-26</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">various</span> <span class="pre">files</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">various</span> <span class="pre">files</span></code></p>
 <p>Copyright messages now show the correct year.
 Minor tweaks to kill warnings when compiling with
 <code class="docutils literal notranslate"><span class="pre">--enable-more-warnings=picky.</span></code>  In a few cases this meant adding
@@ -566,44 +568,44 @@ a few casts which superficially look unnecessary.  In other
 cases this meant adding a number of <code class="docutils literal notranslate"><span class="pre">#undefs</span></code> to get a vanilla
 ISOC environment.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">missing.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">missing.h</span></code></p>
 <p>Added missing.h which has declarations for Posix/SUS functions
 which may be missing from system libraries on some platforms.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">snprintf.c</span> <span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">snprintf.c</span> <span class="pre">configure.in</span></code></p>
 <p>Detect broken or missing <code class="docutils literal notranslate"><span class="pre">snprintf()</span></code> implementations and replace
 if necessary.  N.B. the replacement snprintf.c is taken from the
 libmutt distro and it too, is broken.  However, it <em>does</em>
 correctly truncate and \0 terminate output which is too long to
 fit in the buffer and that is the behaviour I rely on.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">strdup.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">strdup.c</span></code></p>
 <p>Added <code class="docutils literal notranslate"><span class="pre">strdup()</span></code> for systems which don’t have it.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
 <p>Check for errors when <code class="docutils literal notranslate"><span class="pre">smtp_start_session</span></code> returns.  Fixed
 authinteract so that responses are not accidentally overwritten.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2002-01-24</p>
+<li><p>2002-01-24</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">htable.c</span> <span class="pre">configure.in</span> <span class="pre">strndup.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">htable.c</span> <span class="pre">configure.in</span> <span class="pre">strndup.c</span></code></p>
 <p>Altered code to avoid the use of strndup.  strndup.c is removed
 from the distribution.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2002-01-16</p>
+<li><p>2002-01-16</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">ntlm/*</span> <span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">ntlm/*</span> <span class="pre">configure.in</span></code></p>
 <p>Added NTLM auhentication module.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2002-01-07</p>
+<li><p>2002-01-07</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">concatenate.c</span> <span class="pre">errors.c</span> <span class="pre">siobuf.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">concatenate.c</span> <span class="pre">errors.c</span> <span class="pre">siobuf.c</span></code></p>
 <p>Check return value from snprintf.</p>
 </li>
 </ul>
@@ -614,16 +616,16 @@ from the distribution.</p>
 <div class="section" id="version-0-8-9-released">
 <h2>2002-01-03 Version 0.8.9 released<a class="headerlink" href="#version-0-8-9-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2002-01-02</p>
+<li><p>2002-01-02</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>Added <code class="docutils literal notranslate"><span class="pre">-lsocket</span></code> to list of libraries searched for <code class="docutils literal notranslate"><span class="pre">getaddrinfo()</span></code>.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-12-29</p>
+<li><p>2001-12-29</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">configure.in</span></code></p>
 <p>Added hack for stupid SMTP servers that advertise AUTH using
 non-standard syntax from an internet draft that never made it
 into <a class="reference external" href="#">RFC 2554</a>.  Because this feature is non-standard, it must
@@ -632,22 +634,22 @@ rsp_{helo,ehlo}() now reset the auth mechanism list before
 processing the result.  Previously this was done only when AUTH
 was advertised.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">set_auth_mechanisms</span></code> no longer resets the mechanism list
 before processing.  Added a test to avoid duplicates in the
 mechanism list.  <code class="docutils literal notranslate"><span class="pre">select_auth_mechanism</span></code> now guarantees to select
 the <em>first</em> usable mechanism.  The net effect of these changes
 is that multiple calls to <code class="docutils literal notranslate"><span class="pre">set_auth_mechanisms</span></code> accumulate.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">auth-client.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">auth-client.c</span></code></p>
 <p>Rearranged code in <code class="docutils literal notranslate"><span class="pre">auth_set_mechanisms</span></code> and <code class="docutils literal notranslate"><span class="pre">load_client_plugin</span></code>
 avoiding the need to repeat the test for plugin acceptability.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-12-24</p>
+<li><p>2001-12-24</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>Compiling with picky warnings turned on was broken.  Also,
 recent glibc versions seem to have decided that strcasecmp and
 a few other functions are GNU extensions causing compiles to
@@ -655,39 +657,39 @@ fail because of missing declarations.  Naturally, autoconf does
 not detect this.  Added a _GNU_SOURCE define to fix this on
 potentially affected systems.  No, I don’t like it either.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">strcasecmp.c</span> <span class="pre">strncasecmp.c</span> <span class="pre">strndup.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">strcasecmp.c</span> <span class="pre">strncasecmp.c</span> <span class="pre">strndup.c</span></code></p>
 <p>Added these functions in case some systems don’t provide them.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-12-21</p>
+<li><p>2001-12-21</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">htable.[ch]</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">htable.[ch]</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">h_insert</span></code> now returns a void pointer to the data instead of a
 struct <code class="docutils literal notranslate"><span class="pre">h_node</span></code> eliminating the need for the <code class="docutils literal notranslate"><span class="pre">h_dptr</span></code> macro and
 for code using hash tables to maintain two pointers instead
 of one.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Updated to use the simpler hash table interface.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-12-10</p>
+<li><p>2001-12-10</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">auth-client.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">auth-client.c</span></code></p>
 <p>Use dlsym and friends directly on platforms that have it.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">Makefile.am</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">Makefile.am</span></code></p>
 <p>Detect dlsym, fall back to using libltdl for other platforms.
 libltdl is no longer distributed significantly reducing tarball
 size.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-12-10</p>
+<li><p>2001-12-10</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>A missing comma caused the test for getipnodebyname to fail on
 systems which provide it.</p>
 </li>
@@ -699,37 +701,37 @@ systems which provide it.</p>
 <div class="section" id="version-0-8-8-released">
 <h2>2001-12-06 Version 0.8.8 released<a class="headerlink" href="#version-0-8-8-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-11-30</p>
+<li><p>2001-11-30</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">crammd5/md5.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">crammd5/md5.h</span></code></p>
 <p>The len parameter of <code class="docutils literal notranslate"><span class="pre">md5_update</span></code> differed in type between
 prototype and definition, preventing compilation if <code class="docutils literal notranslate"><span class="pre">size_t</span></code>
 is not an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-11-29</p>
+<li><p>2001-11-29</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">crammd5/*.[ch]</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">crammd5/*.[ch]</span></code></p>
 <p>Moved include of config.h from hmacmd5.h to hmacmd5.c.  Make
 sure sys/types.h is included since <code class="docutils literal notranslate"><span class="pre">size_t</span></code> is used.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>Added some extra nonsense for systems which redefine
 getaddrinfo to something else in netdb.h</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-11-27</p>
+<li><p>2001-11-27</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">errors.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">errors.c</span></code></p>
 <p>Add test for broken <code class="docutils literal notranslate"><span class="pre">strerror_r</span></code> on OSF-1.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-11-12</p>
+<li><p>2001-11-12</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>Updated the tests for pthreads.  Should now supply the correct
 compiler flags on more systems.</p>
 </li>
@@ -741,9 +743,9 @@ compiler flags on more systems.</p>
 <div class="section" id="version-0-8-7-released">
 <h2>2001-11-07 Version 0.8.7 released<a class="headerlink" href="#version-0-8-7-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-11-05</p>
+<li><p>2001-11-05</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">errors.h</span> <span class="pre">libesmtp.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">errors.h</span> <span class="pre">libesmtp.h</span></code></p>
 <p>Improve handling of error codes from getaddrinfo.  Delay mapping
 of codes to make debugging easier.  libesmtp.h defines new error
 codes for the relevant <code class="docutils literal notranslate"><span class="pre">EAI_XXX</span></code> codes from getaddrinfo.
@@ -751,13 +753,13 @@ codes for the relevant <code class="docutils literal notranslate"><span class="p
 </li>
 </ul>
 </li>
-<li><p class="first">2001-10-31</p>
+<li><p>2001-10-31</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>Added test for sun platforms and define <code class="docutils literal notranslate"><span class="pre">EXTENSIONS</span></code> so that
 sun’s netdb.h will declare the getaddrinfo stuff. (James McPherson)</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">crammd5/md5.[ch]</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">crammd5/md5.[ch]</span></code></p>
 <p>Type sanity: change <code class="docutils literal notranslate"><span class="pre">u_intXX_t</span></code> to <code class="docutils literal notranslate"><span class="pre">uintXX_t</span></code>.  Also changed the
 argument for the buffer and length to <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">size_t</span></code>
 respectively in <code class="docutils literal notranslate"><span class="pre">md5_update</span></code>.  Buffer for <code class="docutils literal notranslate"><span class="pre">md5_final</span></code> is now
@@ -765,13 +767,13 @@ respectively in <code class="docutils literal notranslate"><span class="pre">md5
 </li>
 </ul>
 </li>
-<li><p class="first">2001-10-17</p>
+<li><p>2001-10-17</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Fixed a core dump bug which strikes when existing headers in a
 message are substituted.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Makefile.am</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile.am</span></code></p>
 <p>Reinstated libesmtp.spec into tarballs.</p>
 </li>
 </ul>
@@ -782,36 +784,36 @@ message are substituted.</p>
 <div class="section" id="version-0-8-6-released">
 <h2>2001-08-17 Version 0.8.6 released<a class="headerlink" href="#version-0-8-6-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-10-17</p>
+<li><p>2001-10-17</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp-config.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp-config.in</span></code></p>
 <p>Corrected output for <code class="docutils literal notranslate"><span class="pre">--cflags.</span></code>  Added <code class="docutils literal notranslate"><span class="pre">--numeric-version</span></code> to make it
 simpler for configure scripts to compare version numbers.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">libesmtp-spec.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">libesmtp-spec.in</span></code></p>
 <p>Merged changes from Cristophe Lambin.  Spec file now creates
 libesmtp and libesmtp-devel packages.  If OpenSSL is used
 spec file will have openssl dependencies added.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Makefile.am</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile.am</span></code></p>
 <p>Make sure libesmtp.spec and config.h do not make their way into
 tarballs.  These confused the build on some platforms.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-10-16</p>
+<li><p>2001-10-16</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>Added <code class="docutils literal notranslate"><span class="pre">--with-openssl[=DIR]</span></code> option, removed <code class="docutils literal notranslate"><span class="pre">--enable-starttls</span></code>.
 OpenSSL dependent features are now enabled or disabled en masse
 using <code class="docutils literal notranslate"><span class="pre">--with-openssl</span></code>.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">crammd5/md5.[ch]</span> <span class="pre">crammd5/Makefile.am</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">crammd5/md5.[ch]</span> <span class="pre">crammd5/Makefile.am</span></code></p>
 <p>Added public domain MD5 implementation to crammd5 module.  This
 enables the CRAM-MD5 mechanism to be built, even if OpenSSL is
 not available.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
 <p>Applied patch from James McPherson correcting __attribute to
 [attribute]</p>
 </li>
@@ -823,67 +825,67 @@ not available.</p>
 <div class="section" id="version-0-8-5-released">
 <h2>2001-08-05 Version 0.8.5 released<a class="headerlink" href="#version-0-8-5-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-10-05</p>
+<li><p>2001-10-05</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp.spec.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp.spec.in</span></code></p>
 <p>Make sure libesmtp-config gets installed!</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>Removed STARTTLS’s experimental status.  The code works and just
 needs debugging.  Certificate management is basic but usable.
 Set defines for strict iso/posix/xopen in headers only when
 --enable-isoc is in force.  This helps avoid disabling the
 <code class="docutils literal notranslate"><span class="pre">tm_gmtoff</span></code> member in the BSD struct tm unnecessarily.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.[ch]</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.[ch]</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">sio_read</span></code>/write use void buffers rather than char.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-09-28</p>
+<li><p>2001-09-28</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
 <p>Use the event callback to report STARTTLS in use if the security
 level was OK.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">rfc2822date.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">rfc2822date.c</span></code></p>
 <p>Provide a function to portably calculate the timezone offset
 when struct tm does not provide <code class="docutils literal notranslate"><span class="pre">tm_gmtoff</span></code>.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>Don’t bother to check for gmtime[_r] since it isn’t used any more.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-09-26</p>
+<li><p>2001-09-26</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Make sure <code class="docutils literal notranslate"><span class="pre">set_to</span></code> accepts <code class="docutils literal notranslate"><span class="pre">NULL</span></code> for the mailbox value.  Added <code class="docutils literal notranslate"><span class="pre">set_cc</span></code>
 which is same as <code class="docutils literal notranslate"><span class="pre">set_to</span></code> except it fails with a <code class="docutils literal notranslate"><span class="pre">NULL</span></code> mailbox.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Most</span> <span class="pre">files.</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">Most</span> <span class="pre">files.</span></code></p>
 <p>Changed references to RFC 821/822 to RFC 2821/2822 respectively.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-09-24</p>
+<li><p>2001-09-24</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p><a class="reference external" href="#">RFC 2822</a> requires only the originator and date headers to
 be present in a message.  In particular, the presence of the <code class="docutils literal notranslate"><span class="pre">To:</span></code>
 header is no longer required.  <a class="reference external" href="#">RFC 2822</a>’s restriction that
 headers may not appear multiple times in a messge is enforced
 respecting certain special exceptions.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
 <p>Added API call to make sure a <code class="docutils literal notranslate"><span class="pre">To:</span></code> header is generated if not
 in the message.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-09-14</p>
+<li><p>2001-09-14</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">acinclude.m4</span> <span class="pre">acconfig.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">acinclude.m4</span> <span class="pre">acconfig.h</span></code></p>
 <p>Reverted to configure.in, reinstated acconfig.h and added
 some compatibility stuff to acinclude.m4.  All this to try
 and be compatible with autoconf 2.5 <em>and</em> 2.13.  I really
@@ -891,19 +893,19 @@ hate autoconf.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-09-05</p>
+<li><p>2001-09-05</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">getaddrinfo.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">getaddrinfo.c</span></code></p>
 <p>Check if <code class="docutils literal notranslate"><span class="pre">NO_ADDRESS</span></code> is defined and different to <code class="docutils literal notranslate"><span class="pre">NO_DATA</span></code></p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-08-27</p>
+<li><p>2001-08-27</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-tls.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-tls.c</span></code></p>
 <p>Move some detail of selecting STARTTLS to smtp-tls.c</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
 <p>Changed STARTTLS policy for <code class="docutils literal notranslate"><span class="pre">Starttls_ENABLED</span></code>.  If a server offers
 STARTTLS, then it must be used and all security requirements must
 be met.  If STARTTLS is not offered the session continues in
@@ -912,15 +914,15 @@ continue with possibly compromised security.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-08-22</p>
+<li><p>2001-08-22</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span> <span class="pre">libesmtp.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span> <span class="pre">libesmtp.h</span></code></p>
 <p>More certificate management.  Added TLS event reporting.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
 <p>Fixed behaviour for zero length responses to server challenges.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">base64.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">base64.c</span></code></p>
 <p>Zero length passwords caused an assertion failure in
 <code class="docutils literal notranslate"><span class="pre">base64_encode</span></code>.  <code class="docutils literal notranslate"><span class="pre">base64_decode</span></code> did not correctly strip blanks
 from strings not terminated by \0.  Neither did it correctly
@@ -928,34 +930,34 @@ handle zero length strings.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-08-21</p>
+<li><p>2001-08-21</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span> <span class="pre">libesmtp.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span> <span class="pre">libesmtp.h</span></code></p>
 <p>Added preliminary code for client certificate management.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.[ch]</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.[ch]</span></code></p>
 <p>Changed <code class="docutils literal notranslate"><span class="pre">sio_set_tlsclient_ctx</span></code> to <code class="docutils literal notranslate"><span class="pre">sio_set_tlsclient_ssl</span></code>.  This
 makes things slightly more flexible for supplying different
 client certificates according to the remote host.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-08-20</p>
+<li><p>2001-08-20</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">message-source.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">message-source.c</span></code></p>
 <p>Fixed memory leak in <code class="docutils literal notranslate"><span class="pre">msg_source_destroy</span></code>. (Pawel Salek)</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-08-16</p>
+<li><p>2001-08-16</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.ac</span> <span class="pre">Makefile.am</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.ac</span> <span class="pre">Makefile.am</span></code></p>
 <p>Change from using LIBOBJS to LTLIBOBJS.  This prevents the
 wrong objects from being linked by libtool when building
 dynamic libraries.  Added code to configure.ac to correctly
 set LTLIBOBJS and LTALLOCA.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span> <span class="pre">protocol.c</span> <span class="pre">errors.c</span> <span class="pre">libesmtp-private.h</span> <span class="pre">configure.ac</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span> <span class="pre">protocol.c</span> <span class="pre">errors.c</span> <span class="pre">libesmtp-private.h</span> <span class="pre">configure.ac</span></code></p>
 <p>Code now exclusively uses getaddrinfo.  Removed <code class="docutils literal notranslate"><span class="pre">#ifdef</span></code> code for
 gethostbyname.  Added conditionals for using alternative lwres
 library distributed with recent versions of bind.  Delete
@@ -963,12 +965,12 @@ library distributed with recent versions of bind.  Delete
 </li>
 </ul>
 </li>
-<li><p class="first">2001-08-14</p>
+<li><p>2001-08-14</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
 <p>Remove unnecessary socket include files.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">getaddrinfo.[ch]</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">getaddrinfo.[ch]</span></code></p>
 <p>Added emulation of the <a class="reference external" href="#">RFC 2553</a> getaddrinfo resolver interface
 for systems that don’t have it.</p>
 </li>
@@ -980,64 +982,64 @@ for systems that don’t have it.</p>
 <div class="section" id="version-0-8-4-released">
 <h2>2001-08-13 Version 0.8.4 released<a class="headerlink" href="#version-0-8-4-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-08-13</p>
+<li><p>2001-08-13</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Completely ignore TLS extension if TLS is already in use.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
 <p>Fix wrong comparison when initialising OpenSSL mutexes.  Record
 the fact that TLS is in use.  Change a numeric constant to its
 symbolic equivalent.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">crammd5/client-crammd5.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">crammd5/client-crammd5.c</span></code></p>
 <p>Correct a typo which prevented the hmac computation being
 correctly rendered in hexadecimal.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
 <p>Added <code class="docutils literal notranslate"><span class="pre">--tls</span></code> and <code class="docutils literal notranslate"><span class="pre">--require-tls</span></code> options and supporting code.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-07-31</p>
+<li><p>2001-07-31</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.ac</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.ac</span></code></p>
 <p>Make plugin directory consistent with RPM.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp.spec</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp.spec</span></code></p>
 <p>Applied patch from Pawel Salek to run ldconfig after installing.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-07-30</p>
+<li><p>2001-07-30</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">configure.ac</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">configure.ac</span></code></p>
 <p>Check for uname and use it in preference to gethostname which
 is not Posix.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-07-19</p>
+<li><p>2001-07-19</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.ac</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.ac</span></code></p>
 <p>Check for the presence of the OpenSSL headers as well as
 the libraries.  Remove <code class="docutils literal notranslate"><span class="pre">--enable-callbacks</span></code> option.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span> <span class="pre">libesmtp.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span> <span class="pre">libesmtp.h</span></code></p>
 <p>Added <code class="docutils literal notranslate"><span class="pre">smtp_version</span></code> API call.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">message-callbacks.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">message-callbacks.c</span></code></p>
 <p>Removed callbacks which did \n -&gt; CRLF translation.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
 <p>Use libESMTP provided callback unless the <code class="docutils literal notranslate"><span class="pre">--crlf</span></code> option is
 supplied.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-07-07</p>
+<li><p>2001-07-07</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span></code></p>
 <p>Only include netinet/in.h if it is actually needed.</p>
 </li>
 </ul>
@@ -1048,17 +1050,17 @@ supplied.</p>
 <div class="section" id="version-0-8-3-released">
 <h2>2001-07-06 Version 0.8.3 released<a class="headerlink" href="#version-0-8-3-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-07-06</p>
+<li><p>2001-07-06</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
 <p>Made <code class="docutils literal notranslate"><span class="pre">--help</span></code> more helpful.  Undocumented <code class="docutils literal notranslate"><span class="pre">--no-crlf</span></code> now renamed
 to <code class="docutils literal notranslate"><span class="pre">--crlf</span></code> and documented.  When prompting for authentication
 now reads /dev/tty instead of stdin.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.ac</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.ac</span></code></p>
 <p>Check for <code class="docutils literal notranslate"><span class="pre">-lsocket.</span></code></p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">siobuf.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">siobuf.c</span></code></p>
 <p>Zero errno before calling certain functions.  Normally the value
 of errno is only tested if the preceeding system call or function
 wrapping the system call failed.  However, in a few cases, the
@@ -1071,23 +1073,23 @@ provided by the server!</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-06-29</p>
+<li><p>2001-06-29</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">et</span> <span class="pre">al.</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">et</span> <span class="pre">al.</span></code></p>
 <p>Added support for sendmail specific XUSR extension.  This informs
 sendmail the message is a user submission instead of relay,
 so it makes sense to issue the command.  Whether it actually
 does anything …</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
 <p>Fixed return from poll in <code class="docutils literal notranslate"><span class="pre">raw_read</span></code> and <code class="docutils literal notranslate"><span class="pre">raw_write</span></code> so that EINTR
 is correctly handled.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-06-26</p>
+<li><p>2001-06-26</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">auth-client.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">auth-client.c</span></code></p>
 <p>Fixed a signed/unsigned comparison that stops compilation
 when using <code class="docutils literal notranslate"><span class="pre">-Werror.</span></code></p>
 </li>
@@ -1099,18 +1101,18 @@ when using <code class="docutils literal notranslate"><span class="pre">-Werror.
 <div class="section" id="version-0-8-2-released">
 <h2>2001-06-26 Version 0.8.2 released<a class="headerlink" href="#version-0-8-2-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-06-26</p>
+<li><p>2001-06-26</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">siobuf.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">siobuf.c</span></code></p>
 <p>Resolved a problem related to blocking/non-blocking polling
 for server events.  This could lead to deadlock with certain
 servers.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-06-24</p>
+<li><p>2001-06-24</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.ac</span> <span class="pre">most</span> <span class="pre">C</span> <span class="pre">sources</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.ac</span> <span class="pre">most</span> <span class="pre">C</span> <span class="pre">sources</span></code></p>
 <p>Added <code class="docutils literal notranslate"><span class="pre">--disable-isoc</span></code> option.  When using gcc, <code class="docutils literal notranslate"><span class="pre">-ansi</span></code> <code class="docutils literal notranslate"><span class="pre">-pedantic</span></code>
 are now specified by default since the code compiles without
 warnings when using both flags.
@@ -1120,51 +1122,51 @@ most internal functions.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-06-23</p>
+<li><p>2001-06-23</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">message-source.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">message-source.c</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">msg_gets</span></code> now checks for both \r and \n when searching for line
 endings.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">errors.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">errors.c</span></code></p>
 <p>API function now includes ommitted the arguments check.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-06-22</p>
+<li><p>2001-06-22</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span> <span class="pre">configure.ac</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span> <span class="pre">configure.ac</span></code></p>
 <p>Now uses <a class="reference external" href="#">RFC 2553</a> / Posix protocol independent getaddrinfo where
 possible instead of gethostbyname family of resolver functions.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">gethostbyname.c</span> <span class="pre">configure.ac</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">gethostbyname.c</span> <span class="pre">configure.ac</span></code></p>
 <p>Added ability to use getipnodebyname and corresponding test
 for configure.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-06-18</p>
+<li><p>2001-06-18</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">auth-client.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">auth-client.c</span></code></p>
 <p>More thorough argument checking on the <code class="docutils literal notranslate"><span class="pre">auth_xxx</span></code> APIs.
 Added some missing malloc return value checking.
 When loading a plugin, make sure it provides a <code class="docutils literal notranslate"><span class="pre">response()</span></code>
 function.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
 <p>Added some missing malloc return value checking.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">various</span> <span class="pre">sources</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">various</span> <span class="pre">sources</span></code></p>
 <p>Changed some ‘int’ types to ‘<code class="docutils literal notranslate"><span class="pre">size_t</span></code>’</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">message-source.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">message-source.c</span></code></p>
 <p>In <code class="docutils literal notranslate"><span class="pre">msg_gets</span></code>, an inconsistent pointer could cause a segfault
 after a realloc which moved the original memory block.
 Increased sizes of malloc/realloc so that <a class="reference external" href="#">RFC 2821</a> maximium
 line length will not cause realloc.
 Added missing malloc/realloc return value checking.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>If an error occurs while copying the message to the SMTP
 server drop the connection without terminating the message.</p>
 </li>
@@ -1176,46 +1178,46 @@ server drop the connection without terminating the message.</p>
 <div class="section" id="version-0-8-1-released">
 <h2>2001-06-15 Version 0.8.1 released<a class="headerlink" href="#version-0-8-1-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-06-13</p>
+<li><p>2001-06-13</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>is now configure.ac to suit autoconf 2.5
 Eliminated some redundant stuff concerned with libtool.
 Now uses <code class="docutils literal notranslate"><span class="pre">AC_HELP_STRING</span></code> macro where appropriate.
 Now use standard <code class="docutils literal notranslate"><span class="pre">AC_FUNC_STRERROR_R</span></code> macro.
 Improved checking for time.h and sys/time.h.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp-config.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp-config.in</span></code></p>
 <p>If libltdl was installed, the list of libraries was set to the
 wrong thing.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">errors.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">errors.c</span></code></p>
 <p>Only use <code class="docutils literal notranslate"><span class="pre">strerror_r</span></code> if it actually works.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">rfc822date.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">rfc822date.c</span></code></p>
 <p>Try <code class="docutils literal notranslate"><span class="pre">sys/time</span></code> for <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">tm</span></code> just in case!</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-06-12</p>
+<li><p>2001-06-12</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>Now checks <code class="docutils literal notranslate"><span class="pre">-lnsl</span></code> when seraching for <code class="docutils literal notranslate"><span class="pre">gethostbyname_r</span></code>.
 Only print a warning if <code class="docutils literal notranslate"><span class="pre">strerror_r</span></code> is not found.
 Chose much more picky compiler warnings when using gcc - this
 has knock on effects through many files.  Compiles should now
 be much cleaner on more platforms.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.h</span></code></p>
 <p>Gcc will now check <code class="docutils literal notranslate"><span class="pre">sio_printf()</span></code>’s argument types against the
 format string.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Eliminated a variable which was set but not used.
 The as yet unimplemented <code class="docutils literal notranslate"><span class="pre">smtp_set_resent_headers</span></code> API will
 succeed if <code class="docutils literal notranslate"><span class="pre">onoff</span></code> is zero.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Eliminated variables which were set but not used.
 Fixed an uninitialised variable bug which might strike if the
 EHLO command received a 5xx status code.  This is likely with
@@ -1224,7 +1226,7 @@ instead of trying HELO.
 Fixed an uninitialised variable bug which could cause the protocol
 to QUIT inadvertently after processing the response to EHLO.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">errors.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">errors.c</span></code></p>
 <p>Rewrote handling of the thread specific data.</p>
 </li>
 </ul>
@@ -1235,24 +1237,24 @@ to QUIT inadvertently after processing the response to EHLO.</p>
 <div class="section" id="version-0-8-0-released">
 <h2>2001-06-12 Version 0.8.0 released<a class="headerlink" href="#version-0-8-0-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-06-11</p>
+<li><p>2001-06-11</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span></code></p>
 <p>DELIVERBY extension done - still to test.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-06-09</p>
+<li><p>2001-06-09</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">message-callbacks.c</span> <span class="pre">libesmtp.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">message-callbacks.c</span> <span class="pre">libesmtp.h</span></code></p>
 <p>Added standard callback functions for reading messages. libesmtp.h
 provides macros to simplify using them.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-06-07</p>
+<li><p>2001-06-07</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">message-source.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">message-source.c</span></code></p>
 <p>Changed the declaration of the message callback to make it clearer
 that the first argument in fact points to internal state allocated
 by the callback.  Strings returned to code reading the message
@@ -1260,9 +1262,9 @@ are now const char *.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-31</p>
+<li><p>2001-05-31</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span> <span class="pre">protocol.c</span> <span class="pre">configure,in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span> <span class="pre">protocol.c</span> <span class="pre">configure,in</span></code></p>
 <p>Had another go at the <code class="docutils literal notranslate"><span class="pre">smtp_require_all_recipients()</span></code> API hack.
 The original implementation hoped the SMTP server would report
 failure on receiving a zero length message but this isn’t
@@ -1270,98 +1272,98 @@ reliable.  This API must be explicitly enabled by ./configure.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-28</p>
+<li><p>2001-05-28</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
 <p>Make sure the client won’t attempt to authenticate when already
 authenticated.  This could happen if having authenticated and
 enables a security layer, the server offers AUTH again.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-tls.c</span></code></p>
 <p>Make sure the client won’t attempt to negotiate TLS when already
 using TLS.  Also don’t use TLS if already authenticated.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
 <p>Make the code for non-blocking sockets + OpenSSL more robust.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">errors.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">errors.c</span></code></p>
 <p>Added default case for <code class="docutils literal notranslate"><span class="pre">set_herrno()</span></code>.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-25</p>
+<li><p>2001-05-25</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
 <p>On authentication failure the same mechanism was selected again
 instead of moving on to the next one.  This caused an infinite
 loop of failing AUTH exchanges.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-24</p>
+<li><p>2001-05-24</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp.spec.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp.spec.in</span></code></p>
 <p>Changed <code class="docutils literal notranslate"><span class="pre">-a</span> <span class="pre">0</span></code> option in %setup macro to <code class="docutils literal notranslate"><span class="pre">-T</span> <span class="pre">-b</span> <span class="pre">0</span></code></p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>Removed <code class="docutils literal notranslate"><span class="pre">-Werror</span></code> from <code class="docutils literal notranslate"><span class="pre">--enable-more-warnings=yes</span></code> as this can be
 bothersome for punters.  Added <code class="docutils literal notranslate"><span class="pre">--enable-more-warnings=picky</span></code> to
 stop gcc from using internal prototypes for builtin functions;
 also turns on <code class="docutils literal notranslate"><span class="pre">-Werror.</span></code></p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">free_ghbnctx()</span></code> was called twice if <code class="docutils literal notranslate"><span class="pre">connect()</span></code> failed, potentially
 causing a SIGSEGV.  This bug was introduced with support for
 <code class="docutils literal notranslate"><span class="pre">gethostbyname_r</span></code>.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-23</p>
+<li><p>2001-05-23</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>Incremented library version and reset the age.  This is important
 because the event callback semantics have changed.
 Detect IPv6 sockaddr structure in <code class="docutils literal notranslate"><span class="pre">&lt;netinet/in.h&gt;</span></code>.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Added 8BITMIME support.  New API call <code class="docutils literal notranslate"><span class="pre">smtp_8bitmime_set_body()</span></code>.
 Report extensions after final set is known.  STARTTLS or AUTH
 can change the set of extensions advertised by the server.
 Typo meant the RET=FULL/HDRS parameter was printed as
 SIZE=FULL/HDRS in MAIL FROM: (D’oh!)</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">errors.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">errors.c</span></code></p>
 <p>Changed prototype for <code class="docutils literal notranslate"><span class="pre">smtp_strerror()</span></code> to allow use of <code class="docutils literal notranslate"><span class="pre">strerror_r</span></code>.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-22</p>
+<li><p>2001-05-22</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
 <p>Fixed calls to encode/decode callbacks and added explanation of
 their semantics.  This eliminates potential for a buffer
 overflow bug when decoding expands data read from the socket.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp.spec.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp.spec.in</span></code></p>
 <p>Fixed inconsistency between package name and tarball.
 Use the bz2 version of the tarball as the source.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Makefile.am</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile.am</span></code></p>
 <p>Added libesmtp.spec to extra distribution files.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">gethostbyname.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">gethostbyname.c</span></code></p>
 <p>Added missing <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;string.h&gt;</span></code> (gcc builtin prototypes
 again - grumble….)</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-21</p>
+<li><p>2001-05-21</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
 <p>Restructuring of reading/writing and polling to permit use
 of non-blocking IO.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Revised protocol outer loop makes sure the protocol engine reads
 data as soon as it becomes available and defers buffer flushes
 until after pending data from the SMTP server has been read.  In
@@ -1370,21 +1372,21 @@ deadlock described in <a class="reference external" href="#">RFC 2920</a> when P
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-20</p>
+<li><p>2001-05-20</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-etrn.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-etrn.c</span></code></p>
 <p>Added experimental support for the ETRN extension.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span></code></p>
 <p>Check for failure to create a message source and added code
 to actually destroy it thus plugging a memory leak.
 More thorough checking of some API function arguments.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
 <p>Added <code class="docutils literal notranslate"><span class="pre">sio_mark()</span></code>.  When the write buffer is flushed data written
 beyond the mark is retained and the mark is deleted.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Added new event types for flagging required extensions not
 available or reporting extensions that provide information to
 the application.
@@ -1399,85 +1401,85 @@ prevents partial commands being sent to the SMTP server.</p>
 <div class="section" id="version-0-7-1-released">
 <h2>2001-05-18 Version 0.7.1 released<a class="headerlink" href="#version-0-7-1-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-05-18</p>
+<li><p>2001-05-18</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Added <code class="docutils literal notranslate"><span class="pre">AF_INET6</span></code> support.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-17</p>
+<li><p>2001-05-17</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">gethostbyname.[ch]</span> <span class="pre">configure.in</span> <span class="pre">acinclude.m4</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">gethostbyname.[ch]</span> <span class="pre">configure.in</span> <span class="pre">acinclude.m4</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">gethostbyname_r()</span></code> now in its own file which provides a consistent
 interface.  configure selects which version of the function to
 compile for when building threaded code.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">auth-client.h</span> <span class="pre">libesmtp-config.in</span> <span class="pre">libesmtp.spec.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">auth-client.h</span> <span class="pre">libesmtp-config.in</span> <span class="pre">libesmtp.spec.in</span></code></p>
 <p>Directory for installing authentication plugins is now
 configurable.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-15</p>
+<li><p>2001-05-15</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp.spec.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp.spec.in</span></code></p>
 <p>Added to simplify building RPM packages.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-14</p>
+<li><p>2001-05-14</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
 <p>Check that all messages have a callback to read the message
 headers and body.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">tokens.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">tokens.c</span></code></p>
 <p>Check buffer length in <code class="docutils literal notranslate"><span class="pre">read_atom()</span></code>.</p>
 <p>Use of &lt;ctype.h&gt; eliminated.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">init_header_table()</span></code> checks for <code class="docutils literal notranslate"><span class="pre">NULL</span></code> pointers to avoid potential
 SIGSEGVs.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-13</p>
+<li><p>2001-05-13</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">rfc822date.c</span> <span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">rfc822date.c</span> <span class="pre">configure.in</span></code></p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">localtime_r()</span></code> or <code class="docutils literal notranslate"><span class="pre">gmtime_r()</span></code> when building a thread safe
 library.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">concatenate.[ch]</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">concatenate.[ch]</span></code></p>
 <p>Fixed incorrect shortfall caclulation in <code class="docutils literal notranslate"><span class="pre">concatenate()</span></code>
 potentially leading to buffer overrun.
 Generally tidied up code.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">auth-client.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">auth-client.c</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">auth_response()</span></code> fails if <code class="docutils literal notranslate"><span class="pre">(*context-&gt;client-&gt;init)()</span></code> fails.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">base64.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">base64.c</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">b64_encode()</span></code> now checks the destination buffer length.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-11</p>
+<li><p>2001-05-11</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp-config.in</span> <span class="pre">Makefile.am</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp-config.in</span> <span class="pre">Makefile.am</span></code></p>
 <p>Added config script to simplify compiling and linking.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">configure.in</span></code></p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">gethostbyname_r()</span></code> when building a thread safe library.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-09</p>
+<li><p>2001-05-09</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Makefile.am</span> <span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile.am</span> <span class="pre">configure.in</span></code></p>
 <p>libltdl is now part of the tarball and is installed if not
 already present.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">do_session()</span></code> will now make use of all the addresses returned
 by <code class="docutils literal notranslate"><span class="pre">gethostbyname()</span></code>.  This allows the DNS admin for the domain
 to specify a number of MTAs which handle mail submission.
@@ -1496,9 +1498,9 @@ connection may have been made to a non-SMTP service.</p>
 <div class="section" id="version-0-7-0-released">
 <h2>2001-05-06 Version 0.7.0 released<a class="headerlink" href="#version-0-7-0-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-05-06</p>
+<li><p>2001-05-06</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">session-&gt;auth_mechanisms</span></code> was incorrectly freed in <code class="docutils literal notranslate"><span class="pre">do_session()</span></code>.
 This should have been done using <code class="docutils literal notranslate"><span class="pre">destroy_auth_mechanisms()</span></code>.
 Moved initialisation of the session variables to the start
@@ -1510,7 +1512,7 @@ session.  Second and subsequent calls should only deliver to
 recipients not successful in a previous SMTP session.  Removed
 a few FIXME comments that no longer apply.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">smtp_recipient_reset_status()</span></code> clears the ‘complete’ flag so that
 the recipient will be retried on a subsequent <code class="docutils literal notranslate"><span class="pre">smtp_start_session()</span></code>.
 Added a new API <code class="docutils literal notranslate"><span class="pre">smtp_recipient_check_complete()</span></code>.  This is true if
@@ -1519,43 +1521,43 @@ post the message to this recipient.
 <code class="docutils literal notranslate"><span class="pre">smtp_destroy_session()</span></code> now frees memory allocated for remote
 server hostname.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">libesmtp-private.h</span> <span class="pre">smtp-api.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">libesmtp-private.h</span> <span class="pre">smtp-api.c</span></code></p>
 <p>Renamed ‘sent’ in <code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span></code> structure to ‘complete’.
 Not all completed recipients might have been sent.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">headers.c</span> <span class="pre">smtp-api.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">headers.c</span> <span class="pre">smtp-api.c</span></code></p>
 <p>Only call <code class="docutils literal notranslate"><span class="pre">gethostname()</span></code> once and save the result.  Also added
 new API <code class="docutils literal notranslate"><span class="pre">smtp_set_hostname()</span></code> to allow the application to change
 the default.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-03</p>
+<li><p>2001-05-03</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">crammd5/Makefile.am</span> <span class="pre">crammd5/hmacmd5.[ch]</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">crammd5/Makefile.am</span> <span class="pre">crammd5/hmacmd5.[ch]</span></code></p>
 <p>Renamed files to avoid name conflict with Cyrus SASL
 include/ directory.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">base64.c</span> <span class="pre">message-source.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">base64.c</span> <span class="pre">message-source.c</span></code></p>
 <p>Added missing <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;string.h&gt;</span></code>, egcs-2.91.66 didn’t
 spot the missing prototypes.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
 <p>Ignore SIGPIPE.  Means the application isn’t killed accidentally
 when something times out during the protocol session.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-05-02</p>
+<li><p>2001-05-02</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">sasl-tls.c</span> <span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">sasl-tls.c</span> <span class="pre">protocol.c</span></code></p>
 <p>Added experimental support for STARTTLS</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-04-31</p>
+<li><p>2001-04-31</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">cram-md5/Makefile.am</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">cram-md5/Makefile.am</span></code></p>
 <p>hmac-md5.h was missing from the list of sources and hence was
 not in the tarball.</p>
 </li>
@@ -1567,9 +1569,9 @@ not in the tarball.</p>
 <div class="section" id="version-0-6-1-released">
 <h2>2001-04-29 Version 0.6.1 released<a class="headerlink" href="#version-0-6-1-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-04-30</p>
+<li><p>2001-04-30</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">auth-client.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">auth-client.c</span></code></p>
 <p>Fixed incorrect SSF comparison for authentication modules
 that were already loaded.</p>
 </li>
@@ -1581,9 +1583,9 @@ that were already loaded.</p>
 <div class="section" id="version-0-6a-released">
 <h2>2001-04-29 Version 0.6a released<a class="headerlink" href="#version-0-6a-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-04-28</p>
+<li><p>2001-04-28</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">smtp-api.c</span> <span class="pre">example/mail-file.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">smtp-api.c</span> <span class="pre">example/mail-file.c</span></code></p>
 <p>Corrected inconsistently named API from <code class="docutils literal notranslate"><span class="pre">smtp_set_auth_context()</span></code>
 to <code class="docutils literal notranslate"><span class="pre">smtp_auth_set_context()</span></code>.</p>
 </li>
@@ -1595,143 +1597,143 @@ to <code class="docutils literal notranslate"><span class="pre">smtp_auth_set_co
 <div class="section" id="version-0-6-released">
 <h2>2001-04-25 Version 0.6 released<a class="headerlink" href="#version-0-6-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-04-25</p>
+<li><p>2001-04-25</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">Makefile.am</span> <span class="pre">*/Makefile.am</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span> <span class="pre">Makefile.am</span> <span class="pre">*/Makefile.am</span></code></p>
 <p>Added detection of MD5 routines in OpenSSL, to enable
 the CRAM-MD5 SASL mechanism.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-04-25</p>
+<li><p>2001-04-25</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Corrected parsing bug in <code class="docutils literal notranslate"><span class="pre">parse_status_triplet()</span></code>.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-04-16</p>
+<li><p>2001-04-16</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">api.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">api.h</span></code></p>
 <p>Added new header file.  This currently contains macros
 to aid argument checking for API functions.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp.h</span></code></p>
 <p>Changed name of API function argument check macro.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">most</span> <span class="pre">files</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">most</span> <span class="pre">files</span></code></p>
 <p>Wrapped <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;config.h&gt;</span></code> with <code class="docutils literal notranslate"><span class="pre">#ifdef</span> <span class="pre">HAVE_CONFIG_H</span></code>.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-04-11</p>
+<li><p>2001-04-11</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">rfc822date.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">rfc822date.c</span></code></p>
 <p>Make sure the absolute value of minutes is used when
 formatting the date.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Fixed potential segfault when DATA fails before transferring
 a message.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
 <p>Support for client authentication plugins now working.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Support for SMTP AUTH extension.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-04-05</p>
+<li><p>2001-04-05</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-auth.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-auth.c</span></code></p>
 <p>Removed ‘<code class="docutils literal notranslate"><span class="pre">want_enhanced</span></code>’ argument from <code class="docutils literal notranslate"><span class="pre">read_smtp_response()</span></code>
 since it was unnecessary.
 Added preliminary support for SMTP AUTH extension.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-04-04</p>
+<li><p>2001-04-04</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Many</span> <span class="pre">files</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">Many</span> <span class="pre">files</span></code></p>
 <p>Changes to accomodate stricter error checking options
 to gcc.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-04-03</p>
+<li><p>2001-04-03</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.c</span> <span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.c</span> <span class="pre">protocol.c</span></code></p>
 <p>Changed <code class="docutils literal notranslate"><span class="pre">CONFIG_TLS</span></code> to <code class="docutils literal notranslate"><span class="pre">USE_TLS</span></code> (not that it matters yet)
 Changed <code class="docutils literal notranslate"><span class="pre">HAVE_LIBSASL</span></code> to <code class="docutils literal notranslate"><span class="pre">USE_SASL</span></code>
 Mostly for consistency with autoconf convention.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.in</span></code></p>
 <p>Checks for pthreads and SASL.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-03-21</p>
+<li><p>2001-03-21</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
 <p>Fixed up some missing error reporting.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-03-15</p>
+<li><p>2001-03-15</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Now sets timeouts reccommended in <a class="reference external" href="#">RFC 1123</a> when waiting for
 server responses.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">errors.c</span> <span class="pre">libesmtp.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">errors.c</span> <span class="pre">libesmtp.h</span></code></p>
 <p>Changed prefix from ES_ to SMTP_ERR_.  Edits to other files
 to accommodate the change.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-03-14</p>
+<li><p>2001-03-14</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">libesmtp.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">libesmtp.h</span></code></p>
 <p>Added first lot of event monitoring callbacks.  Simplified the
 declaration for the callback function.  The callback is called
 with different arguments depending on the actual event.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-03-09</p>
+<li><p>2001-03-09</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">tokens.c</span> <span class="pre">tokens.h</span> <span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">tokens.c</span> <span class="pre">tokens.h</span> <span class="pre">protocol.c</span></code></p>
 <p>Added const to a few things that should have had it.  Fixed a
 corresponding declaration in protocol.c.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-auth.c</span></code></p>
 <p>Basis of the implementation of the SMTP AUTH command.  This is
 not complete or tested yet, pending the decision about how to
 best implement SASL.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.c</span> <span class="pre">siobuf.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.c</span> <span class="pre">siobuf.h</span></code></p>
 <p>Added callback functions which encode or decode data just before
 writing or after reading data between the buffers and the
 socket.  This is for use by SASL security layers.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-03-07</p>
+<li><p>2001-03-07</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">concatenate.c</span> <span class="pre">concatenate.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">concatenate.c</span> <span class="pre">concatenate.h</span></code></p>
 <p>Added <code class="docutils literal notranslate"><span class="pre">minimum_length</span></code> parameter to cat_{init,reset}().</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-03-07</p>
+<li><p>2001-03-07</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.c</span> <span class="pre">siobuf.h</span> <span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.c</span> <span class="pre">siobuf.h</span> <span class="pre">protocol.c</span></code></p>
 <p>Allow for seperate read and write file descriptors in
 <code class="docutils literal notranslate"><span class="pre">sio_attach()</span></code>.  This is for when support for opening a pipe to
 a program running an SMTP server on its stdin/stdout is added.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.c</span> <span class="pre">siobuf.h</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.c</span> <span class="pre">siobuf.h</span></code></p>
 <p>Fixed the <code class="docutils literal notranslate"><span class="pre">#ifdef</span> <span class="pre">_buffer_h</span></code> lines to <code class="docutils literal notranslate"><span class="pre">#ifdef</span> <span class="pre">_siobuf_h</span></code> (the perils
 of cut and paste editing).</p>
 <p>Added typedefs for the sio callback functions.</p>
@@ -1740,9 +1742,9 @@ of SASL.  <code class="docutils literal notranslate"><span class="pre">CONFIG_SA
 </li>
 </ul>
 </li>
-<li><p class="first">2001-03-02</p>
+<li><p>2001-03-02</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Implemented the rest of <code class="docutils literal notranslate"><span class="pre">destroy_header_table()</span></code>.</p>
 </li>
 </ul>
@@ -1753,21 +1755,21 @@ of SASL.  <code class="docutils literal notranslate"><span class="pre">CONFIG_SA
 <div class="section" id="version-0-5-released">
 <h2>2001-02-27 Version 0.5 released<a class="headerlink" href="#version-0-5-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-02-26</p>
+<li><p>2001-02-26</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Now issue RSET before MAIL FROM: if a failure response is
 received to the DATA command.</p>
 <p>Fixed possible segfaults when resetting the status in <code class="docutils literal notranslate"><span class="pre">rsp_rest()</span></code>
 and <code class="docutils literal notranslate"><span class="pre">rsp_quit()</span></code>.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Partially implemented <code class="docutils literal notranslate"><span class="pre">destroy_header_table()</span></code>.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
 <p>Now calls <code class="docutils literal notranslate"><span class="pre">destroy_header_table()</span></code>.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">htable.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">htable.c</span></code></p>
 <p>Allow callback in <code class="docutils literal notranslate"><span class="pre">h_destroy()</span></code> to be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 </li>
 </ul>
@@ -1778,17 +1780,17 @@ and <code class="docutils literal notranslate"><span class="pre">rsp_quit()</spa
 <div class="section" id="version-0-4-released">
 <h2>2001-02-26 Version 0.4 released<a class="headerlink" href="#version-0-4-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-02-25</p>
+<li><p>2001-02-25</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Second state for the DATA command now does not transfer the
 message if there were no valid recipients.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-02-22</p>
+<li><p>2001-02-22</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
 <p>Added APIs to get/set application data in each of the opaque
 structures.</p>
 <p>Added protocol event callback API but only for a place holder.
@@ -1797,14 +1799,14 @@ progress of the session and status changes as they happen.
 This is different from the protocol monitor which dumps the
 actual data transferred on or close to the wire.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Added code to handle <code class="docutils literal notranslate"><span class="pre">Sender:</span></code></p>
 <p>Fixed <code class="docutils literal notranslate"><span class="pre">From:</span></code> printing; continuation lines had no leading whitespace.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">smtp_set_header_option()</span></code> once <code class="docutils literal notranslate"><span class="pre">Hdr_PROHIBIT</span></code> is set, it cannot
 be unset.  Prohibit cannot be set for headers already set.</p>
 <p>Added <code class="docutils literal notranslate"><span class="pre">smtp_set_resent_headers()</span></code> but only for a place holder.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Correct parsing of enhanced status codes.  These are only present
 for 2xx, 4xx and 5xx SMTP status codes.</p>
 </li>
@@ -1816,25 +1818,25 @@ for 2xx, 4xx and 5xx SMTP status codes.</p>
 <div class="section" id="version-0-3-released">
 <h2>2001-02-18 Version 0.3 released<a class="headerlink" href="#version-0-3-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-02-19</p>
+<li><p>2001-02-19</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span> <span class="pre">smtp-api.c</span></code></p>
 <p>Port number in session structure stored in host byte order
 instead of network byte order.  This makes the port number easier
 to read in gdb.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Removed white space which crept into the MAIL FROM: and RCPT TO:
 commands.  All the servers tested with to date have accepted
 this but it wasn’t in <a class="reference external" href="#">RFC 821</a>.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Fixed <code class="docutils literal notranslate"><span class="pre">From:</span></code> and <code class="docutils literal notranslate"><span class="pre">Disposition-Notification-To:</span></code> headers to allow
 multiple mailboxes as per <a class="reference external" href="#">RFC 822</a>.</p>
 <p>Corrected syntax for default <code class="docutils literal notranslate"><span class="pre">Message-Id:</span></code> generation.  This
 should have been <code class="docutils literal notranslate"><span class="pre">addr-spec</span></code> per <a class="reference external" href="#">RFC 822</a> but didn’t have an &#64;.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
 <p>Corrected typo that stopped <code class="docutils literal notranslate"><span class="pre">--reverse-path</span></code> from working.</p>
 </li>
 </ul>
@@ -1846,44 +1848,40 @@ should have been <code class="docutils literal notranslate"><span class="pre">ad
 <h2>2001-02-18 Version 0.2 released<a class="headerlink" href="#version-0-2-released" title="Permalink to this headline">¶</a></h2>
 <p>Core libESMTP API now complete.</p>
 <ul>
-<li><p class="first">2001-02-18</p>
+<li><p>2001-02-18</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/mail-file.c</span></code></p>
 <p>Updated to tweak a few more APIs in libESMTP.
 The example now has a very basic Makefile.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">2001-02-17</p>
+<li><p>2001-02-17</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Changed use of <code class="docutils literal notranslate"><span class="pre">strchr()</span></code> to <code class="docutils literal notranslate"><span class="pre">memchr()</span></code> since strings read by the
 message callback and header functions are <em>not</em> \0 terminated.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers.c</span></code></p>
 <p>Changed beyond all recognition. :-)
 Declaration of <code class="docutils literal notranslate"><span class="pre">smtp_set_header_option()</span></code> has changed.</p>
 </li>
-<li><p class="first">New files added to support <a class="reference external" href="#">RFC 822</a> header processing.</p>
-</li>
+<li><p>New files added to support <a class="reference external" href="#">RFC 822</a> header processing.</p></li>
 </ul>
 </li>
-<li><p class="first">2001-02-08</p>
+<li><p>2001-02-08</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
 <p>Some additional error checking; extra thoroughness checking the
 return value of <code class="docutils literal notranslate"><span class="pre">write()</span></code>.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p>
-</li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">siobuf.c</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">protocol.c</span></code></p>
 <p>Added the protocol monitor callback mechanism.</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp.h</span></code></p>
-</li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">libesmtp-private.h</span></code></p>
-</li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">libesmtp-private.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp-api.c</span></code></p>
 <p>Minor changes to the monitor callback declaration and session
 structure for the protocol monitor.</p>
 </li>
@@ -1895,9 +1893,9 @@ structure for the protocol monitor.</p>
 <div class="section" id="version-0-1a-released">
 <h2>2001-02-04 Version 0.1a released<a class="headerlink" href="#version-0-1a-released" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">2001-04-04</p>
+<li><p>2001-04-04</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">message-source.c</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">message-source.c</span></code></p>
 <p>Fixed a bad bug that could cause an infinite loop if a message
 was not properly terminated with a \n</p>
 </li>
@@ -1917,28 +1915,25 @@ was not properly terminated with a \n</p>
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Brian Stafford
+        &#169; Copyright 2020, Brian Stafford.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

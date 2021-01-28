@@ -140,8 +140,8 @@ smtp_start_session() is called again.
 **Return**
 
 ``NULL`` if no status information is available, otherwise a pointer to
-        the status information.  The pointer remains valid until the next
-        call to libESMTP in the same thread.
+the status information.  The pointer remains valid until the next
+call to libESMTP in the same thread.
 
 
 .. c:function:: int smtp_set_reverse_path (smtp_message_t message, const char * mailbox)
@@ -703,9 +703,34 @@ always returns 1
 
 Associate application data with the session.
 
+Only available when ``LIBESMTP_ENABLE_DEPRECATED_SYMBOLS`` is defined.
+Use smtp_set_application_data_full() instead.
+
 **Return**
 
 Previously set application data or ``NULL``
+
+
+.. c:function:: void smtp_set_application_data_full (smtp_session_t session, void * data, void (*release) (void *))
+
+   Associate data with a session.
+
+**Parameters**
+
+``smtp_session_t session``
+  The session.
+
+``void * data``
+  Application data
+
+``void (*) (void *) release``
+  function to free/unref data.
+
+**Description**
+
+Associate application data with the session.
+If **release** is non-NULL it is called to free or unreference data when
+changed or the session is destroyed.
 
 
 .. c:function:: void * smtp_get_application_data (smtp_session_t session)
@@ -742,9 +767,34 @@ Previously set application data or ``NULL``
 
 Associate application data with the message.
 
+Only available when ``LIBESMTP_ENABLE_DEPRECATED_SYMBOLS`` is defined.
+Use smtp_message_set_application_data_full() instead.
+
 **Return**
 
 Previously set application data or ``NULL``
+
+
+.. c:function:: void smtp_message_set_application_data_full (smtp_message_t message, void * data, void (*release) (void *))
+
+   Associate data with a message.
+
+**Parameters**
+
+``smtp_message_t message``
+  The message.
+
+``void * data``
+  Application data
+
+``void (*) (void *) release``
+  function to free/unref data.
+
+**Description**
+
+Associate application data with the message.
+If **release** is non-NULL it is called to free or unreference data when
+changed or the message is destroyed.
 
 
 .. c:function:: void * smtp_message_get_application_data (smtp_message_t message)
@@ -781,9 +831,34 @@ Previously set application data or ``NULL``
 
 Associate application data with the recipient.
 
+Only available when ``LIBESMTP_ENABLE_DEPRECATED_SYMBOLS`` is defined.
+Use smtp_recipient_set_application_data_full() instead.
+
 **Return**
 
 Previously set application data or ``NULL``
+
+
+.. c:function:: void smtp_recipient_set_application_data_full (smtp_recipient_t recipient, void * data, void (*release) (void *))
+
+   Associate data with a recipient.
+
+**Parameters**
+
+``smtp_recipient_t recipient``
+  The recipient.
+
+``void * data``
+  Application data
+
+``void (*) (void *) release``
+  function to free/unref data.
+
+**Description**
+
+Associate application data with the recipient.
+If **release** is non-NULL it is called to free or unreference data when
+changed or the recipient is destroyed.
 
 
 .. c:function:: void * smtp_recipient_get_application_data (smtp_recipient_t recipient)

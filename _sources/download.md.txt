@@ -53,29 +53,16 @@ builddir with files owned by root.
 
 As well as the standard meson options, the following are supported:
 
-* -Dpthreads=[enabled|disabled|auto]
+Option | Values | Description
+-------|--------|------------
+-Dpthreads | enabled,disabled,**auto** | build with support for Posix threads
+-Dtls | enabled,disabled,**auto** | support the STARTTLS extension and NTLM authentication
+-Dlwres | enabled,**disabled**,auto | use the ISC lightweight resolver
+-Dbdat | **true**,false | enable SMTP BDAT extension
+-Detrn | **true**,false | enable SMTP ETRN extension
+-Dxusr | **true**,false | enable sendmail XUSR extension
 
-  build with support for Posix threads (default: auto)
-
-* -Dtls=[enabled|disabled|auto]
-
-  support the STARTTLS extension and NTLM authentication (default: auto)
-
-* -Dlwres=[enabled|disabled|auto]
-
-  use the ISC lightweight resolver (default: disabled)
-
-* -Dbdat=[true|false]
-
-  enable SMTP BDAT extension (default: true)
-
-* -Detrn=[true|false]
-
-  enable SMTP ETRN extension (default: true)
-
-* -Dxusr=[true|false]
-
-  enable sendmail XUSR extension (default: true)
+Options are specified as `-D<option>=<value>`.
 
 ## Documentation
 

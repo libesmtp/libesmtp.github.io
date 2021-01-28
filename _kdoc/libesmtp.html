@@ -1,11 +1,11 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>libESMTP Types &mdash; libESMTP 1.0.6 documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -26,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+            <a href="../index.html" class="icon icon-home"> libESMTP
           
 
           
@@ -149,6 +151,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -162,7 +166,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/_kdoc/libesmtp.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -180,173 +184,176 @@
 <div class="section" id="libesmtp-types">
 <h1>libESMTP Types<a class="headerlink" href="#libesmtp-types" title="Permalink to this headline">¶</a></h1>
 <p>The following types are defined by libESMTP.</p>
-<dl class="type">
+<dl class="c type">
 <dt id="c.smtp_enumerate_messagecb_t">
-<code class="descname">smtp_enumerate_messagecb_t</code><a class="headerlink" href="#c.smtp_enumerate_messagecb_t" title="Permalink to this definition">¶</a></dt>
+<em class="property">type </em><code class="sig-name descname">smtp_enumerate_messagecb_t</code><a class="headerlink" href="#c.smtp_enumerate_messagecb_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><strong>Typedef</strong>: Message callback.</p>
 </dd></dl>
 
 <p><strong>Syntax</strong></p>
 <blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">smtp_enumerate_messagecb_t</span> <span class="pre">(smtp_message_t</span> <span class="pre">message,</span> <span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg);</span></code></div></blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">smtp_enumerate_messagecb_t</span> <span class="pre">(smtp_message_t</span> <span class="pre">message,</span> <span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg);</span></code></p>
+</div></blockquote>
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The session.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
-<dd>User data passed to smtp_enumerate_messages().</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt><dd><p>User data passed to smtp_enumerate_messages().</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Callback function to handle a message.</p>
-<dl class="type">
+<dl class="c type">
 <dt id="c.smtp_enumerate_recipientcb_t">
-<code class="descname">smtp_enumerate_recipientcb_t</code><a class="headerlink" href="#c.smtp_enumerate_recipientcb_t" title="Permalink to this definition">¶</a></dt>
+<em class="property">type </em><code class="sig-name descname">smtp_enumerate_recipientcb_t</code><a class="headerlink" href="#c.smtp_enumerate_recipientcb_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><strong>Typedef</strong>: Recipient callback.</p>
 </dd></dl>
 
 <p><strong>Syntax</strong></p>
 <blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">smtp_enumerate_recipientcb_t</span> <span class="pre">(smtp_recipient_t</span> <span class="pre">recipient,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">mailbox,</span> <span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg);</span></code></div></blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">smtp_enumerate_recipientcb_t</span> <span class="pre">(smtp_recipient_t</span> <span class="pre">recipient,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">mailbox,</span> <span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg);</span></code></p>
+</div></blockquote>
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt>
-<dd>The recipient.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">mailbox</span></code></dt>
-<dd>Mailbox name.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
-<dd>User data passed to smtp_enumerate_recipients().</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt><dd><p>The recipient.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">mailbox</span></code></dt><dd><p>Mailbox name.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt><dd><p>User data passed to smtp_enumerate_recipients().</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Callback to process a recipient.</p>
-<dl class="type">
-<dt id="c.rfc2822_timeouts">
-enum <code class="descname">rfc2822_timeouts</code><a class="headerlink" href="#c.rfc2822_timeouts" title="Permalink to this definition">¶</a></dt>
+<dl class="c type">
+<dt>
+<code class="sig-name descname">enum rfc2822_timeouts</code></dt>
 <dd><p>Specify timeout.</p>
 </dd></dl>
 
 <p><strong>Constants</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">Timeout_GREETING</span></code></dt>
-<dd>Timeout waiting for server greeting.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Timeout_ENVELOPE</span></code></dt>
-<dd>Timeout for envelope responses.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Timeout_DATA</span></code></dt>
-<dd>Timeout waiting for data transfer to begin.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Timeout_TRANSFER</span></code></dt>
-<dd>Timeout for data transfer phase.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Timeout_DATA2</span></code></dt>
-<dd>Timeout for ? phase.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Timeout_GREETING</span></code></dt><dd><p>Timeout waiting for server greeting.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Timeout_ENVELOPE</span></code></dt><dd><p>Timeout for envelope responses.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Timeout_DATA</span></code></dt><dd><p>Timeout waiting for data transfer to begin.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Timeout_TRANSFER</span></code></dt><dd><p>Timeout for data transfer phase.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Timeout_DATA2</span></code></dt><dd><p>Timeout for ? phase.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Timeout flags.</p>
-<dl class="type">
-<dt id="c.ret_flags">
-enum <code class="descname">ret_flags</code><a class="headerlink" href="#c.ret_flags" title="Permalink to this definition">¶</a></dt>
+<dl class="c type">
+<dt>
+<code class="sig-name descname">enum ret_flags</code></dt>
 <dd><p>DSN request flags.</p>
 </dd></dl>
 
 <p><strong>Constants</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">Ret_NOTSET</span></code></dt>
-<dd>DSN is not requested.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Ret_FULL</span></code></dt>
-<dd>Request full message in DSN.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Ret_HDRS</span></code></dt>
-<dd>Request only headers in DSN.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Ret_NOTSET</span></code></dt><dd><p>DSN is not requested.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ret_FULL</span></code></dt><dd><p>Request full message in DSN.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ret_HDRS</span></code></dt><dd><p>Request only headers in DSN.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>DSN flags specifying requested notification.</p>
-<dl class="type">
-<dt id="c.notify_flags">
-enum <code class="descname">notify_flags</code><a class="headerlink" href="#c.notify_flags" title="Permalink to this definition">¶</a></dt>
+<dl class="c type">
+<dt>
+<code class="sig-name descname">enum notify_flags</code></dt>
 <dd><p>DSN notification conditions.</p>
 </dd></dl>
 
 <p><strong>Constants</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">Notify_NOTSET</span></code></dt>
-<dd>Notify options not requested.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Notify_NEVER</span></code></dt>
-<dd>Never notify.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Notify_SUCCESS</span></code></dt>
-<dd>Notify delivery success.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Notify_FAILURE</span></code></dt>
-<dd>Notify delivery failure.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Notify_DELAY</span></code></dt>
-<dd>Notify delivery is delayed.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Notify_NOTSET</span></code></dt><dd><p>Notify options not requested.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Notify_NEVER</span></code></dt><dd><p>Never notify.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Notify_SUCCESS</span></code></dt><dd><p>Notify delivery success.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Notify_FAILURE</span></code></dt><dd><p>Notify delivery failure.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Notify_DELAY</span></code></dt><dd><p>Notify delivery is delayed.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>DSN notify flags.</p>
-<dl class="type">
-<dt id="c.e8bitmime_body">
-enum <code class="descname">e8bitmime_body</code><a class="headerlink" href="#c.e8bitmime_body" title="Permalink to this definition">¶</a></dt>
+<dl class="c type">
+<dt>
+<code class="sig-name descname">enum e8bitmime_body</code></dt>
 <dd><p>Message body type.</p>
 </dd></dl>
 
 <p><strong>Constants</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">E8bitmime_NOTSET</span></code></dt>
-<dd>Body type not declared.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">E8bitmime_7BIT</span></code></dt>
-<dd>Body conforms with RFC 5322.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">E8bitmime_8BITMIME</span></code></dt>
-<dd>Body uses 8 bit encoding.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">E8bitmime_BINARYMIME</span></code></dt>
-<dd>Body uses BINARYMIME encoding.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">E8bitmime_NOTSET</span></code></dt><dd><p>Body type not declared.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">E8bitmime_7BIT</span></code></dt><dd><p>Body conforms with RFC 5322.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">E8bitmime_8BITMIME</span></code></dt><dd><p>Body uses 8 bit encoding.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">E8bitmime_BINARYMIME</span></code></dt><dd><p>Body uses BINARYMIME encoding.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>8BITMIME extension flags.</p>
-<dl class="type">
-<dt id="c.by_mode">
-enum <code class="descname">by_mode</code><a class="headerlink" href="#c.by_mode" title="Permalink to this definition">¶</a></dt>
+<dl class="c type">
+<dt>
+<code class="sig-name descname">enum by_mode</code></dt>
 <dd><p>Delivery flags.</p>
 </dd></dl>
 
 <p><strong>Constants</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">By_NOTSET</span></code></dt>
-<dd>Deliver-by notification not requested.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">By_NOTIFY</span></code></dt>
-<dd>FIXME</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">By_RETURN</span></code></dt>
-<dd>FIXME</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">By_NOTSET</span></code></dt><dd><p>Deliver-by notification not requested.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">By_NOTIFY</span></code></dt><dd><p>FIXME</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">By_RETURN</span></code></dt><dd><p>FIXME</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>DELIVERBY (RFC 2852) extension flags.</p>
-<dl class="type">
-<dt id="c.starttls_option">
-enum <code class="descname">starttls_option</code><a class="headerlink" href="#c.starttls_option" title="Permalink to this definition">¶</a></dt>
+<dl class="c type">
+<dt>
+<code class="sig-name descname">enum starttls_option</code></dt>
 <dd><p>TLS mode options</p>
 </dd></dl>
 
 <p><strong>Constants</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">Starttls_DISABLED</span></code></dt>
-<dd>Do not use TLS, even if offered by the MTA.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Starttls_ENABLED</span></code></dt>
-<dd>Use TLS if offered by the MTA.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Starttls_REQUIRED</span></code></dt>
-<dd>Exit session if TLS is not offered by the MTA.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Starttls_DISABLED</span></code></dt><dd><p>Do not use TLS, even if offered by the MTA.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Starttls_ENABLED</span></code></dt><dd><p>Use TLS if offered by the MTA.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Starttls_REQUIRED</span></code></dt><dd><p>Exit session if TLS is not offered by the MTA.</p>
+</dd>
 </dl>
-<dl class="type">
+<dl class="c type">
 <dt id="c.smtp_starttls_passwordcb_t">
-<code class="descname">smtp_starttls_passwordcb_t</code><a class="headerlink" href="#c.smtp_starttls_passwordcb_t" title="Permalink to this definition">¶</a></dt>
+<em class="property">type </em><code class="sig-name descname">smtp_starttls_passwordcb_t</code><a class="headerlink" href="#c.smtp_starttls_passwordcb_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><strong>Typedef</strong>: Password callback signature.</p>
 </dd></dl>
 
 <p><strong>Syntax</strong></p>
 <blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">smtp_starttls_passwordcb_t</span> <span class="pre">(char</span> <span class="pre">*</span> <span class="pre">buf,</span> <span class="pre">int</span> <span class="pre">buflen,</span> <span class="pre">int</span> <span class="pre">rwflag,</span> <span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg);</span></code></div></blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">smtp_starttls_passwordcb_t</span> <span class="pre">(char</span> <span class="pre">*</span> <span class="pre">buf,</span> <span class="pre">int</span> <span class="pre">buflen,</span> <span class="pre">int</span> <span class="pre">rwflag,</span> <span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg);</span></code></p>
+</div></blockquote>
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*</span> <span class="pre">buf</span></code></dt>
-<dd>Buffer to receive the password.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">buflen</span></code></dt>
-<dd>Length of the buffer.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">rwflag</span></code></dt>
-<dd>0 for reading/decryption, 1 for writing/encryption.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
-<dd>User data passed to smtp_starttls_set_password_cb().</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*</span> <span class="pre">buf</span></code></dt><dd><p>Buffer to receive the password.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">buflen</span></code></dt><dd><p>Length of the buffer.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">rwflag</span></code></dt><dd><p>0 for reading/decryption, 1 for writing/encryption.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt><dd><p>User data passed to smtp_starttls_set_password_cb().</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>The callback function declaration is cleverly chosen to be the same as
@@ -360,37 +367,29 @@ the OpenSSL declaration.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="smtp-api.html" class="btn btn-neutral float-right" title="Core API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="smtp-api.html" class="btn btn-neutral float-right" title="Core API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Brian Stafford
+        &#169; Copyright 2020, Brian Stafford.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

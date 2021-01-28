@@ -1,11 +1,11 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Remote Message Queue Starting (ETRN) &mdash; libESMTP 1.0.6 documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -26,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+            <a href="../index.html" class="icon icon-home"> libESMTP
           
 
           
@@ -149,6 +151,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -162,7 +166,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/_kdoc/smtp-etrn.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -183,51 +187,51 @@
 delivery queue for the specified domain.  If the application requests
 the use if the ETRN extension and the remote MTA does not list ETRN,
 libESMTP will use the event callback to notify the application.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_etrn_add_node">
-smtp_etrn_node_t <code class="descname">smtp_etrn_add_node</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, int<em>&nbsp;option</em>, const char *<em>&nbsp;domain</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_add_node" title="Permalink to this definition">¶</a></dt>
+smtp_etrn_node_t <code class="sig-name descname">smtp_etrn_add_node</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, int <em>option</em>, <em class="property">const</em> char *<em>domain</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_add_node" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">option</span></code></dt>
-<dd>The option character.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">domain</span></code></dt>
-<dd>Request mail for this domain.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">option</span></code></dt><dd><p>The option character.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">domain</span></code></dt><dd><p>Request mail for this domain.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Add an ETRN node to the SMTP session.</p>
 <p><strong>Return</strong></p>
 <p>An <code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">smtp_etrn_node_t</span></code> or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> on failure.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_etrn_enumerate_nodes">
-int <code class="descname">smtp_etrn_enumerate_nodes</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, smtp_etrn_enumerate_nodecb_t<em>&nbsp;cb</em>, void *<em>&nbsp;arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_enumerate_nodes" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_etrn_enumerate_nodes</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, smtp_etrn_enumerate_nodecb_t <em>cb</em>, void *<em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_enumerate_nodes" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_enumerate_nodecb_t</span> <span class="pre">cb</span></code></dt>
-<dd>Callback function</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
-<dd>Argument (closure) passed to callback.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_enumerate_nodecb_t</span> <span class="pre">cb</span></code></dt><dd><p>Callback function</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt><dd><p>Argument (closure) passed to callback.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Call the callback function once for each ETRN node in the SMTP session.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_etrn_node_status">
-const smtp_status_t * <code class="descname">smtp_etrn_node_status</code><span class="sig-paren">(</span>smtp_etrn_node_t<em>&nbsp;node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_node_status" title="Permalink to this definition">¶</a></dt>
+<em class="property">const</em> smtp_status_t *<code class="sig-name descname">smtp_etrn_node_status</code><span class="sig-paren">(</span>smtp_etrn_node_t <em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_node_status" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt>
-<dd>An #smtp_etrn_node_t</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt><dd><p>An #smtp_etrn_node_t</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Retrieve the ETRN node success/failure status from a previous SMTP session.
@@ -237,31 +241,52 @@ available and text from the server describing the status.</p>
 <p><code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no status information is available,
 otherwise a pointer to the status information.  The pointer remains valid
 until the next call to libESMTP in the same thread.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_etrn_set_application_data">
-void * <code class="descname">smtp_etrn_set_application_data</code><span class="sig-paren">(</span>smtp_etrn_node_t<em>&nbsp;node</em>, void *<em>&nbsp;data</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_set_application_data" title="Permalink to this definition">¶</a></dt>
+void *<code class="sig-name descname">smtp_etrn_set_application_data</code><span class="sig-paren">(</span>smtp_etrn_node_t <em>node</em>, void *<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_set_application_data" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt>
-<dd>An #smtp_etrn_node_t</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt>
-<dd>Application data to set</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt><dd><p>An #smtp_etrn_node_t</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt><dd><p>Application data to set</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Associate application defined data with the opaque ETRN structure.</p>
+<p>Only available when <code class="docutils literal notranslate"><span class="pre">LIBESMTP_ENABLE_DEPRECATED_SYMBOLS</span></code> is defined.
+Use smtp_etrn_set_application_data_full() instead.</p>
 <p><strong>Return</strong></p>
 <p>Previously set application data or <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
-<dl class="function">
+<dl class="c function">
+<dt id="c.smtp_etrn_set_application_data_full">
+void <code class="sig-name descname">smtp_etrn_set_application_data_full</code><span class="sig-paren">(</span>smtp_etrn_node_t <em>node</em>, void *<em>data</em>, void (*<em>release</em>)<span class="sig-paren">(</span>void*<span class="sig-paren">)</span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_set_application_data_full" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Associate data with an ETRN node.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt><dd><p>The ETRN node.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt><dd><p>Application data</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">(*)</span> <span class="pre">(void</span> <span class="pre">*)</span> <span class="pre">release</span></code></dt><dd><p>function to free/unref data.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Associate application data with the ETRN node.
+If <strong>release</strong> is non-NULL it is called to free or unreference data when
+changed or the session is destroyed.</p>
+<dl class="c function">
 <dt id="c.smtp_etrn_get_application_data">
-void * <code class="descname">smtp_etrn_get_application_data</code><span class="sig-paren">(</span>smtp_etrn_node_t<em>&nbsp;node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_get_application_data" title="Permalink to this definition">¶</a></dt>
+void *<code class="sig-name descname">smtp_etrn_get_application_data</code><span class="sig-paren">(</span>smtp_etrn_node_t <em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_get_application_data" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt>
-<dd>An #smtp_etrn_node_t</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt><dd><p>An #smtp_etrn_node_t</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Retrieve application data from the opaque ETRN structure.</p>
@@ -274,37 +299,29 @@ void * <code class="descname">smtp_etrn_get_application_data</code><span class="
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="smtp-auth.html" class="btn btn-neutral float-right" title="Auth Extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="smtp-api.html" class="btn btn-neutral float-left" title="Core API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="smtp-auth.html" class="btn btn-neutral float-right" title="Auth Extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="smtp-api.html" class="btn btn-neutral float-left" title="Core API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Brian Stafford
+        &#169; Copyright 2020, Brian Stafford.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

@@ -1,11 +1,11 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Core API &mdash; libESMTP 1.0.6 documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -26,10 +29,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> libESMTP
+            <a href="../index.html" class="icon icon-home"> libESMTP
           
 
           
@@ -149,6 +151,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -162,7 +166,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/_kdoc/smtp-api.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -181,33 +185,33 @@
 <h1>Core API<a class="headerlink" href="#core-api" title="Permalink to this headline">¶</a></h1>
 <p>The following describes the libESMTP core API which implements the
 functionality covered in RFC 5321 and RFC 5322.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_create_session">
-smtp_session_t <code class="descname">smtp_create_session</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_create_session" title="Permalink to this definition">¶</a></dt>
+smtp_session_t <code class="sig-name descname">smtp_create_session</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_create_session" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Create a libESMTP session.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">void</span></code></dt>
-<dd>no arguments</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">void</span></code></dt><dd><p>no arguments</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Create a descriptor which maintains internal state for the SMTP session.</p>
 <p><strong>Return</strong></p>
 <p>A new SMTP session or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> on failure.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_set_server">
-int <code class="descname">smtp_set_server</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, const char *<em>&nbsp;hostport</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_server" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_set_server</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, <em class="property">const</em> char *<em>hostport</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_server" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set host and service for submission MTA.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">hostport</span></code></dt>
-<dd>Hostname and port (service) for the SMTP server.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">hostport</span></code></dt><dd><p>Hostname and port (service) for the SMTP server.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Set the host name and service for the client connection.  This is specified
@@ -218,18 +222,18 @@ defaults to 587. Host and service name validity is not checked until an
 attempt to connect to the remote host.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_set_hostname">
-int <code class="descname">smtp_set_hostname</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, const char *<em>&nbsp;hostname</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_hostname" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_set_hostname</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, <em class="property">const</em> char *<em>hostname</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_hostname" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the local host name.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">hostname</span></code></dt>
-<dd>The local hostname.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">hostname</span></code></dt><dd><p>The local hostname.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Set the name of the localhost.  If <code class="docutils literal notranslate"><span class="pre">hostname</span></code> is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, the local host
@@ -237,16 +241,16 @@ name will be determined using uname().  If the system does not provide
 uname() or equivalent, the <code class="docutils literal notranslate"><span class="pre">hostname</span></code> parameter may not be <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_add_message">
-smtp_message_t <code class="descname">smtp_add_message</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_add_message" title="Permalink to this definition">¶</a></dt>
+smtp_message_t <code class="sig-name descname">smtp_add_message</code><span class="sig-paren">(</span>smtp_session_t <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_add_message" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Add a message to the session.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Add a message to the list of messages to be transferred to the remote MTA
@@ -254,20 +258,20 @@ during an SMTP session.</p>
 <p><strong>Return</strong></p>
 <p>The descriptor for the message state, or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> on
 failure.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_enumerate_messages">
-int <code class="descname">smtp_enumerate_messages</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, <a class="reference internal" href="libesmtp.html#c.smtp_enumerate_messagecb_t" title="smtp_enumerate_messagecb_t">smtp_enumerate_messagecb_t</a><em>&nbsp;cb</em>, void *<em>&nbsp;arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_enumerate_messages" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_enumerate_messages</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, <a class="reference internal" href="libesmtp.html#c.smtp_enumerate_messagecb_t" title="smtp_enumerate_messagecb_t">smtp_enumerate_messagecb_t</a> <em>cb</em>, void *<em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_enumerate_messages" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Call function for each message in session.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_enumerate_messagecb_t</span> <span class="pre">cb</span></code></dt>
-<dd>callback function</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
-<dd>user data passed to the callback</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_enumerate_messagecb_t</span> <span class="pre">cb</span></code></dt><dd><p>callback function</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt><dd><p>user data passed to the callback</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Call the callback function once for each message in an smtp session.  The
@@ -275,16 +279,16 @@ arg parameter is passed back to the application via the callback’s parameter
 of the same name.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_message_transfer_status">
-const smtp_status_t * <code class="descname">smtp_message_transfer_status</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_message_transfer_status" title="Permalink to this definition">¶</a></dt>
+<em class="property">const</em> smtp_status_t *<code class="sig-name descname">smtp_message_transfer_status</code><span class="sig-paren">(</span>smtp_message_t <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_message_transfer_status" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Retrieve message status.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Retrieve the message transfer success/failure status from a previous SMTP
@@ -293,23 +297,21 @@ available, and text from the server describing the status.  If a message is
 marked with a success or permanent failure status, it will not be resent if
 smtp_start_session() is called again.</p>
 <p><strong>Return</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no status information is available, otherwise a pointer to</dt>
-<dd>the status information.  The pointer remains valid until the next
-call to libESMTP in the same thread.</dd>
-</dl>
-<dl class="function">
+<p><code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no status information is available, otherwise a pointer to
+the status information.  The pointer remains valid until the next
+call to libESMTP in the same thread.</p>
+<dl class="c function">
 <dt id="c.smtp_set_reverse_path">
-int <code class="descname">smtp_set_reverse_path</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em>, const char *<em>&nbsp;mailbox</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_reverse_path" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_set_reverse_path</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, <em class="property">const</em> char *<em>mailbox</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_reverse_path" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set reverse path mailbox.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">mailbox</span></code></dt>
-<dd>Reverse path mailbox.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">mailbox</span></code></dt><dd><p>Reverse path mailbox.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Set the reverse path (envelope sender) mailbox address.  <strong>mailbox</strong> must be an
@@ -325,16 +327,16 @@ create them.</p>
 <p>Not calling this API has the same effect as specifing <strong>mailbox</strong> as <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_reverse_path_status">
-const smtp_status_t * <code class="descname">smtp_reverse_path_status</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_reverse_path_status" title="Permalink to this definition">¶</a></dt>
+<em class="property">const</em> smtp_status_t *<code class="sig-name descname">smtp_reverse_path_status</code><span class="sig-paren">(</span>smtp_message_t <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_reverse_path_status" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Get the reverse path status.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Retrieve the reverse path status from a previous SMTP session.  This
@@ -344,16 +346,16 @@ and text from the server describing the status.</p>
 <p><code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no status information is available,
 otherwise a pointer to the status information.  The pointer remains valid
 until the next call to libESMTP in the same thread.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_message_reset_status">
-int <code class="descname">smtp_message_reset_status</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_message_reset_status" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_message_reset_status</code><span class="sig-paren">(</span>smtp_message_t <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_message_reset_status" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Reset message status.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Reset the message status to the state it would have before
@@ -361,18 +363,18 @@ smtp_start_session() is called for the first time on the containing session.
 This may be used to force libESMTP to resend certain messages.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_add_recipient">
-smtp_recipient_t <code class="descname">smtp_add_recipient</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em>, const char *<em>&nbsp;mailbox</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_add_recipient" title="Permalink to this definition">¶</a></dt>
+smtp_recipient_t <code class="sig-name descname">smtp_add_recipient</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, <em class="property">const</em> char *<em>mailbox</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_add_recipient" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Add a message recipient.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">mailbox</span></code></dt>
-<dd>Recipient mailbox address.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">mailbox</span></code></dt><dd><p>Recipient mailbox address.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Add a recipient to the message.  <strong>mailbox</strong> must be an address using the
@@ -388,35 +390,35 @@ result of alias expansion.</p>
 <p><strong>Return</strong></p>
 <p>The descriptor for the recipient state or <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
 for failure.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_enumerate_recipients">
-int <code class="descname">smtp_enumerate_recipients</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em>, <a class="reference internal" href="libesmtp.html#c.smtp_enumerate_recipientcb_t" title="smtp_enumerate_recipientcb_t">smtp_enumerate_recipientcb_t</a><em>&nbsp;cb</em>, void *<em>&nbsp;arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_enumerate_recipients" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_enumerate_recipients</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, <a class="reference internal" href="libesmtp.html#c.smtp_enumerate_recipientcb_t" title="smtp_enumerate_recipientcb_t">smtp_enumerate_recipientcb_t</a> <em>cb</em>, void *<em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_enumerate_recipients" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Call a function for each recipient.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_enumerate_recipientcb_t</span> <span class="pre">cb</span></code></dt>
-<dd>Callback function to process recipient.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
-<dd>User data passed to the callback.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_enumerate_recipientcb_t</span> <span class="pre">cb</span></code></dt><dd><p>Callback function to process recipient.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt><dd><p>User data passed to the callback.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Call the callback function once for each recipient in the SMTP message.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_recipient_status">
-const smtp_status_t * <code class="descname">smtp_recipient_status</code><span class="sig-paren">(</span>smtp_recipient_t<em>&nbsp;recipient</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_recipient_status" title="Permalink to this definition">¶</a></dt>
+<em class="property">const</em> smtp_status_t *<code class="sig-name descname">smtp_recipient_status</code><span class="sig-paren">(</span>smtp_recipient_t <em>recipient</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_recipient_status" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Get the recipient status.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt>
-<dd>The recipient.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt><dd><p>The recipient.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Retrieve the recipient success/failure status from a previous SMTP session.
@@ -429,16 +431,16 @@ smtp_start_session() is called again, however it may be used when generating
 <p><code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no status information is available,
 otherwise a pointer to the status information.  The pointer remains valid
 until the next call to libESMTP in the same thread.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_recipient_check_complete">
-int <code class="descname">smtp_recipient_check_complete</code><span class="sig-paren">(</span>smtp_recipient_t<em>&nbsp;recipient</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_recipient_check_complete" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_recipient_check_complete</code><span class="sig-paren">(</span>smtp_recipient_t <em>recipient</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_recipient_check_complete" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Check if recipient processing is completed.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt>
-<dd>The recipient.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt><dd><p>The recipient.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Check whether processing is complete for the specified recipient of the
@@ -447,16 +449,16 @@ responsibility for delivering the message, or if it has indicated a
 permanent failure.</p>
 <p><strong>Return</strong></p>
 <p>Zero if processing is not complete, non-zero otherwise.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_recipient_reset_status">
-int <code class="descname">smtp_recipient_reset_status</code><span class="sig-paren">(</span>smtp_recipient_t<em>&nbsp;recipient</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_recipient_reset_status" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_recipient_reset_status</code><span class="sig-paren">(</span>smtp_recipient_t <em>recipient</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_recipient_reset_status" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Reset recipient status.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt>
-<dd>The recipient.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt><dd><p>The recipient.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Reset the recipient status to the state it would have before
@@ -471,36 +473,36 @@ recipients.</p>
 <h1>Delivery Status Notification (DSN)<a class="headerlink" href="#delivery-status-notification-dsn" title="Permalink to this headline">¶</a></h1>
 <p>The following APIs implement Delivery Status Notification (DSN) as
 described in RFC 3461.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_dsn_set_ret">
-int <code class="descname">smtp_dsn_set_ret</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em>, enum <a class="reference internal" href="libesmtp.html#c.ret_flags" title="ret_flags">ret_flags</a><em>&nbsp;flags</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_dsn_set_ret" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_dsn_set_ret</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, <em class="property">enum</em> ret_flags <em>flags</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_dsn_set_ret" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set DSN return flags.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">ret_flags</span> <span class="pre">flags</span></code></dt>
-<dd>an <code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">ret_flags</span></code></dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">ret_flags</span> <span class="pre">flags</span></code></dt><dd><p>an <code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">ret_flags</span></code></p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Instruct the reporting MTA whether to include the full content of the
 original message in the Delivery Status Notification, or just the headers.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_dsn_set_envid">
-int <code class="descname">smtp_dsn_set_envid</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em>, const char *<em>&nbsp;envid</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_dsn_set_envid" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_dsn_set_envid</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, <em class="property">const</em> char *<em>envid</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_dsn_set_envid" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the envelope identifier.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">envid</span></code></dt>
-<dd>Envelope idientifier.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">envid</span></code></dt><dd><p>Envelope idientifier.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Set the envelope identifier.  This value is returned in the
@@ -508,18 +510,18 @@ DSN and may be used by the MUA to associate the DSN with the
 message that caused it to be generated.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_dsn_set_notify">
-int <code class="descname">smtp_dsn_set_notify</code><span class="sig-paren">(</span>smtp_recipient_t<em>&nbsp;recipient</em>, enum <a class="reference internal" href="libesmtp.html#c.notify_flags" title="notify_flags">notify_flags</a><em>&nbsp;flags</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_dsn_set_notify" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_dsn_set_notify</code><span class="sig-paren">(</span>smtp_recipient_t <em>recipient</em>, <em class="property">enum</em> notify_flags <em>flags</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_dsn_set_notify" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the DSN notify flags.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt>
-<dd>The recipient.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">notify_flags</span> <span class="pre">flags</span></code></dt>
-<dd>An <code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">notify_flags</span></code></dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt><dd><p>The recipient.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">notify_flags</span> <span class="pre">flags</span></code></dt><dd><p>An <code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">notify_flags</span></code></p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Set the DSN notify options.  Flags may be <code class="docutils literal notranslate"><span class="pre">Notify_NOTSET</span></code> or <code class="docutils literal notranslate"><span class="pre">Notify_NEVER</span></code> or
@@ -527,20 +529,20 @@ the bitwise OR of any combination of <code class="docutils literal notranslate">
 <code class="docutils literal notranslate"><span class="pre">Notify_DELAY</span></code>.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_dsn_set_orcpt">
-int <code class="descname">smtp_dsn_set_orcpt</code><span class="sig-paren">(</span>smtp_recipient_t<em>&nbsp;recipient</em>, const char *<em>&nbsp;address_type</em>, const char *<em>&nbsp;address</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_dsn_set_orcpt" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_dsn_set_orcpt</code><span class="sig-paren">(</span>smtp_recipient_t <em>recipient</em>, <em class="property">const</em> char *<em>address_type</em>, <em class="property">const</em> char *<em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_dsn_set_orcpt" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the DSN ORCPT option.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt>
-<dd>The recipient.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">address_type</span></code></dt>
-<dd>String specifying the address type.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">address</span></code></dt>
-<dd>String specifying the original recipient address.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt><dd><p>The recipient.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">address_type</span></code></dt><dd><p>String specifying the address type.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">address</span></code></dt><dd><p>String specifying the original recipient address.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Set the DSN ORCPT option. This DSN option is used only when performing
@@ -556,18 +558,18 @@ program which submits mail.</p>
 <h1>Size Extention<a class="headerlink" href="#size-extention" title="Permalink to this headline">¶</a></h1>
 <p>The following APIs implement the SMTP size extention as
 described in RFC 1870.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_size_set_estimate">
-int <code class="descname">smtp_size_set_estimate</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em>, unsigned long<em>&nbsp;size</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_size_set_estimate" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_size_set_estimate</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, unsigned long <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_size_set_estimate" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the message size estimate.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">size</span></code></dt>
-<dd>The size estimate</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">size</span></code></dt><dd><p>The size estimate</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Used by the application to supply an estimate of the size of the
@@ -582,18 +584,18 @@ message to be transferred.</p>
 declare the message body is either in strict conformance with RFC 5322 or
 that it is a MIME document where some or all of the MIME parts use 8-bit
 encoding.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_8bitmime_set_body">
-int <code class="descname">smtp_8bitmime_set_body</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em>, enum <a class="reference internal" href="libesmtp.html#c.e8bitmime_body" title="e8bitmime_body">e8bitmime_body</a><em>&nbsp;body</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_8bitmime_set_body" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_8bitmime_set_body</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, <em class="property">enum</em> e8bitmime_body <em>body</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_8bitmime_set_body" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set message body options.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">e8bitmime_body</span> <span class="pre">body</span></code></dt>
-<dd>Constant from <a class="reference internal" href="libesmtp.html#c.e8bitmime_body" title="e8bitmime_body"><code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">e8bitmime_body</span></code></a>.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">e8bitmime_body</span> <span class="pre">body</span></code></dt><dd><p>Constant from <code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">e8bitmime_body</span></code>.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Declare the message body conformance.  If the body type is not
@@ -606,22 +608,22 @@ application if the MTA does not support the <code class="docutils literal notran
 <div class="section" id="deliver-by-extension">
 <h1>Deliver By Extension<a class="headerlink" href="#deliver-by-extension" title="Permalink to this headline">¶</a></h1>
 <p># FIXME</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_deliverby_set_mode">
-int <code class="descname">smtp_deliverby_set_mode</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em>, long<em>&nbsp;time</em>, enum <a class="reference internal" href="libesmtp.html#c.by_mode" title="by_mode">by_mode</a><em>&nbsp;mode</em>, int<em>&nbsp;trace</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_deliverby_set_mode" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_deliverby_set_mode</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, long <em>time</em>, <em class="property">enum</em> by_mode <em>mode</em>, int <em>trace</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_deliverby_set_mode" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set delivery tracing and conditions.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">time</span></code></dt>
-<dd>Deliver ny specified time.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">by_mode</span> <span class="pre">mode</span></code></dt>
-<dd>Delivery mode.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">trace</span></code></dt>
-<dd>Trace mode.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">time</span></code></dt><dd><p>Deliver ny specified time.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">by_mode</span> <span class="pre">mode</span></code></dt><dd><p>Delivery mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">trace</span></code></dt><dd><p>Trace mode.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>FIXME</p>
@@ -631,60 +633,60 @@ int <code class="descname">smtp_deliverby_set_mode</code><span class="sig-paren"
 </div>
 <div class="section" id="id1">
 <h1>Core API<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_set_messagecb">
-int <code class="descname">smtp_set_messagecb</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em>, smtp_messagecb_t<em>&nbsp;cb</em>, void *<em>&nbsp;arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_messagecb" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_set_messagecb</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, smtp_messagecb_t <em>cb</em>, void *<em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_messagecb" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set message reader.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_messagecb_t</span> <span class="pre">cb</span></code></dt>
-<dd>Callback function.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
-<dd>application data (closure) passed to the callback.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_messagecb_t</span> <span class="pre">cb</span></code></dt><dd><p>Callback function.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt><dd><p>application data (closure) passed to the callback.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Set a callback function to read the message.</p>
 <p><strong>Return</strong></p>
 <p>Non zero on success, zero on failure.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_set_eventcb">
-int <code class="descname">smtp_set_eventcb</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, smtp_eventcb_t<em>&nbsp;cb</em>, void *<em>&nbsp;arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_eventcb" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_set_eventcb</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, smtp_eventcb_t <em>cb</em>, void *<em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_eventcb" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set event callback.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_eventcb_t</span> <span class="pre">cb</span></code></dt>
-<dd>Callback function.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
-<dd>application data (closure) passed to the callback.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_eventcb_t</span> <span class="pre">cb</span></code></dt><dd><p>Callback function.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt><dd><p>application data (closure) passed to the callback.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Set callback to be called as protocol events occur.</p>
 <p><strong>Return</strong></p>
 <p>Non zero on success, zero on failure.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_set_monitorcb">
-int <code class="descname">smtp_set_monitorcb</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, smtp_monitorcb_t<em>&nbsp;cb</em>, void *<em>&nbsp;arg</em>, int<em>&nbsp;headers</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_monitorcb" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_set_monitorcb</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, smtp_monitorcb_t <em>cb</em>, void *<em>arg</em>, int <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_monitorcb" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set protocol monitor.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_monitorcb_t</span> <span class="pre">cb</span></code></dt>
-<dd>Callback function.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt>
-<dd>application data (closure) passed to the callback.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">headers</span></code></dt>
-<dd>non-zero to view headers.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_monitorcb_t</span> <span class="pre">cb</span></code></dt><dd><p>Callback function.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt><dd><p>application data (closure) passed to the callback.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">headers</span></code></dt><dd><p>non-zero to view headers.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Set callback to be monitor the SMTP session.  The monitor function is called
@@ -694,16 +696,16 @@ excluded from the monitor.  However, <strong>headers</strong> is non-zero the me
 headers are monitored.</p>
 <p><strong>Return</strong></p>
 <p>Non zero on success, zero on failure.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_start_session">
-int <code class="descname">smtp_start_session</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_start_session" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_start_session</code><span class="sig-paren">(</span>smtp_session_t <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_start_session" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Start an SMTP session.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session to start.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session to start.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Initiate a mail submission session with an SMTP server.</p>
@@ -719,16 +721,16 @@ only when this is called and is closed down before it returns, i.e. there is
 no connection to the server outside this function.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_destroy_session">
-int <code class="descname">smtp_destroy_session</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_destroy_session" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_destroy_session</code><span class="sig-paren">(</span>smtp_session_t <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_destroy_session" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Destroy a libESMTP session.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Deallocate all resources associated with the SMTP session.</p>
@@ -737,133 +739,196 @@ application must explicitly enumerate all messages and their recipients, and
 retrieve the data to be freed.</p>
 <p><strong>Return</strong></p>
 <p>always returns 1</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_set_application_data">
-void * <code class="descname">smtp_set_application_data</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, void *<em>&nbsp;data</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_application_data" title="Permalink to this definition">¶</a></dt>
+void *<code class="sig-name descname">smtp_set_application_data</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, void *<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_application_data" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Associate data with a session.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt>
-<dd>Application data</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt><dd><p>Application data</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Associate application data with the session.</p>
+<p>Only available when <code class="docutils literal notranslate"><span class="pre">LIBESMTP_ENABLE_DEPRECATED_SYMBOLS</span></code> is defined.
+Use smtp_set_application_data_full() instead.</p>
 <p><strong>Return</strong></p>
 <p>Previously set application data or <code class="docutils literal notranslate"><span class="pre">NULL</span></code></p>
-<dl class="function">
+<dl class="c function">
+<dt id="c.smtp_set_application_data_full">
+void <code class="sig-name descname">smtp_set_application_data_full</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, void *<em>data</em>, void (*<em>release</em>)<span class="sig-paren">(</span>void*<span class="sig-paren">)</span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_application_data_full" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Associate data with a session.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt><dd><p>Application data</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">(*)</span> <span class="pre">(void</span> <span class="pre">*)</span> <span class="pre">release</span></code></dt><dd><p>function to free/unref data.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Associate application data with the session.
+If <strong>release</strong> is non-NULL it is called to free or unreference data when
+changed or the session is destroyed.</p>
+<dl class="c function">
 <dt id="c.smtp_get_application_data">
-void * <code class="descname">smtp_get_application_data</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_get_application_data" title="Permalink to this definition">¶</a></dt>
+void *<code class="sig-name descname">smtp_get_application_data</code><span class="sig-paren">(</span>smtp_session_t <em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_get_application_data" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Get data from a session.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Get application data from the session.</p>
 <p><strong>Return</strong></p>
 <p>Previously set application data or <code class="docutils literal notranslate"><span class="pre">NULL</span></code></p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_message_set_application_data">
-void * <code class="descname">smtp_message_set_application_data</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em>, void *<em>&nbsp;data</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_message_set_application_data" title="Permalink to this definition">¶</a></dt>
+void *<code class="sig-name descname">smtp_message_set_application_data</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, void *<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_message_set_application_data" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Associate data with a message.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt>
-<dd>Application data</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt><dd><p>Application data</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Associate application data with the message.</p>
+<p>Only available when <code class="docutils literal notranslate"><span class="pre">LIBESMTP_ENABLE_DEPRECATED_SYMBOLS</span></code> is defined.
+Use smtp_message_set_application_data_full() instead.</p>
 <p><strong>Return</strong></p>
 <p>Previously set application data or <code class="docutils literal notranslate"><span class="pre">NULL</span></code></p>
-<dl class="function">
+<dl class="c function">
+<dt id="c.smtp_message_set_application_data_full">
+void <code class="sig-name descname">smtp_message_set_application_data_full</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, void *<em>data</em>, void (*<em>release</em>)<span class="sig-paren">(</span>void*<span class="sig-paren">)</span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_message_set_application_data_full" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Associate data with a message.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt><dd><p>Application data</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">(*)</span> <span class="pre">(void</span> <span class="pre">*)</span> <span class="pre">release</span></code></dt><dd><p>function to free/unref data.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Associate application data with the message.
+If <strong>release</strong> is non-NULL it is called to free or unreference data when
+changed or the message is destroyed.</p>
+<dl class="c function">
 <dt id="c.smtp_message_get_application_data">
-void * <code class="descname">smtp_message_get_application_data</code><span class="sig-paren">(</span>smtp_message_t<em>&nbsp;message</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_message_get_application_data" title="Permalink to this definition">¶</a></dt>
+void *<code class="sig-name descname">smtp_message_get_application_data</code><span class="sig-paren">(</span>smtp_message_t <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_message_get_application_data" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Get data from a message.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt>
-<dd>The message.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Get application data from the message.</p>
 <p><strong>Return</strong></p>
 <p>Previously set application data or <code class="docutils literal notranslate"><span class="pre">NULL</span></code></p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_recipient_set_application_data">
-void * <code class="descname">smtp_recipient_set_application_data</code><span class="sig-paren">(</span>smtp_recipient_t<em>&nbsp;recipient</em>, void *<em>&nbsp;data</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_recipient_set_application_data" title="Permalink to this definition">¶</a></dt>
+void *<code class="sig-name descname">smtp_recipient_set_application_data</code><span class="sig-paren">(</span>smtp_recipient_t <em>recipient</em>, void *<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_recipient_set_application_data" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Associate data with a recipient.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt>
-<dd>The recipient.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt>
-<dd>Application data</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt><dd><p>The recipient.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt><dd><p>Application data</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Associate application data with the recipient.</p>
+<p>Only available when <code class="docutils literal notranslate"><span class="pre">LIBESMTP_ENABLE_DEPRECATED_SYMBOLS</span></code> is defined.
+Use smtp_recipient_set_application_data_full() instead.</p>
 <p><strong>Return</strong></p>
 <p>Previously set application data or <code class="docutils literal notranslate"><span class="pre">NULL</span></code></p>
-<dl class="function">
+<dl class="c function">
+<dt id="c.smtp_recipient_set_application_data_full">
+void <code class="sig-name descname">smtp_recipient_set_application_data_full</code><span class="sig-paren">(</span>smtp_recipient_t <em>recipient</em>, void *<em>data</em>, void (*<em>release</em>)<span class="sig-paren">(</span>void*<span class="sig-paren">)</span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_recipient_set_application_data_full" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Associate data with a recipient.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt><dd><p>The recipient.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt><dd><p>Application data</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">(*)</span> <span class="pre">(void</span> <span class="pre">*)</span> <span class="pre">release</span></code></dt><dd><p>function to free/unref data.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Associate application data with the recipient.
+If <strong>release</strong> is non-NULL it is called to free or unreference data when
+changed or the recipient is destroyed.</p>
+<dl class="c function">
 <dt id="c.smtp_recipient_get_application_data">
-void * <code class="descname">smtp_recipient_get_application_data</code><span class="sig-paren">(</span>smtp_recipient_t<em>&nbsp;recipient</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_recipient_get_application_data" title="Permalink to this definition">¶</a></dt>
+void *<code class="sig-name descname">smtp_recipient_get_application_data</code><span class="sig-paren">(</span>smtp_recipient_t <em>recipient</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_recipient_get_application_data" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Get data from a recipient.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt>
-<dd>The recipient.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt><dd><p>The recipient.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Get application data from the recipient.</p>
 <p><strong>Return</strong></p>
 <p>Previously set application data or <code class="docutils literal notranslate"><span class="pre">NULL</span></code></p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_version">
-int <code class="descname">smtp_version</code><span class="sig-paren">(</span>void *<em>&nbsp;buf</em>, size_t<em>&nbsp;len</em>, int<em>&nbsp;what</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_version" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_version</code><span class="sig-paren">(</span>void *<em>buf</em>, size_t <em>len</em>, int <em>what</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_version" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Identify libESMTP version.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">buf</span></code></dt>
-<dd>Buffer to receive version string.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">len</span></code></dt>
-<dd>Length of buffer.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">what</span></code></dt>
-<dd>Which version information to be retrieved (currently must be 0).</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">buf</span></code></dt><dd><p>Buffer to receive version string.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">len</span></code></dt><dd><p>Length of buffer.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">what</span></code></dt><dd><p>Which version information to be retrieved (currently must be 0).</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Retrieve version information for the libESMTP in use.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_option_require_all_recipients">
-int <code class="descname">smtp_option_require_all_recipients</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, int<em>&nbsp;state</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_option_require_all_recipients" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">smtp_option_require_all_recipients</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, int <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_option_require_all_recipients" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>FAIL if server rejects any recipient.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">state</span></code></dt>
-<dd>Boolean set non-zero to enable.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">state</span></code></dt><dd><p>Boolean set non-zero to enable.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Some applications can’t handle one recipient from many failing particularly
@@ -872,23 +937,23 @@ entire transaction even if some of the recipients were accepted in the RCPT
 commands.</p>
 <p><strong>Return</strong></p>
 <p>Non zero on success, zero on failure.</p>
-<dl class="function">
+<dl class="c function">
 <dt id="c.smtp_set_timeout">
-long <code class="descname">smtp_set_timeout</code><span class="sig-paren">(</span>smtp_session_t<em>&nbsp;session</em>, int<em>&nbsp;which</em>, long<em>&nbsp;value</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_timeout" title="Permalink to this definition">¶</a></dt>
+long <code class="sig-name descname">smtp_set_timeout</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, int <em>which</em>, long <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_timeout" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set session timeouts.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt>
-<dd>The session.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">which</span></code></dt>
-<dd>Which timeout to set. A constant from <a class="reference internal" href="libesmtp.html#c.rfc2822_timeouts" title="rfc2822_timeouts"><code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">rfc2822_timeouts</span></code></a>.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">value</span></code></dt>
-<dd>duration of timeout in seconds.</dd>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">which</span></code></dt><dd><p>Which timeout to set. A constant from <code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">rfc2822_timeouts</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">value</span></code></dt><dd><p>duration of timeout in seconds.</p>
+</dd>
 </dl>
 <p><strong>Description</strong></p>
-<p>Set the protocol timeouts.  <strong>which</strong> is a constant from <a class="reference internal" href="libesmtp.html#c.rfc2822_timeouts" title="rfc2822_timeouts"><code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">rfc2822_timeouts</span></code></a>
+<p>Set the protocol timeouts.  <strong>which</strong> is a constant from <code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">rfc2822_timeouts</span></code>
 specifying which timeout to set.  The minimum values recommended in RFC 5322
 are enforced unless <strong>which</strong> is bitwise-ORed with
 <code class="docutils literal notranslate"><span class="pre">Timeout_OVERRIDE_RFC2822_MINIMUM</span></code>.  An absolute minumum timeout of one
@@ -902,37 +967,29 @@ second is imposed.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="smtp-etrn.html" class="btn btn-neutral float-right" title="Remote Message Queue Starting (ETRN)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="libesmtp.html" class="btn btn-neutral float-left" title="libESMTP Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="smtp-etrn.html" class="btn btn-neutral float-right" title="Remote Message Queue Starting (ETRN)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="libesmtp.html" class="btn btn-neutral float-left" title="libESMTP Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Brian Stafford
+        &#169; Copyright 2020, Brian Stafford.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

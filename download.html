@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Download &mdash; libESMTP 1.0.6 documentation</title>
+  <title>Download &mdash; libESMTP 1.1.0 documentation</title>
   
 
   
@@ -38,7 +38,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Reporting Bugs" href="bugreport.html" />
+    <link rel="next" title="Changes since v1.0.6" href="changes-since-v1.0.6.html" />
     <link rel="prev" title="Benefits" href="libesmtp.html" /> 
 </head>
 
@@ -64,6 +64,10 @@
 
           
             
+            
+              <div class="version">
+                1.1
+              </div>
             
           
 
@@ -92,19 +96,24 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Download</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#openssl">OpenSSL</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dlopen">dlopen()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#getaddrinfo">getaddrinfo()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isc-bind-9">ISC Bind 9</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#static-analyser">Static Analyser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#repository">Repository</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="changes-since-v1.0.6.html">Changes since v1.0.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bugreport.html">Reporting Bugs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rationale.html">Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="retrospective.html">Retrospective</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="essays.html">Essays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oldfiles.html">Legacy Files</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/libesmtp/libESMTP/wiki">Wiki</a></li>
 </ul>
 
             
@@ -159,8 +168,6 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/download.md.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -175,15 +182,15 @@
   <div class="section" id="download">
 <h1>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h1>
 <p>LibESMTP is considered stable.  Source code is available from
-<a class="reference external" href="https://github.com/libesmtp/libESMTP">GitHub</a>.
-Clone the repository as follows, however please also refer to
-<a class="reference internal" href="errata.html"><span class="doc">the errata</span></a> for further important information.</p>
+<a class="reference external" href="https://github.com/libesmtp/libESMTP">GitHub</a>.  The current version of
+libESMTP is 1.1.0. Earlier versions are not recommended.  Clone the repository
+as follows:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/libesmtp/libESMTP.git
 </pre></div>
 </div>
-<p>libESMTP v1.0.6 may be found on the branch <code class="docutils literal notranslate"><span class="pre">libesmtp-1.0.6</span></code>.</p>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>libESMTP has the following optional dependencies.</p>
 <div class="section" id="openssl">
 <h3>OpenSSL<a class="headerlink" href="#openssl" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://www.openssl.org/">OpenSSL v1.1.0</a> or later is required to build the
@@ -191,25 +198,19 @@ SMTP STARTTLS extension and to build the SASL NTLM authentication module.
 libESMTP may be built without OpenSSL, however most contemporary mail
 submission agents require TLS connections.</p>
 </div>
-<div class="section" id="dlopen">
-<h3>dlopen()<a class="headerlink" href="#dlopen" title="Permalink to this headline">¶</a></h3>
-<p>libESMTP requires dlopen() to dynamically load authentication modules.</p>
-</div>
-<div class="section" id="getaddrinfo">
-<h3>getaddrinfo()<a class="headerlink" href="#getaddrinfo" title="Permalink to this headline">¶</a></h3>
-<p>Most modern resolver libraries provide the getaddrinfo() API defined in
-RFC 2553.  The Lightweight Resolver (lwres), provided by the
-<a class="reference external" href="https://www.isc.org/">ISC BIND 9</a> library, may be used in preference to the
-standard resolver. BIND 9 also provides getaddrinfo() as part of the standard
-resolver should it be unavailable on the target platform.</p>
+<div class="section" id="isc-bind-9">
+<h3>ISC Bind 9<a class="headerlink" href="#isc-bind-9" title="Permalink to this headline">¶</a></h3>
+<p>libESMTP supports the Lightweight Resolver (lwres), provided by the <a class="reference external" href="https://www.isc.org/">ISC BIND
+9</a>, which may be used in preference to the standard
+resolver. BIND 9 also provides getaddrinfo() as part of the standard resolver
+should it be unavailable on the target platform’s C library.</p>
 </div>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>LibESMTP uses the
 <a class="reference external" href="https://mesonbuild.com/Getting-meson.html">Meson build system</a>.
-Refer to the Meson manual for standard configuration options.
-<em>Note that the libesmtp-1.0.6 branch still uses autotools.</em></p>
+Refer to the Meson manual for standard configuration options.</p>
 <p>Meson supports multiple build system backends.  To build with
 <a class="reference external" href="https://ninja-build.org/">Ninja</a> do the following:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ meson <span class="o">[</span>options<span class="o">]</span> --buildtype<span class="o">=</span>release builddir
@@ -230,37 +231,54 @@ builddir with files owned by root.</p>
 </thead>
 <tbody>
 <tr>
-<td>-Dpthreads</td>
-<td>enabled,disabled,<strong>auto</strong></td>
+<td>xdg</td>
+<td><strong>true</strong>, false</td>
+<td>use XDG directory layout instead of ~/.authenticate</td>
+</tr>
+<tr>
+<td>pthreads</td>
+<td>enabled, disabled, <strong>auto</strong></td>
 <td>build with support for Posix threads</td>
 </tr>
 <tr>
-<td>-Dtls</td>
-<td>enabled,disabled,<strong>auto</strong></td>
+<td>tls</td>
+<td>enabled, disabled, <strong>auto</strong></td>
 <td>support the STARTTLS extension and NTLM authentication</td>
 </tr>
 <tr>
-<td>-Dlwres</td>
-<td>enabled,<strong>disabled</strong>,auto</td>
+<td>lwres</td>
+<td>enabled, <strong>disabled</strong>, auto</td>
 <td>use the ISC lightweight resolver</td>
 </tr>
 <tr>
-<td>-Dbdat</td>
-<td><strong>true</strong>,false</td>
+<td>bdat</td>
+<td><strong>true</strong>, false</td>
 <td>enable SMTP BDAT extension</td>
 </tr>
 <tr>
-<td>-Detrn</td>
-<td><strong>true</strong>,false</td>
+<td>etrn</td>
+<td><strong>true</strong>, false</td>
 <td>enable SMTP ETRN extension</td>
 </tr>
 <tr>
-<td>-Dxusr</td>
-<td><strong>true</strong>,false</td>
+<td>xusr</td>
+<td><strong>true</strong>, false</td>
 <td>enable sendmail XUSR extension</td>
 </tr>
 </tbody>
 </table><p>Options are specified as <code class="docutils literal notranslate"><span class="pre">-D&lt;option&gt;=&lt;value&gt;</span></code>.</p>
+</div>
+<div class="section" id="static-analyser">
+<h2>Static Analyser<a class="headerlink" href="#static-analyser" title="Permalink to this headline">¶</a></h2>
+<p>It’s not obvious how to use <code class="docutils literal notranslate"><span class="pre">scan-build</span></code> with meson and ninja when the binary
+does not have the default name.  It also turns out the <code class="docutils literal notranslate"><span class="pre">SCANBUILD</span></code> environment
+variable must be set to the <em>absolute</em> pathname of the binary.</p>
+<p>To build with the clang static analyser, assuming the scan-build binary is
+<code class="docutils literal notranslate"><span class="pre">scan-build-10</span></code>, use the following:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">SCANBUILD</span><span class="o">=</span><span class="sb">`</span>which scan-build-10<span class="sb">`</span> meson builddir <span class="o">[</span>options<span class="o">]</span>
+ninja -C builddir scan-build
+</pre></div>
+</div>
 </div>
 <div class="section" id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
@@ -270,6 +288,11 @@ the <a class="reference external" href="https://www.kernel.org/">Linux Kernel</a
 the <code class="docutils literal notranslate"><span class="pre">scripts/</span></code> directory.</p>
 <p>Change to the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> directory and run <code class="docutils literal notranslate"><span class="pre">gendoc.sh</span></code>.</p>
 </div>
+<div class="section" id="repository">
+<h2>Repository<a class="headerlink" href="#repository" title="Permalink to this headline">¶</a></h2>
+<p>The git repository was rebuilt from released tarballs.  Please refer to the
+<a class="reference internal" href="errata.html"><span class="doc">errata</span></a> for further information.</p>
+</div>
 </div>
 
 
@@ -278,7 +301,7 @@ the <code class="docutils literal notranslate"><span class="pre">scripts/</span>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="bugreport.html" class="btn btn-neutral float-right" title="Reporting Bugs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="changes-since-v1.0.6.html" class="btn btn-neutral float-right" title="Changes since v1.0.6" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="libesmtp.html" class="btn btn-neutral float-left" title="Benefits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
@@ -286,7 +309,7 @@ the <code class="docutils literal notranslate"><span class="pre">scripts/</span>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Brian Stafford.
+        &#169; Copyright 2021, Brian Stafford.
 
     </p>
   </div>

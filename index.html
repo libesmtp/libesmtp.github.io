@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>libESMTP &mdash; libESMTP 1.0.6 documentation</title>
+  <title>libESMTP v 1.1.0 &mdash; libESMTP 1.1.0 documentation</title>
   
 
   
@@ -64,6 +64,10 @@
           
             
             
+              <div class="version">
+                1.1
+              </div>
+            
           
 
           
@@ -89,11 +93,15 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="libesmtp.html">Benefits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-since-v1.0.6.html">Changes since v1.0.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bugreport.html">Reporting Bugs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rationale.html">Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="retrospective.html">Retrospective</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="essays.html">Essays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oldfiles.html">Legacy Files</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/libesmtp/libESMTP/wiki">Wiki</a></li>
 </ul>
 
             
@@ -142,13 +150,11 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>libESMTP</li>
+      <li>libESMTP v 1.1.0</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,61 +167,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="libesmtp">
-<h1>libESMTP<a class="headerlink" href="#libesmtp" title="Permalink to this headline">¶</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is the official libESMTP repository and documentation,
-created and maintained by the original libESMTP author.</p>
-<p>See <a class="reference external" href="notes.html">the following notes</a> for more information.</p>
+  <div class="section" id="libesmtp-v-1-1-0">
+<h1>libESMTP v 1.1.0<a class="headerlink" href="#libesmtp-v-1-1-0" title="Permalink to this headline">¶</a></h1>
+<p><strong>libESMTP</strong> is an SMTP client library which manages submission of electronic
+mail via a preconfigured Mail Transport Agent (MTA) such as
+<a class="reference external" href="https://www.exim.org/">Exim</a> or <a class="reference external" href="http://www.postfix.org/">Postfix</a>.
+It implements many SMTP extensions including TLS for security and PIPELINING
+for high performance.</p>
+<div class="attention admonition">
+<p class="admonition-title">The current version of libESMTP is 1.1.0.</p>
+<p>Earlier versions are not recommended.</p>
 </div>
-<div class="section" id="a-library-for-posting-electronic-mail">
-<h2>A Library for Posting Electronic Mail<a class="headerlink" href="#a-library-for-posting-electronic-mail" title="Permalink to this headline">¶</a></h2>
-<p><strong>libESMTP</strong> is an SMTP client which manages submission of electronic mail via
-a preconfigured Mail Transport Agent (MTA) such as
-<a class="reference external" href="https://www.exim.org/">Exim</a> or <a class="reference external" href="http://www.postfix.org/">Postfix</a>.</p>
-<p>libESMTP offloads the developer of the need to handle the complexity of
-negotiating the SMTP protocol by providing a simple API. Additionally
-libESMTP transparently handles many SMTP extensions including authentication.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="libesmtp.html">Benefits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bugreport.html">Reporting Bugs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rationale.html">Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="retrospective.html">Retrospective</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a></li>
-</ul>
-</div>
-<div class="section" id="wiki">
-<h3>Wiki<a class="headerlink" href="#wiki" title="Permalink to this headline">¶</a></h3>
-<p>The libESMTP wiki is
-<a class="reference external" href="https://github.com/libesmtp/libESMTP/wiki">found here</a>.</p>
-</div>
-<div class="section" id="users">
-<h3>Users<a class="headerlink" href="#users" title="Permalink to this headline">¶</a></h3>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Projects using libESMTP are currently unknown. Please leave
-a comment on issue #2 if your project is using libESMTP.  Without this
-it is impossible to judge whether and how much effort should be invested
-in libESMTP’s future.</p>
-</div>
-</div>
-<div class="section" id="indexes-and-tables">
-<h3>Indexes and Tables<a class="headerlink" href="#indexes-and-tables" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
-</div>
-<div class="section" id="copyright-licence">
-<h3>Copyright &amp; Licence<a class="headerlink" href="#copyright-licence" title="Permalink to this headline">¶</a></h3>
-<p>libESMTP is copyright © 2001-2020 Brian Stafford, licensed under the
-<a class="reference external" href="https://www.gnu.org/copyleft/lesser.html)">GNU Lesser General Public License</a>.</p>
-<p>The example programs are licensed
+<p>This is the <strong>official libESMTP repository</strong> and documentation.
+It is maintained by Brian Stafford, the original libESMTP author.</p>
+<div class="section" id="licence">
+<h2>Licence<a class="headerlink" href="#licence" title="Permalink to this headline">¶</a></h2>
+<p>Copyright © 2001-2021 Brian Stafford</p>
+<p>libESMTP is licensed under the
+<a class="reference external" href="https://www.gnu.org/copyleft/lesser.html)">GNU Lesser General Public License</a>.
+The example programs are licensed
 <a class="reference external" href="https://www.gnu.org/copyleft/gpl.html">GNU General Public Licence</a>.</p>
+</div>
+<div class="section" id="package-maintainers">
+<h2>Package Maintainers<a class="headerlink" href="#package-maintainers" title="Permalink to this headline">¶</a></h2>
+<p>Package maintainers or those who have bug-fixes or other enhancements against
+a legacy tarball are encouraged to
+<a class="reference external" href="https://github.com/libesmtp/libESMTP">fork this repository</a>
+and base their changes against a suitable tag, preferably the current release,
+and make a pull request.</p>
+</div>
+<div class="section" id="old-websites">
+<h2>Old Websites<a class="headerlink" href="#old-websites" title="Permalink to this headline">¶</a></h2>
+<p>The old libESMTP websites at stafford.uklinux.net and brianstafford.info are
+defunct.  brianstafford.info now belongs to a namesake.</p>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 </div>
@@ -233,7 +218,7 @@ in libESMTP’s future.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Brian Stafford.
+        &#169; Copyright 2021, Brian Stafford.
 
     </p>
   </div>

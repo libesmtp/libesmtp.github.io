@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Message Headers &mdash; libESMTP 1.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Remote Message Queue Starting (ETRN)" href="smtp-etrn.html" />
+    <link rel="prev" title="Message Callbacks" href="message-callbacks.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> libESMTP
+          
+
+          
+            
+            <img src="../_static/pillarbox.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../libesmtp.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes-since-v1.0.6.html">Changes since v1.0.6</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../programflow.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../certificates.html">TLS Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libesmtp.html">libESMTP Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html">Core API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#delivery-status-notification-dsn">Delivery Status Notification (DSN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#size-extention">Size Extention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#bit-mime-transport-extension">8bit-MIME Transport Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#deliver-by-extension">Deliver By Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#id1">Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#smtp-protocol">SMTP Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#tear-down-session">Tear Down Session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#application-data">Application Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#miscellaneous-apis">Miscellaneous APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-tls.html">StartTLS Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-auth.html">Auth Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth-client.html">Auth Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-callbacks.html">Message Callbacks</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Message Headers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-values">List Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#required-headers">Required Headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preserved-headers">Preserved Headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prohibited-headers">Prohibited Headers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genindex.html">Index of Symbols</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../essays.html">Essays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oldfiles.html">Legacy Files</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/libesmtp/libESMTP/wiki">Wiki</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">libESMTP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../reference.html">API Reference</a> &raquo;</li>
+        
+      <li>Message Headers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p id="headers"><strong>Headers</strong></p>
+<div class="section" id="message-headers">
+<h1>Message Headers<a class="headerlink" href="#message-headers" title="Permalink to this headline">¶</a></h1>
+<p>libESMTP provides a simple header API.  This is provided for two purposes
+firstly to ensure that a message conforms to RFC 5322 when transferred to
+the Mail Submission Agent (MSA) and, secondly, to simplify the application
+logic where this is convenient.</p>
+<p>Message headers known to libESMTP are listed below.  When setting arbitrary
+headers, names should be prefixed with <code class="docutils literal notranslate"><span class="pre">X-</span></code> if non-standard.</p>
+<p>All newly submitted mail should have a unique Message-Id header. If the
+message does not provide one and no value is supplied by smtp_set_header()
+libESMTP will generate a suitable header unless the header option is changed.</p>
+<div class="section" id="list-values">
+<h2>List Values<a class="headerlink" href="#list-values" title="Permalink to this headline">¶</a></h2>
+<p>Headers which accept lists are created by calling smtp_set_header() multiple
+times for each value.</p>
+<ul class="simple">
+<li><p>From:</p></li>
+<li><p>To:</p></li>
+<li><p>Cc:</p></li>
+<li><p>Bcc:</p></li>
+<li><p>Reply-To:</p></li>
+</ul>
+</div>
+<div class="section" id="required-headers">
+<h2>Required Headers<a class="headerlink" href="#required-headers" title="Permalink to this headline">¶</a></h2>
+<p>The following headers are required and are supplied by libESMTP if not
+present in the message.</p>
+<ul class="simple">
+<li><p>Date:</p></li>
+<li><p>From:</p></li>
+</ul>
+</div>
+<div class="section" id="preserved-headers">
+<h2>Preserved Headers<a class="headerlink" href="#preserved-headers" title="Permalink to this headline">¶</a></h2>
+<p>Preserved headers may not be specified using the libESMTP API, however if
+present in the message they are copied unchanged. This is required to
+correctly process MIME formatted messages, Resent and Received headers.</p>
+<ul class="simple">
+<li><p>Content-*:</p></li>
+<li><p>MIME-*:</p></li>
+<li><p>Resent-*:</p></li>
+<li><p>Received:</p></li>
+</ul>
+</div>
+<div class="section" id="prohibited-headers">
+<h2>Prohibited Headers<a class="headerlink" href="#prohibited-headers" title="Permalink to this headline">¶</a></h2>
+<p>Prohibited may not be present in newly submitted messages and are stripped
+from the message, if present.</p>
+<ul class="simple">
+<li><p>Return-Path:</p></li>
+<li><p>Original-Recipient:</p></li>
+</ul>
+<dl class="c function">
+<dt id="c.smtp_set_header">
+int <code class="sig-name descname">smtp_set_header</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, <em class="property">const</em> char *<em>header</em>, ...<span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_header" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set a message header</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*header</span></code></dt><dd><p>Header name</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">...</span></code></dt><dd><p>additional arguments</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Set a message header to the specified value.  The additional arguments
+and their types depend on the header, detailed below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p>Date</p></td>
+<td><p>struct tm *tm</p></td>
+</tr>
+<tr class="row-even"><td><p>Message timestamp.</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>From</p></td>
+<td><p>const char *name, const char *address</p></td>
+</tr>
+<tr class="row-even"><td><p>Message originator.</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>Sender</p></td>
+<td><p>const char *name, const char *address</p></td>
+</tr>
+<tr class="row-even"><td><p>Message sent from address on behalf of
+From mailbox.</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>To</p></td>
+<td><p>const char *name, const char *address</p></td>
+</tr>
+<tr class="row-even"><td><p>Primary recipient mailbox.</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>Cc</p></td>
+<td><p>const char *name, const char *address</p></td>
+</tr>
+<tr class="row-even"><td><p>Carbon-copy mailbox.</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>Bcc</p></td>
+<td><p>const char *name, const char *address</p></td>
+</tr>
+<tr class="row-even"><td><p>Blind carbon-copy mailbox.</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>Reply-To</p></td>
+<td><p>const char *name, const char *address</p></td>
+</tr>
+<tr class="row-even"><td><p>Reply to mailbox instead of From.</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>Disposition-Notification-To</p></td>
+<td><p>const char *name, const char *address</p></td>
+</tr>
+<tr class="row-even"><td><p>Return MDN to specified address.</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>Message-Id</p></td>
+<td><p>const char *id</p></td>
+</tr>
+<tr class="row-even"><td><p>Message ID string or NULL.</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>*</p></td>
+<td><p>const char *text</p></td>
+</tr>
+<tr class="row-even"><td><p>Set arbitrary header. Value may not be NULL</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p>Zero on failure, non-zero on success.</p>
+<dl class="c function">
+<dt id="c.smtp_set_header_option">
+int <code class="sig-name descname">smtp_set_header_option</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, <em class="property">const</em> char *<em>header</em>, <em class="property">enum</em> header_option <em>option</em>, ...<span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_header_option" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set a message header</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The message</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*header</span></code></dt><dd><p>Header name</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">header_option</span> <span class="pre">option</span></code></dt><dd><p>Header options</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">...</span></code></dt><dd><p>additional arguments</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Set a message header option to the specified value.  The additional
+arguments depend on the option as follows</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 17%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Arguments</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Hdr_OVERRIDE</p></td>
+<td><p>int</p></td>
+<td><p>non-zero to enable libESMTP to override
+header in message.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hdr_PROHIBIT</p></td>
+<td><p>int</p></td>
+<td><p>non-zero to force libESMTP to strip
+header from message.</p></td>
+</tr>
+</tbody>
+</table>
+<p>It is not possible to change the header options for required, prohibited
+or preserved headers listed in the introduction.</p>
+<p><strong>Return</strong></p>
+<p>Zero on failure, non-zero on success.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="smtp-etrn.html" class="btn btn-neutral float-right" title="Remote Message Queue Starting (ETRN)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="message-callbacks.html" class="btn btn-neutral float-left" title="Message Callbacks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Brian Stafford.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

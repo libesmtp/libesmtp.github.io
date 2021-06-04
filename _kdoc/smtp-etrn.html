@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Remote Message Queue Starting (ETRN) &mdash; libESMTP 1.0.6 documentation</title>
+  <title>Remote Message Queue Starting (ETRN) &mdash; libESMTP 1.1.0 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Auth Extension" href="smtp-auth.html" />
-    <link rel="prev" title="Core API" href="smtp-api.html" /> 
+    <link rel="next" title="Errors" href="errors.html" />
+    <link rel="prev" title="Message Headers" href="headers.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,6 +64,10 @@
 
           
             
+            
+              <div class="version">
+                1.1
+              </div>
             
           
 
@@ -90,27 +94,39 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../libesmtp.html">Benefits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../download.html">Download</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bugreport.html">Reporting Bugs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rationale.html">Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../retrospective.html">Retrospective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes-since-v1.0.6.html">Changes since v1.0.6</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../reference.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../programflow.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../certificates.html">TLS Certificates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="libesmtp.html">libESMTP Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-api.html">Core API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-api.html#delivery-status-notification-dsn">Delivery Status Notification (DSN)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-api.html#size-extention">Size Extention</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-api.html#bit-mime-transport-extension">8bit-MIME Transport Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-api.html#deliver-by-extension">Deliver By Extension</a></li>
-<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#id1">Core API</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Remote Message Queue Starting (ETRN)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="smtp-auth.html">Auth Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#id1">Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#smtp-protocol">SMTP Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#tear-down-session">Tear Down Session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#application-data">Application Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#miscellaneous-apis">Miscellaneous APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-tls.html">StartTLS Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-auth.html">Auth Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth-client.html">Auth Client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="message-callbacks.html">Message Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="headers.html">Message Headers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Remote Message Queue Starting (ETRN)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference.html#auth-client">Auth Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genindex.html">Index of Symbols</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../essays.html">Essays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oldfiles.html">Legacy Files</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/libesmtp/libESMTP/wiki">Wiki</a></li>
 </ul>
 
             
@@ -167,8 +183,6 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/_kdoc/smtp-etrn.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -180,7 +194,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p><strong>RFC 1985</strong></p>
+  <p id="rfc-1985"><strong>RFC 1985</strong></p>
 <div class="section" id="remote-message-queue-starting-etrn">
 <h1>Remote Message Queue Starting (ETRN)<a class="headerlink" href="#remote-message-queue-starting-etrn" title="Permalink to this headline">¶</a></h1>
 <p>The SMTP ETRN extension is used to request a remote MTA to start its
@@ -190,7 +204,8 @@ libESMTP will use the event callback to notify the application.</p>
 <dl class="c function">
 <dt id="c.smtp_etrn_add_node">
 smtp_etrn_node_t <code class="sig-name descname">smtp_etrn_add_node</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, int <em>option</em>, <em class="property">const</em> char *<em>domain</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_add_node" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>create an ETRN node.</p>
+</dd></dl>
 
 <p><strong>Parameters</strong></p>
 <dl class="simple">
@@ -198,7 +213,7 @@ smtp_etrn_node_t <code class="sig-name descname">smtp_etrn_add_node</code><span 
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">option</span></code></dt><dd><p>The option character.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">domain</span></code></dt><dd><p>Request mail for this domain.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*domain</span></code></dt><dd><p>Request mail for this domain.</p>
 </dd>
 </dl>
 <p><strong>Description</strong></p>
@@ -208,7 +223,8 @@ smtp_etrn_node_t <code class="sig-name descname">smtp_etrn_add_node</code><span 
 <dl class="c function">
 <dt id="c.smtp_etrn_enumerate_nodes">
 int <code class="sig-name descname">smtp_etrn_enumerate_nodes</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, smtp_etrn_enumerate_nodecb_t <em>cb</em>, void *<em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_enumerate_nodes" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Call function for each ETRN node in session.</p>
+</dd></dl>
 
 <p><strong>Parameters</strong></p>
 <dl class="simple">
@@ -216,7 +232,7 @@ int <code class="sig-name descname">smtp_etrn_enumerate_nodes</code><span class=
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_enumerate_nodecb_t</span> <span class="pre">cb</span></code></dt><dd><p>Callback function</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">arg</span></code></dt><dd><p>Argument (closure) passed to callback.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>Argument (closure) passed to callback.</p>
 </dd>
 </dl>
 <p><strong>Description</strong></p>
@@ -226,11 +242,12 @@ int <code class="sig-name descname">smtp_etrn_enumerate_nodes</code><span class=
 <dl class="c function">
 <dt id="c.smtp_etrn_node_status">
 <em class="property">const</em> smtp_status_t *<code class="sig-name descname">smtp_etrn_node_status</code><span class="sig-paren">(</span>smtp_etrn_node_t <em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_node_status" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Retrieve ETRN status.</p>
+</dd></dl>
 
 <p><strong>Parameters</strong></p>
 <dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt><dd><p>An #smtp_etrn_node_t</p>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt><dd><p>An <code class="xref c c-type docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span></code> returned by smtp_etrn_add_node()</p>
 </dd>
 </dl>
 <p><strong>Description</strong></p>
@@ -244,34 +261,35 @@ until the next call to libESMTP in the same thread.</p>
 <dl class="c function">
 <dt id="c.smtp_etrn_set_application_data">
 void *<code class="sig-name descname">smtp_etrn_set_application_data</code><span class="sig-paren">(</span>smtp_etrn_node_t <em>node</em>, void *<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_set_application_data" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p><strong>Parameters</strong></p>
-<dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt><dd><p>An #smtp_etrn_node_t</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt><dd><p>Application data to set</p>
-</dd>
-</dl>
-<p><strong>Description</strong></p>
-<p>Associate application defined data with the opaque ETRN structure.</p>
-<p>Only available when <code class="docutils literal notranslate"><span class="pre">LIBESMTP_ENABLE_DEPRECATED_SYMBOLS</span></code> is defined.
-Use smtp_etrn_set_application_data_full() instead.</p>
-<p><strong>Return</strong></p>
-<p>Previously set application data or <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
-<dl class="c function">
-<dt id="c.smtp_etrn_set_application_data_full">
-void <code class="sig-name descname">smtp_etrn_set_application_data_full</code><span class="sig-paren">(</span>smtp_etrn_node_t <em>node</em>, void *<em>data</em>, void (*<em>release</em>)<span class="sig-paren">(</span>void*<span class="sig-paren">)</span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_set_application_data_full" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Associate data with an ETRN node.</p>
 </dd></dl>
 
 <p><strong>Parameters</strong></p>
 <dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt><dd><p>The ETRN node.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt><dd><p>An <code class="xref c c-type docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span></code> returned by smtp_etrn_add_node()</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span> <span class="pre">data</span></code></dt><dd><p>Application data</p>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*data</span></code></dt><dd><p>Application data to set</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">(*)</span> <span class="pre">(void</span> <span class="pre">*)</span> <span class="pre">release</span></code></dt><dd><p>function to free/unref data.</p>
+</dl>
+<p><strong>Description</strong></p>
+<p>Associate application defined data with the opaque ETRN structure.</p>
+<p>Only available when <code class="docutils literal notranslate"><span class="pre">LIBESMTP_ENABLE_DEPRECATED_SYMBOLS</span></code> is defined.
+Use smtp_etrn_set_application_data_release() instead.</p>
+<p><strong>Return</strong></p>
+<p>Previously set application data or <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+<dl class="c function">
+<dt id="c.smtp_etrn_set_application_data_release">
+void <code class="sig-name descname">smtp_etrn_set_application_data_release</code><span class="sig-paren">(</span>smtp_etrn_node_t <em>node</em>, void *<em>data</em>, void (*<em>release</em>)<span class="sig-paren">(</span>void*<span class="sig-paren">)</span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_set_application_data_release" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Associate data with an ETRN node.</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt><dd><p>An <code class="xref c c-type docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span></code> returned by smtp_etrn_add_node()</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*data</span></code></dt><dd><p>Application data</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">(*release)</span> <span class="pre">(void</span> <span class="pre">*)</span></code></dt><dd><p>function to free/unref data.</p>
 </dd>
 </dl>
 <p><strong>Description</strong></p>
@@ -281,11 +299,12 @@ changed or the session is destroyed.</p>
 <dl class="c function">
 <dt id="c.smtp_etrn_get_application_data">
 void *<code class="sig-name descname">smtp_etrn_get_application_data</code><span class="sig-paren">(</span>smtp_etrn_node_t <em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_get_application_data" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Get data from an ETRN node.</p>
+</dd></dl>
 
 <p><strong>Parameters</strong></p>
 <dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt><dd><p>An #smtp_etrn_node_t</p>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span> <span class="pre">node</span></code></dt><dd><p>An <code class="xref c c-type docutils literal notranslate"><span class="pre">smtp_etrn_node_t</span></code> returned by smtp_etrn_add_node()</p>
 </dd>
 </dl>
 <p><strong>Description</strong></p>
@@ -300,15 +319,15 @@ void *<code class="sig-name descname">smtp_etrn_get_application_data</code><span
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="smtp-auth.html" class="btn btn-neutral float-right" title="Auth Extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="smtp-api.html" class="btn btn-neutral float-left" title="Core API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="errors.html" class="btn btn-neutral float-right" title="Errors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="headers.html" class="btn btn-neutral float-left" title="Message Headers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Brian Stafford.
+        &#169; Copyright 2021, Brian Stafford.
 
     </p>
   </div>

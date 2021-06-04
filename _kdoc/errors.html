@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Errors &mdash; libESMTP 1.0.6 documentation</title>
+  <title>Errors &mdash; libESMTP 1.1.0 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Auth Client" href="auth-client.html" />
-    <link rel="prev" title="Message Callbacks" href="message-callbacks.html" /> 
+    <link rel="next" title="Index of Symbols" href="../genindex.html" />
+    <link rel="prev" title="Remote Message Queue Starting (ETRN)" href="smtp-etrn.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,6 +64,10 @@
 
           
             
+            
+              <div class="version">
+                1.1
+              </div>
             
           
 
@@ -90,27 +94,39 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../libesmtp.html">Benefits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../download.html">Download</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bugreport.html">Reporting Bugs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rationale.html">Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../retrospective.html">Retrospective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes-since-v1.0.6.html">Changes since v1.0.6</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../reference.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../programflow.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../certificates.html">TLS Certificates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="libesmtp.html">libESMTP Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-api.html">Core API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-api.html#delivery-status-notification-dsn">Delivery Status Notification (DSN)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-api.html#size-extention">Size Extention</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-api.html#bit-mime-transport-extension">8bit-MIME Transport Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-api.html#deliver-by-extension">Deliver By Extension</a></li>
-<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#id1">Core API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="smtp-auth.html">Auth Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#id1">Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#smtp-protocol">SMTP Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#tear-down-session">Tear Down Session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#application-data">Application Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-api.html#miscellaneous-apis">Miscellaneous APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-tls.html">StartTLS Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-auth.html">Auth Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth-client.html">Auth Client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="message-callbacks.html">Message Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="headers.html">Message Headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Errors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference.html#auth-client">Auth Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genindex.html">Index of Symbols</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../essays.html">Essays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oldfiles.html">Legacy Files</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/libesmtp/libESMTP/wiki">Wiki</a></li>
 </ul>
 
             
@@ -167,8 +183,6 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/_kdoc/errors.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -180,9 +194,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p><strong>Errors</strong></p>
-<div class="section" id="errors">
-<h1>Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h1>
+  <p id="errors"><strong>Errors</strong></p>
+<div class="section" id="id1">
+<h1>Errors<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>Thread safe “errno” for libESMTP.</p>
 <dl class="c function">
 <dt id="c.smtp_errno">
@@ -202,7 +216,7 @@ thread.</p>
 <p>libESMTP error code.</p>
 <dl class="c function">
 <dt id="c.smtp_strerror">
-char *<code class="sig-name descname">smtp_strerror</code><span class="sig-paren">(</span>int <em>error</em>, char <em>buf</em>, size_t <em>buflen</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_strerror" title="Permalink to this definition">¶</a><br /></dt>
+char *<code class="sig-name descname">smtp_strerror</code><span class="sig-paren">(</span>int <em>error</em>, char <em>buf</em>[], size_t <em>buflen</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_strerror" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Translate error number to text.</p>
 </dd></dl>
 
@@ -210,14 +224,14 @@ char *<code class="sig-name descname">smtp_strerror</code><span class="sig-paren
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">error</span></code></dt><dd><p>Error number to translate</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">buf</span></code></dt><dd><p>Buffer to receive text</p>
+<dt><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">buf[]</span></code></dt><dd><p>Buffer to receive text</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">buflen</span></code></dt><dd><p>Buffer length</p>
 </dd>
 </dl>
 <p><strong>Description</strong></p>
 <p>Translate a libESMTP error number to a string suitable for use in an
-application error message.  The resuting string is copied into #buf.</p>
+application error message.  The resuting string is copied into <strong>buf</strong>.</p>
 <p><strong>Return</strong></p>
 <p>A pointer to <strong>buf</strong> on success or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> on failure.</p>
 </div>
@@ -228,15 +242,15 @@ application error message.  The resuting string is copied into #buf.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="auth-client.html" class="btn btn-neutral float-right" title="Auth Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="message-callbacks.html" class="btn btn-neutral float-left" title="Message Callbacks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../genindex.html" class="btn btn-neutral float-right" title="Index of Symbols" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="smtp-etrn.html" class="btn btn-neutral float-left" title="Remote Message Queue Starting (ETRN)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Brian Stafford.
+        &#169; Copyright 2021, Brian Stafford.
 
     </p>
   </div>

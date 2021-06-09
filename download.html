@@ -100,6 +100,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#libesmtp-config">libesmtp-config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#static-analyser">Static Analyser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#repository">Repository</a></li>
@@ -188,6 +189,8 @@ as follows:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/libesmtp/libESMTP.git
 </pre></div>
 </div>
+<p>Alternatively release packages are available at
+<a class="reference external" href="https://github.com/libesmtp/libESMTP/releases/tag/v1.1.0">https://github.com/libesmtp/libESMTP/releases/tag/v1.1.0</a></p>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <p>libESMTP has the following optional dependencies.</p>
@@ -267,6 +270,13 @@ builddir with files owned by root.</p>
 </tr>
 </tbody>
 </table><p>Options are specified as <code class="docutils literal notranslate"><span class="pre">-D&lt;option&gt;=&lt;value&gt;</span></code>.</p>
+</div>
+<div class="section" id="libesmtp-config">
+<h2>libesmtp-config<a class="headerlink" href="#libesmtp-config" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">libesmtp-config</span></code> script is removed from libESMTP-1.1.0 in favour of
+<code class="docutils literal notranslate"><span class="pre">pkg-config</span></code>.  Package maintainers should update build systems to account for
+this. See the <a class="reference external" href="https://github.com/libesmtp/libESMTP/wiki/Config-script">Wiki</a>
+for further information.</p>
 </div>
 <div class="section" id="static-analyser">
 <h2>Static Analyser<a class="headerlink" href="#static-analyser" title="Permalink to this headline">¶</a></h2>

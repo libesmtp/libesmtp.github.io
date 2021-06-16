@@ -1,194 +1,20 @@
+# ChangeLog
 
-
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>ChangeLog &mdash; libESMTP 1.1.0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="NEWS" href="NEWS.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="index.html" class="icon icon-home"> libESMTP
-          
-
-          
-            
-            <img src="_static/pillarbox.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                1.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="libesmtp.html">Benefits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference/changes-since-v1.0.6.html">Changes since v1.0.6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference/index.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bugreport.html">Reporting Bugs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="users.html">Users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="essays.html">Essays</a></li>
-<li class="toctree-l1"><a class="reference internal" href="authors.html">Author</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="oldfiles.html">Legacy Files</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="NEWS.html">NEWS</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">ChangeLog</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/libesmtp/libESMTP/wiki">Wiki</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">libESMTP</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="oldfiles.html">Legacy Files</a> &raquo;</li>
-        
-      <li>ChangeLog</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="changelog">
-<h1>ChangeLog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2010-08-10 Stable Version 1.0.6 released
+```
+2010-08-10 Stable Version 1.0.6 released
 ----------------------------------------
       * smtp-tls.c
-	Each component matched by match-domain() is either a single &#39;*&#39; which
+	Each component matched by match-domain() is either a single '*' which
 	matches anything or a case-insensitive comparison with a string of
-	alphanumeric characters or a &#39;-&#39;.  This is more restrictive than
+	alphanumeric characters or a '-'.  This is more restrictive than
 	RFC 2818 appears to allow and replaces the previous match which was
-	supposed to allow multiple wildcards but which just didn&#39;t work.
+	supposed to allow multiple wildcards but which just didn't work.
 	Revised check_acceptable_security() to check subjectAltName falling
 	back to commonName only if subjectAltName is not available.
 
 1.0.5 never released
 --------------------
-2006-10-31 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2006-10-31 	Brian Stafford	<brian@stafford.uklinux.net>
 
       * protocol.c
 	The Gmail server reports enhanced status codes but then fails to
@@ -203,13 +29,13 @@
 
 2005-12-16 Stable Version 1.0.4 released
 ----------------------------------------
-2005-12-16 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2005-12-16 	Brian Stafford	<brian@stafford.uklinux.net>
       * headers.c
 	Replaced static counter used when generating the default Message-Id
 	header with getpid() to minimise the risk of 2 processes generating
 	the same Message-Id.  If the platform provides gettimeofday() this is
 	used to further reduce the possibility of collision.
-	Thanks to Dmitry Maksyoma &lt;dmaks@esphion.com&gt; for spotting this and
+	Thanks to Dmitry Maksyoma <dmaks@esphion.com> for spotting this and
 	suggesting the fix.
 
       * Makefile.am */Makefile.am
@@ -220,42 +46,42 @@
 	the LGPL version of COPYING got zapped by autoconf at some time
 	in the past.
 
-2005-08-29	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2005-08-29	Brian Stafford	<brian@stafford.uklinux.net>
       * acinclude.m4
 	Fix underquoted definition of ACX_WHICH_GETHOSTBYNAME_R.  Thanks
-	to Matthias Andree &lt;matthias.andree@gmx.de&gt;.
+	to Matthias Andree <matthias.andree@gmx.de>.
 
-2005-07-25	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2005-07-25	Brian Stafford	<brian@stafford.uklinux.net>
       * errors.c
 	Added #ifdefs for some of the EAI_ constants used by getaddrinfo()
 	which are not defined by OSX.
-	Thanks to Thomas Deselaers &lt;deselaers@gmail.com&gt;
+	Thanks to Thomas Deselaers <deselaers@gmail.com>
 
-2005-07-21	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2005-07-21	Brian Stafford	<brian@stafford.uklinux.net>
       * acinclude.m4
 	Fix cross compiling issue when detecting snprintf as suggested by
-	Chris Richards &lt;Chris.Richards@red-m.com&gt;
+	Chris Richards <Chris.Richards@red-m.com>
 
-2005-07-02	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2005-07-02	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-api.c
 	Plug memory leaks in smtp_destroy_session() and smtp_set_server().
-	Thanks to Bas ten Berge &lt;sam.ten.berge@hccnet.nl&gt; for report and patch.
-	Also reported by Heikki Lindholm &lt;heikki.lindholm@ipnetworks.fi&gt;
+	Thanks to Bas ten Berge <sam.ten.berge@hccnet.nl> for report and patch.
+	Also reported by Heikki Lindholm <heikki.lindholm@ipnetworks.fi>
 
-2005-02-03 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2005-02-03 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c
 	exts was set with the wrong flag (DSN) when checking if CHUNKING
 	is a required extension.
 
-2004-07-16 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2004-07-16 	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-tls.c
 	Applied OpenSSL patch from Pawel Salek when checking subjectAltName.
 
 2004-04-20 Stable Version 1.0.3 released
 ----------------------------------------
-2004-04-20 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2004-04-20 	Brian Stafford	<brian@stafford.uklinux.net>
       * memrchr.c configure.in
-	Added memrchr() implementation for systems that don&#39;t have one.
+	Added memrchr() implementation for systems that don't have one.
 
       * smtp-tls.c
 	Applied patches from Pawel Salek to check subjectAltName for
@@ -264,7 +90,7 @@
 
 2004-01-06 Stable Version 1.0.2 released
 --------------------------------------
-2003-12-01 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2003-12-01 	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-tls.c examples/mail-file.c
 	Applied patch from Pawel Salek.
 
@@ -278,12 +104,12 @@
 
 2003-09-12 Stable Version 1.0.1 released
 --------------------------------------
-2003-09-11 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2003-09-11 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c smtp-auth.c smtp-bdat.c smtp-etrn.c smtp-tls.c
 	More thoroughly check return value from read_smtp_response().
 
       * libesmtp.h errors.c
-        Added new &quot;Client error&quot; error code.  This is just a cop-out,
+        Added new "Client error" error code.  This is just a cop-out,
         used when an API called by libesmtp fails.
 
       * base64.c
@@ -292,45 +118,45 @@
       * examples/mail-file.c
 	Cleaned up some compiler warnings
 
-2003-09-02 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2003-09-02 	Brian Stafford	<brian@stafford.uklinux.net>
       * siobuf.[hc]
 	Added a few extra sio_ calls.  Not actually used in libESMTP though.
 
-2003-07-29 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2003-07-29 	Brian Stafford	<brian@stafford.uklinux.net>
       * concatenate.c errors.c getaddrinfo.c headers.c htable.c
       * protocol.c siobuf.c
-	Don&#39;t perform zero length operations using the memxxx() functions.
+	Don't perform zero length operations using the memxxx() functions.
 	This may avoid segfaults on some platforms or libraries.
 
       * siobuf.c
         Improved handling of flushes in sio_write() particularly in the
         case where data would exactly fill remaining space in the buffer.
 
-2003-07-27 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2003-07-27 	Brian Stafford	<brian@stafford.uklinux.net>
       * rfc2822date.c
 	Correct leap year compensation for January and February in
 	libesmtp_mktime().
 
-2003-07-27 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2003-07-27 	Brian Stafford	<brian@stafford.uklinux.net>
       * examples/Makefile
 	Changed compiler flags from -ansi to -std=c99 and added -W
 
-2003-03-04 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2003-03-04 	Brian Stafford	<brian@stafford.uklinux.net>
       * headers.c
 	Eliminated bug where find_header() could pass -1 to the length
 	argument of memchr() causing a core dump on some architectures.
 
-2003-02-26 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2003-02-26 	Brian Stafford	<brian@stafford.uklinux.net>
       * libesmtp-private.h protocol.c smtp-bdat.c
 	M$ Exchange does not accept a chunk size of 0 in BDAT 0 LAST as
 	explicitly permitted by RFC 3030, *sigh*.  Hackish workaround
 	implemented.
 
-2003-01-27 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2003-01-27 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in Makefile.am
 	Added DIST_SUBDIRS macro to make sure tarball gets built properly.
-	This one slipped past &#39;make distcheck&#39; last time for some reason
-	but then autoconf &amp; friends are totally inscruitable.
+	This one slipped past 'make distcheck' last time for some reason
+	but then autoconf & friends are totally inscruitable.
 
       * ntlm/ntlmdes.c
         OpenSSL 0.9.7 changes some typedefs.  Changed to suit, should
@@ -338,7 +164,7 @@
 
 2002-11-09 Stable Version 1.0 released
 --------------------------------------
-2002-11-09 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-11-09 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in
       	All version 1.0 features enabled by default.
 	--enable-isoc now sets -std=c99 instead of -ansi
@@ -348,15 +174,15 @@
 	Reversed order of freeing header structures and hash table to
 	avoid referencing freed memory. (Wally Yau)
 
-2002-06-24 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-06-24 	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-etrn.c
 	Compilation fails with `./configure --enable-more-warnings=picky
-	--disable-etrn&#39;.  Added missing __attribute__ ((unused)) markers
+	--disable-etrn'.  Added missing __attribute__ ((unused)) markers
 	to offending function arguments to avoid this.
 
 2002-06-24 Version 1.0rc1 released
 ----------------------------------
-2002-06-24 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-06-24 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in Makefile.am protocol.c protocol-states.h
       * smtp-api.c smtp-bdat.c libesmtp.h libesmtp-private.h
         Added experimental support for the SMTP CHUNKING extension.
@@ -364,7 +190,7 @@
       * configure.in
 	Enable non-standard AUTH= response by default.
 
-2002-05-31 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-05-31 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c smtp-api.c libesmtp.h libesmtp-private.h
       	Added API call to permit protocol timeouts to be set.
 
@@ -374,18 +200,18 @@
 
 2002-04-24 Version 0.8.12 released
 ----------------------------------
-2002-03-14 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-03-14 	Brian Stafford	<brian@stafford.uklinux.net>
       * headers.c
 	Setting Hdr_PROHIBIT did not work properly.  Thanks to Ronald
 	F. Guilmette for pointing this out.
 
-2002-03-13 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-03-13 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c smtp-api.c libesmtp.h configure.in
       	Revoked deprecated status from smtp_option_require_all_recipients
       	and remove the corresponding --enable-require-all-recipients
       	parameter to configure.
 
-2002-03-07 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-03-07 	Brian Stafford	<brian@stafford.uklinux.net>
       * libesmtp.h libesmtp-private.h protocol.c smtp-tls.c
       	RFC 2487 is obsoleted by RFC 3207.  Updated references.
 
@@ -399,7 +225,7 @@
 2002-03-06 Version 0.8.11 released
 ----------------------------------
 
-2002-03-04 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-03-04 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c
         Fix buffer overflow problem in read_smtp_response.  This
         overflow could be exploited by a malicious SMTP server to
@@ -424,14 +250,14 @@
         crammd5/md5.h.  Thanks to Ronald F. Guilmette for spotting this.
 
 
-2002-02-12 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-02-12 	Brian Stafford	<brian@stafford.uklinux.net>
       * strcasecmp.c strncasecmp.c
       	These now return the correct sign of result for differing strings.
 
 2002-01-30 Version 0.8.10p1 released
 ------------------------------------
 
-2002-01-29 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-01-29 	Brian Stafford	<brian@stafford.uklinux.net>
       * ntlm/Makefile.am
 	Added ntlm.h to list of sources.  This omission stopped 0.8.10
 	form building.
@@ -439,7 +265,7 @@
 2002-01-29 Version 0.8.10 released
 ----------------------------------
 
-2002-01-26 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-01-26 	Brian Stafford	<brian@stafford.uklinux.net>
       * various files
 	Copyright messages now show the correct year.
 	Minor tweaks to kill warnings when compiling with
@@ -460,33 +286,33 @@
         fit in the buffer and that is the behaviour I rely on.
 
       * strdup.c
-	Added strdup() for systems which don&#39;t have it.
+	Added strdup() for systems which don't have it.
 
       * examples/mail-file.c
       	Check for errors when smtp_start_session returns.  Fixed
       	authinteract so that responses are not accidentally overwritten.
 
-2002-01-24 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-01-24 	Brian Stafford	<brian@stafford.uklinux.net>
       * htable.c configure.in strndup.c
       	Altered code to avoid the use of strndup.  strndup.c is removed
       	from the distribution.
 
-2002-01-16 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-01-16 	Brian Stafford	<brian@stafford.uklinux.net>
       * ntlm/* configure.in
 	Added NTLM auhentication module.
 
-2002-01-07 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-01-07 	Brian Stafford	<brian@stafford.uklinux.net>
       * concatenate.c errors.c siobuf.c
       	Check return value from snprintf.
 
 2002-01-03 Version 0.8.9 released
 ---------------------------------
 
-2002-01-02 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2002-01-02 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in
       	Added -lsocket to list of libraries searched for getaddrinfo().
 
-2001-12-29 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-12-29 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c configure.in
 	Added hack for stupid SMTP servers that advertise AUTH using
 	non-standard syntax from an internet draft that never made it
@@ -507,19 +333,19 @@
         Rearranged code in auth_set_mechanisms and load_client_plugin
         avoiding the need to repeat the test for plugin acceptability.
 
-2001-12-24 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-12-24 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in
 	Compiling with picky warnings turned on was broken.  Also,
 	recent glibc versions seem to have decided that strcasecmp and
 	a few other functions are GNU extensions causing compiles to
 	fail because of missing declarations.  Naturally, autoconf does
 	not detect this.  Added a _GNU_SOURCE define to fix this on
-	potentially affected systems.  No, I don&#39;t like it either.
+	potentially affected systems.  No, I don't like it either.
 
       * strcasecmp.c strncasecmp.c strndup.c
-	Added these functions in case some systems don&#39;t provide them.
+	Added these functions in case some systems don't provide them.
 
-2001-12-21 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-12-21 	Brian Stafford	<brian@stafford.uklinux.net>
       * htable.[ch]
       	h_insert now returns a void pointer to the data instead of a
       	struct h_node eliminating the need for the h_dptr macro and
@@ -529,7 +355,7 @@
       * headers.c
 	Updated to use the simpler hash table interface.
 
-2001-12-10 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-12-10 	Brian Stafford	<brian@stafford.uklinux.net>
       * auth-client.c
 	Use dlsym and friends directly on platforms that have it.
 
@@ -538,7 +364,7 @@
         libltdl is no longer distributed significantly reducing tarball
         size.
 
-2001-12-10 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-12-10 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in
         A missing comma caused the test for getipnodebyname to fail on
         systems which provide it.
@@ -546,13 +372,13 @@
 2001-12-06 Version 0.8.8 released
 ---------------------------------
 
-2001-11-30 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-11-30 	Brian Stafford	<brian@stafford.uklinux.net>
       * crammd5/md5.h
       	The len parameter of md5_update differed in type between
       	prototype and definition, preventing compilation if size_t
       	is not an unsigned int.
 
-2001-11-29 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-11-29 	Brian Stafford	<brian@stafford.uklinux.net>
       * crammd5/*.[ch]
       	Moved include of config.h from hmacmd5.h to hmacmd5.c.  Make
       	sure sys/types.h is included since size_t is used.
@@ -561,11 +387,11 @@
       	Added some extra nonsense for systems which redefine
       	getaddrinfo to something else in netdb.h
 
-2001-11-27 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-11-27 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in errors.c
 	Add test for broken strerror_r on OSF-1.
 
-2001-11-12 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-11-12 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in
 	Updated the tests for pthreads.  Should now supply the correct
 	compiler flags on more systems.
@@ -573,17 +399,17 @@
 2001-11-07 Version 0.8.7 released
 ---------------------------------
 
-2001-11-05 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-11-05 	Brian Stafford	<brian@stafford.uklinux.net>
       * errors.h libesmtp.h
 	Improve handling of error codes from getaddrinfo.  Delay mapping
 	of codes to make debugging easier.  libesmtp.h defines new error
 	codes for the relevant EAI_XXX codes from getaddrinfo.
 	smtp_strerror will use gai_strerror if appropriate.
 
-2001-10-31 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-10-31 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in
 	Added test for sun platforms and define __EXTENSIONS__ so that
-	sun&#39;s netdb.h will declare the getaddrinfo stuff. (James McPherson)
+	sun's netdb.h will declare the getaddrinfo stuff. (James McPherson)
 
       * crammd5/md5.[ch]
 	Type sanity: change u_intXX_t to uintXX_t.  Also changed the
@@ -591,7 +417,7 @@
 	respectively in md5_update.  Buffer for md5_final is now
 	unsigned char.
 
-2001-10-17 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-10-17 	Brian Stafford	<brian@stafford.uklinux.net>
       * headers.c
 	Fixed a core dump bug which strikes when existing headers in a
 	message are substituted.
@@ -602,7 +428,7 @@
 2001-08-17 Version 0.8.6 released
 ---------------------------------
 
-2001-10-17 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-10-17 	Brian Stafford	<brian@stafford.uklinux.net>
       * libesmtp-config.in
 	Corrected output for --cflags.  Added --numeric-version to make it
 	simpler for configure scripts to compare version numbers.
@@ -616,7 +442,7 @@
 	Make sure libesmtp.spec and config.h do not make their way into
 	tarballs.  These confused the build on some platforms.
 
-2001-10-16 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-10-16 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in
       	Added --with-openssl[=DIR] option, removed --enable-starttls.
       	OpenSSL dependent features are now enabled or disabled en masse
@@ -634,12 +460,12 @@
 2001-08-05 Version 0.8.5 released
 ---------------------------------
 
-2001-10-05 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-10-05 	Brian Stafford	<brian@stafford.uklinux.net>
       * libesmtp.spec.in
       	Make sure libesmtp-config gets installed!
 
       * configure.in
-	Removed STARTTLS&#39;s experimental status.  The code works and just
+	Removed STARTTLS's experimental status.  The code works and just
 	needs debugging.  Certificate management is basic but usable.
       	Set defines for strict iso/posix/xopen in headers only when
       	--enable-isoc is in force.  This helps avoid disabling the
@@ -648,7 +474,7 @@
       * siobuf.[ch]
 	sio_read/write use void buffers rather than char.
 
-2001-09-28 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-09-28 	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-tls.c
         Use the event callback to report STARTTLS in use if the security
         level was OK.
@@ -658,9 +484,9 @@
 	when struct tm does not provide tm_gmtoff.
 
       * configure.in
-      	Don&#39;t bother to check for gmtime[_r] since it isn&#39;t used any more.
+      	Don't bother to check for gmtime[_r] since it isn't used any more.
 
-2001-09-26 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-09-26 	Brian Stafford	<brian@stafford.uklinux.net>
       * headers.c
 	Make sure set_to accepts NULL for the mailbox value.  Added set_cc
 	which is same as set_to except it fails with a NULL mailbox.
@@ -668,11 +494,11 @@
       * Most files.
         Changed references to RFC 821/822 to RFC 2821/2822 respectively.
 
-2001-09-24 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-09-24 	Brian Stafford	<brian@stafford.uklinux.net>
       * headers.c
 	RFC 2822 requires only the originator and date headers to
 	be present in a message.  In particular, the presence of the To:
-	header is no longer required.  RFC 2822&#39;s restriction that
+	header is no longer required.  RFC 2822's restriction that
 	headers may not appear multiple times in a messge is enforced
 	respecting certain special exceptions.
 
@@ -680,18 +506,18 @@
         Added API call to make sure a To: header is generated if not
         in the message.
 
-2001-09-14 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-09-14 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in acinclude.m4 acconfig.h
 	Reverted to configure.in, reinstated acconfig.h and added
 	some compatibility stuff to acinclude.m4.  All this to try
 	and be compatible with autoconf 2.5 *and* 2.13.  I really
 	hate autoconf.
 
-2001-09-05 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-09-05 	Brian Stafford	<brian@stafford.uklinux.net>
       * getaddrinfo.c
 	Check if NO_ADDRESS is defined and different to NO_DATA
 
-2001-08-27 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-08-27 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c smtp-tls.c
       	Move some detail of selecting STARTTLS to smtp-tls.c
 
@@ -702,7 +528,7 @@
 	cleartext.  Previously, Starttls_ENABLED permitted a session to
 	continue with possibly compromised security.
 
-2001-08-22 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-08-22 	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-tls.c libesmtp.h
         More certificate management.  Added TLS event reporting.
 
@@ -715,7 +541,7 @@
 	from strings not terminated by \0.  Neither did it correctly
 	handle zero length strings.
 
-2001-08-21 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-08-21 	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-tls.c libesmtp.h
       	Added preliminary code for client certificate management.
 
@@ -724,11 +550,11 @@
 	makes things slightly more flexible for supplying different
 	client certificates according to the remote host.
 
-2001-08-20 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-08-20 	Brian Stafford	<brian@stafford.uklinux.net>
       * message-source.c
 	Fixed memory leak in msg_source_destroy. (Pawel Salek)
 
-2001-08-16 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-08-16 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.ac Makefile.am
       	Change from using LIBOBJS to LTLIBOBJS.  This prevents the
       	wrong objects from being linked by libtool when building
@@ -741,18 +567,18 @@
 	library distributed with recent versions of bind.  Delete
 	--enable-gethostbyname option.  Add --enable-emulate-getaddrinfo.
 
-2001-08-14 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-08-14 	Brian Stafford	<brian@stafford.uklinux.net>
       * siobuf.c
 	Remove unnecessary socket include files.
 
       * getaddrinfo.[ch]
 	Added emulation of the RFC 2553 getaddrinfo resolver interface
-	for systems that don&#39;t have it.
+	for systems that don't have it.
 
 2001-08-13 Version 0.8.4 released
 ---------------------------------
 
-2001-08-13 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-08-13 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c
       	Completely ignore TLS extension if TLS is already in use.
 
@@ -768,19 +594,19 @@
       * examples/mail-file.c
       	Added --tls and --require-tls options and supporting code.
 
-2001-07-31 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-07-31 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.ac
         Make plugin directory consistent with RPM.
 
       * libesmtp.spec
       	Applied patch from Pawel Salek to run ldconfig after installing.
 
-2001-07-30 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-07-30 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c configure.ac
 	Check for uname and use it in preference to gethostname which
 	is not Posix.
 
-2001-07-19 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-07-19 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.ac
       	Check for the presence of the OpenSSL headers as well as
       	the libraries.  Remove --enable-callbacks option.
@@ -789,20 +615,20 @@
         Added smtp_version API call.
 
       * message-callbacks.c
-      	Removed callbacks which did \n -&gt; CRLF translation.
+      	Removed callbacks which did \n -> CRLF translation.
 
       * examples/mail-file.c
         Use libESMTP provided callback unless the --crlf option is
         supplied.
 
-2001-07-07 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-07-07 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c smtp-api.c
       	Only include netinet/in.h if it is actually needed.
 
 2001-07-06 Version 0.8.3 released
 ---------------------------------
 
-2001-07-06 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-07-06 	Brian Stafford	<brian@stafford.uklinux.net>
       * examples/mail-file.c
         Made --help more helpful.  Undocumented --no-crlf now renamed
         to --crlf and documented.  When prompting for authentication
@@ -822,7 +648,7 @@
         Unfortunately this effect depended on the amount of data buffering
         provided by the server!
 
-2001-06-29 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-06-29 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c et al.
 	Added support for sendmail specific XUSR extension.  This informs
 	sendmail the message is a user submission instead of relay,
@@ -833,7 +659,7 @@
 	Fixed return from poll in raw_read and raw_write so that EINTR
 	is correctly handled.
 
-2001-06-26 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-06-26 	Brian Stafford	<brian@stafford.uklinux.net>
       * auth-client.c
 	Fixed a signed/unsigned comparison that stops compilation
 	when using -Werror.
@@ -841,13 +667,13 @@
 2001-06-26 Version 0.8.2 released
 ---------------------------------
 
-2001-06-26 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-06-26 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c siobuf.c
       	Resolved a problem related to blocking/non-blocking polling
       	for server events.  This could lead to deadlock with certain
       	servers.
 
-2001-06-24 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-06-24 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.ac  most C sources
       	Added --disable-isoc option.  When using gcc, -ansi -pedantic
       	are now specified by default since the code compiles without
@@ -856,7 +682,7 @@
       	definitions.  Assert macros used to check arguments to
       	most internal functions.
 
-2001-06-23 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-06-23 	Brian Stafford	<brian@stafford.uklinux.net>
       * message-source.c
 	msg_gets now checks for both \r and \n when searching for line
 	endings.
@@ -864,7 +690,7 @@
       * errors.c
 	API function now includes ommitted the arguments check.
 
-2001-06-22 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-06-22 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c smtp-api.c configure.ac
 	Now uses RFC 2553 / Posix protocol independent getaddrinfo where
 	possible instead of gethostbyname family of resolver functions.
@@ -873,7 +699,7 @@
       	Added ability to use getipnodebyname and corresponding test
       	for configure.
 
-2001-06-18 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-06-18 	Brian Stafford	<brian@stafford.uklinux.net>
       * auth-client.c
         More thorough argument checking on the auth_xxx APIs.
 	Added some missing malloc return value checking.
@@ -884,7 +710,7 @@
 	Added some missing malloc return value checking.
 
       * various sources
-	Changed some &#39;int&#39; types to &#39;size_t&#39;
+	Changed some 'int' types to 'size_t'
 
       * message-source.c
       	In msg_gets, an inconsistent pointer could cause a segfault
@@ -900,7 +726,7 @@
 2001-06-15 Version 0.8.1 released
 ---------------------------------
 
-2001-06-13 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-06-13 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in
         is now configure.ac to suit autoconf 2.5
 	Eliminated some redundant stuff concerned with libtool.
@@ -918,7 +744,7 @@
       * rfc822date.c
       	Try sys/time for struct tm just in case!
 
-2001-06-12 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-06-12 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in
       	Now checks -lnsl when seraching for gethostbyname_r.
       	Only print a warning if strerror_r is not found.
@@ -927,13 +753,13 @@
       	be much cleaner on more platforms.
 
       * siobuf.h
-        Gcc will now check sio_printf()&#39;s argument types against the
+        Gcc will now check sio_printf()'s argument types against the
         format string.
 
       * headers.c
 	Eliminated a variable which was set but not used.
 	The as yet unimplemented smtp_set_resent_headers API will
-	succeed if `onoff&#39; is zero.
+	succeed if `onoff' is zero.
 
       * protocol.c
 	Eliminated variables which were set but not used.
@@ -950,38 +776,38 @@
 2001-06-12 Version 0.8.0 released
 ---------------------------------
 
-2001-06-11 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-06-11 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c smtp-api.c
 	DELIVERBY extension done - still to test.
 
-2001-06-09 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-06-09 	Brian Stafford	<brian@stafford.uklinux.net>
       * message-callbacks.c libesmtp.h
         Added standard callback functions for reading messages. libesmtp.h
         provides macros to simplify using them.
 
-2001-06-07 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-06-07 	Brian Stafford	<brian@stafford.uklinux.net>
       * message-source.c
 	Changed the declaration of the message callback to make it clearer
 	that the first argument in fact points to internal state allocated
 	by the callback.  Strings returned to code reading the message
 	are now const char *.
 
-2001-05-31 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-31 	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-api.c protocol.c configure,in
 	Had another go at the smtp_require_all_recipients() API hack.
 	The original implementation hoped the SMTP server would report
-	failure on receiving a zero length message but this isn&#39;t
+	failure on receiving a zero length message but this isn't
 	reliable.  This API must be explicitly enabled by ./configure.
 
-2001-05-28 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-28 	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-auth.c
-        Make sure the client won&#39;t attempt to authenticate when already
+        Make sure the client won't attempt to authenticate when already
         authenticated.  This could happen if having authenticated and
         enables a security layer, the server offers AUTH again.
 
       * smtp-tls.c
-        Make sure the client won&#39;t attempt to negotiate TLS when already
-        using TLS.  Also don&#39;t use TLS if already authenticated.
+        Make sure the client won't attempt to negotiate TLS when already
+        using TLS.  Also don't use TLS if already authenticated.
 
       * siobuf.c
       	Make the code for non-blocking sockets + OpenSSL more robust.
@@ -989,15 +815,15 @@
       * errors.c
 	Added default case for set_herrno().
 
-2001-05-25 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-25 	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-auth.c
       	On authentication failure the same mechanism was selected again
       	instead of moving on to the next one.  This caused an infinite
       	loop of failing AUTH exchanges.
 
-2001-05-24 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-24 	Brian Stafford	<brian@stafford.uklinux.net>
       * libesmtp.spec.in
-      	Changed &quot;-a 0&quot; option in %setup macro to &quot;-T -b 0&quot;
+      	Changed "-a 0" option in %setup macro to "-T -b 0"
 
       * configure.in
 	Removed -Werror from --enable-more-warnings=yes as this can be
@@ -1010,23 +836,23 @@
 	causing a SIGSEGV.  This bug was introduced with support for
 	gethostbyname_r.
 
-2001-05-23 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-23 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in
 	Incremented library version and reset the age.  This is important
 	because the event callback semantics have changed.
-	Detect IPv6 sockaddr structure in &lt;netinet/in.h&gt;.
+	Detect IPv6 sockaddr structure in <netinet/in.h>.
 
       * protocol.c
       	Added 8BITMIME support.  New API call smtp_8bitmime_set_body().
       	Report extensions after final set is known.  STARTTLS or AUTH
       	can change the set of extensions advertised by the server.
         Typo meant the RET=FULL/HDRS parameter was printed as
-        SIZE=FULL/HDRS in MAIL FROM: (D&#39;oh!)
+        SIZE=FULL/HDRS in MAIL FROM: (D'oh!)
 
       * errors.c
 	Changed prototype for smtp_strerror() to allow use of strerror_r.
 
-2001-05-22 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-22 	Brian Stafford	<brian@stafford.uklinux.net>
       * siobuf.c
         Fixed calls to encode/decode callbacks and added explanation of
         their semantics.  This eliminates potential for a buffer
@@ -1040,10 +866,10 @@
       	Added libesmtp.spec to extra distribution files.
 
       * gethostbyname.c
-	Added missing #include &lt;string.h&gt; (gcc builtin prototypes
+	Added missing #include <string.h> (gcc builtin prototypes
 	again - grumble....)
 
-2001-05-21 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-21 	Brian Stafford	<brian@stafford.uklinux.net>
       * siobuf.c
       	Restructuring of reading/writing and polling to permit use
       	of non-blocking IO.
@@ -1055,7 +881,7 @@
 	conjunction with non-blocking output this avoids a potential
 	deadlock described in RFC 2920 when PIPELINING is in use.
 
-2001-05-20 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-20 	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-etrn.c
 	Added experimental support for the ETRN extension.
 
@@ -1078,11 +904,11 @@
 2001-05-18 Version 0.7.1 released
 ---------------------------------
 
-2001-05-18 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-18 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c
       	Added AF_INET6 support.
 
-2001-05-17 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-17 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c gethostbyname.[ch] configure.in acinclude.m4
 	gethostbyname_r() now in its own file which provides a consistent
 	interface.  configure selects which version of the function to
@@ -1092,24 +918,24 @@
       	Directory for installing authentication plugins is now
       	configurable.
 
-2001-05-15 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-15 	Brian Stafford	<brian@stafford.uklinux.net>
       * libesmtp.spec.in
 	Added to simplify building RPM packages.
 
-2001-05-14 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-14 	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-api.c
       	Check that all messages have a callback to read the message
       	headers and body.
 
       * tokens.c
 	Check buffer length in read_atom().
-	Use of &lt;ctype.h&gt; eliminated.
+	Use of <ctype.h> eliminated.
 
       * headers.c
         init_header_table() checks for NULL pointers to avoid potential
         SIGSEGVs.
 
-2001-05-13 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-13 	Brian Stafford	<brian@stafford.uklinux.net>
       * rfc822date.c configure.in
 	Use localtime_r() or gmtime_r() when building a thread safe
 	library.
@@ -1120,19 +946,19 @@
       	Generally tidied up code.
 
       * auth-client.c
-      	auth_response() fails if (*context-&gt;client-&gt;init)() fails.
+      	auth_response() fails if (*context->client->init)() fails.
 
       * base64.c
 	b64_encode() now checks the destination buffer length.
 
-2001-05-11 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-11 	Brian Stafford	<brian@stafford.uklinux.net>
       * libesmtp-config.in Makefile.am
       	Added config script to simplify compiling and linking.
 
       * protocol.c configure.in
       	Use gethostbyname_r() when building a thread safe library.
 
-2001-05-09 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-09 	Brian Stafford	<brian@stafford.uklinux.net>
       * Makefile.am configure.in
 	libltdl is now part of the tarball and is installed if not
 	already present.
@@ -1151,9 +977,9 @@
 2001-05-06 Version 0.7.0 released
 ---------------------------------
 
-2001-05-06 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-06 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c
-	session-&gt;auth_mechanisms was incorrectly freed in do_session().
+	session->auth_mechanisms was incorrectly freed in do_session().
 	This should have been done using destroy_auth_mechanisms().
 	Moved initialisation of the session variables to the start
 	of do_session().  This allows checks for some error conditions
@@ -1165,7 +991,7 @@
 	a few FIXME comments that no longer apply.
 
       * smtp-api.c
-        smtp_recipient_reset_status() clears the &#39;complete&#39; flag so that
+        smtp_recipient_reset_status() clears the 'complete' flag so that
         the recipient will be retried on a subsequent smtp_start_session().
         Added a new API smtp_recipient_check_complete().  This is true if
         a subsequent call to smtp_start_session() would *not* attempt to
@@ -1174,7 +1000,7 @@
         server hostname.
 
       * protocol.c libesmtp-private.h smtp-api.c
-        Renamed &#39;sent&#39; in smtp_recipient_t structure to &#39;complete&#39;.
+        Renamed 'sent' in smtp_recipient_t structure to 'complete'.
         Not all completed recipients might have been sent.
 
       * protocol.c headers.c smtp-api.c
@@ -1182,24 +1008,24 @@
         new API smtp_set_hostname() to allow the application to change
         the default.
 
-2001-05-03 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-03 	Brian Stafford	<brian@stafford.uklinux.net>
       * crammd5/Makefile.am crammd5/hmacmd5.[ch]
       	Renamed files to avoid name conflict with Cyrus SASL
       	include/ directory.
 
       * base64.c message-source.c
-	Added missing #include &lt;string.h&gt;, egcs-2.91.66 didn&#39;t
+	Added missing #include <string.h>, egcs-2.91.66 didn't
 	spot the missing prototypes.
 
       * examples/mail-file.c
-        Ignore SIGPIPE.  Means the application isn&#39;t killed accidentally
+        Ignore SIGPIPE.  Means the application isn't killed accidentally
         when something times out during the protocol session.
 
-2001-05-02 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-05-02 	Brian Stafford	<brian@stafford.uklinux.net>
       * sasl-tls.c protocol.c
       	Added experimental support for STARTTLS
 
-2001-04-31 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-04-31 	Brian Stafford	<brian@stafford.uklinux.net>
       * cram-md5/Makefile.am
 	hmac-md5.h was missing from the list of sources and hence was
 	not in the tarball.
@@ -1207,7 +1033,7 @@
 2001-04-29 Version 0.6.1 released
 --------------------------------
 
-2001-04-30 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-04-30 	Brian Stafford	<brian@stafford.uklinux.net>
       * auth-client.c
 	Fixed incorrect SSF comparison for authentication modules
 	that were already loaded.
@@ -1215,7 +1041,7 @@
 2001-04-29 Version 0.6a released
 --------------------------------
 
-2001-04-28 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-04-28 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in smtp-api.c example/mail-file.c
 	Corrected inconsistently named API from smtp_set_auth_context()
 	to smtp_auth_set_context().
@@ -1223,16 +1049,16 @@
 2001-04-25 Version 0.6 released
 --------------------------------
 
-2001-04-25 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-04-25 	Brian Stafford	<brian@stafford.uklinux.net>
       * configure.in Makefile.am */Makefile.am
 	Added detection of MD5 routines in OpenSSL, to enable
 	the CRAM-MD5 SASL mechanism.
 
-2001-04-25 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-04-25 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c
 	Corrected parsing bug in parse_status_triplet().
 
-2001-04-16 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-04-16 	Brian Stafford	<brian@stafford.uklinux.net>
       * api.h
 	Added new header file.  This currently contains macros
 	to aid argument checking for API functions.
@@ -1241,9 +1067,9 @@
 	Changed name of API function argument check macro.
 
       * most files
-      	Wrapped #include &lt;config.h&gt; with #ifdef HAVE_CONFIG_H
+      	Wrapped #include <config.h> with #ifdef HAVE_CONFIG_H
 
-2001-04-11 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-04-11 	Brian Stafford	<brian@stafford.uklinux.net>
       * rfc822date.c
 	Make sure the absolute value of minutes is used when
       	formatting the date.
@@ -1258,18 +1084,18 @@
       * protocol.c
 	Support for SMTP AUTH extension.
 
-2001-04-05 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-04-05 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c smtp-auth.c
-	Removed &#39;want_enhanced&#39; argument from read_smtp_response()
+	Removed 'want_enhanced' argument from read_smtp_response()
 	since it was unnecessary.
 	Added preliminary support for SMTP AUTH extension.
 
-2001-04-04 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-04-04 	Brian Stafford	<brian@stafford.uklinux.net>
       * Many files
 	Changes to accomodate stricter error checking options
 	to gcc.
 
-2001-04-03 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-04-03 	Brian Stafford	<brian@stafford.uklinux.net>
       * siobuf.c protocol.c
 	Changed CONFIG_TLS to USE_TLS (not that it matters yet)
 	Changed HAVE_LIBSASL to USE_SASL
@@ -1278,11 +1104,11 @@
       * configure.in
 	Checks for pthreads and SASL.
 
-2001-03-21 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-03-21 	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-api.c
       	Fixed up some missing error reporting.
 
-2001-03-15 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-03-15 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c
       	Now sets timeouts reccommended in RFC 1123 when waiting for
       	server responses.
@@ -1291,13 +1117,13 @@
       	Changed prefix from ES_ to SMTP_ERR_.  Edits to other files
       	to accommodate the change.
 
-2001-03-14 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-03-14 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c libesmtp.h
         Added first lot of event monitoring callbacks.  Simplified the
         declaration for the callback function.  The callback is called
         with different arguments depending on the actual event.
 
-2001-03-09 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-03-09 	Brian Stafford	<brian@stafford.uklinux.net>
       * tokens.c tokens.h protocol.c
 	Added const to a few things that should have had it.  Fixed a
 	corresponding declaration in protocol.c.
@@ -1312,11 +1138,11 @@
       	writing or after reading data between the buffers and the
       	socket.  This is for use by SASL security layers.
 
-2001-03-07 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-03-07 	Brian Stafford	<brian@stafford.uklinux.net>
       * concatenate.c concatenate.h
 	Added minimum_length parameter to cat_{init,reset}().
 
-2001-03-07 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-03-07 	Brian Stafford	<brian@stafford.uklinux.net>
       * siobuf.c siobuf.h protocol.c
 	Allow for seperate read and write file descriptors in
 	sio_attach().  This is for when support for opening a pipe to
@@ -1331,14 +1157,14 @@
       	Added encoder/decoder callbacks for use with security layer parts
       	of SASL.  CONFIG_SASL stuff now gone.
 
-2001-03-02 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-03-02 	Brian Stafford	<brian@stafford.uklinux.net>
       * headers.c
         Implemented the rest of destroy_header_table().
 
 2001-02-27 Version 0.5 released
 --------------------------------
 
-2001-02-26 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-02-26 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c
       	Now issue RSET before MAIL FROM: if a failure response is
       	received to the DATA command.
@@ -1358,12 +1184,12 @@
 2001-02-26 Version 0.4 released
 --------------------------------
 
-2001-02-25 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-02-25 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c
         Second state for the DATA command now does not transfer the
         message if there were no valid recipients.
 
-2001-02-22 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-02-22 	Brian Stafford	<brian@stafford.uklinux.net>
       * smtp-api.c
         Added APIs to get/set application data in each of the opaque
         structures.
@@ -1391,7 +1217,7 @@
 2001-02-18 Version 0.3 released
 --------------------------------
 
-2001-02-19 	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-02-19 	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c smtp-api.c
         Port number in session structure stored in host byte order
         instead of network byte order.  This makes the port number easier
@@ -1400,14 +1226,14 @@
       * protocol.c
 	Removed white space which crept into the MAIL FROM: and RCPT TO:
 	commands.  All the servers tested with to date have accepted
-	this but it wasn&#39;t in RFC 821.
+	this but it wasn't in RFC 821.
 
       * headers.c
 	Fixed From: and Disposition-Notification-To: headers to allow
 	multiple mailboxes as per RFC 822.
 
 	Corrected syntax for default Message-Id: generation.  This
-	should have been &quot;addr-spec&quot; per RFC 822 but didn&#39;t have an @.
+	should have been "addr-spec" per RFC 822 but didn't have an @.
 
       * examples/mail-file.c
       	Corrected typo that stopped --reverse-path from working.
@@ -1416,12 +1242,12 @@
 --------------------------------
       Core libESMTP API now complete.
 
-2001-02-18	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-02-18	Brian Stafford	<brian@stafford.uklinux.net>
       * examples/mail-file.c
       	Updated to tweak a few more APIs in libESMTP.
       	The example now has a very basic Makefile.
 
-2001-02-17	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-02-17	Brian Stafford	<brian@stafford.uklinux.net>
       * protocol.c
         Changed use of strchr() to memchr() since strings read by the
         message callback and header functions are *not* \0 terminated.
@@ -1432,7 +1258,7 @@
 
       * New files added to support RFC 822 header processing.
 
-2001-02-08	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-02-08	Brian Stafford	<brian@stafford.uklinux.net>
       * siobuf.c
       	Some additional error checking; extra thoroughness checking the
       	return value of write().
@@ -1450,7 +1276,7 @@
 2001-02-04 Version 0.1a released
 --------------------------------
 
-2001-04-04	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-04-04	Brian Stafford	<brian@stafford.uklinux.net>
 
       * message-source.c
         Fixed a bad bug that could cause an infinite loop if a message
@@ -1459,58 +1285,7 @@
 2001-02-04 Version 0.1 released
 -------------------------------
 
-2001-02-04	Brian Stafford	&lt;brian@stafford.uklinux.net&gt;
+2001-02-04	Brian Stafford	<brian@stafford.uklinux.net>
 
       * Initial Release
-</pre></div>
-</div>
-</div>
-
-
-           </div>
-           
-          </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="NEWS.html" class="btn btn-neutral float-left" title="NEWS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Brian Stafford.
-
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
-</html>
+```

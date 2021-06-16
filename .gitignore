@@ -1,0 +1,4 @@
+.*
+http.conf
+_build/
+_site/

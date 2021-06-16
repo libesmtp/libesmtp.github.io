@@ -1,185 +1,10 @@
+# NEWS
 
-
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>NEWS &mdash; libESMTP 1.1.0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ChangeLog" href="ChangeLog.html" />
-    <link rel="prev" title="Legacy Files" href="oldfiles.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="index.html" class="icon icon-home"> libESMTP
-          
-
-          
-            
-            <img src="_static/pillarbox.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                1.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="libesmtp.html">Benefits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference/changes-since-v1.0.6.html">Changes since v1.0.6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference/index.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bugreport.html">Reporting Bugs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="users.html">Users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="essays.html">Essays</a></li>
-<li class="toctree-l1"><a class="reference internal" href="authors.html">Author</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="oldfiles.html">Legacy Files</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">NEWS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ChangeLog.html">ChangeLog</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/libesmtp/libESMTP/wiki">Wiki</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">libESMTP</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="oldfiles.html">Legacy Files</a> &raquo;</li>
-        
-      <li>NEWS</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="news">
-<h1>NEWS<a class="headerlink" href="#news" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* libESMTP 1.0.3 stable release. 2004-04-20
+```
+* libESMTP 1.0.3 stable release. 2004-04-20
 
 - This release contains TLS improvements from
-  Pawel Salek &lt;pawsa@theochem.kth.se&gt;
+  Pawel Salek <pawsa@theochem.kth.se>
   See ChangeLog for details.
 
 * libESMTP 1.0.2 stable release. 2004-01-06
@@ -254,7 +79,7 @@ cause arbitrary code to be executed.
 - Usual autoconf stuff, see ChangeLog for details.
 
 Added an NTLM authentication module.  Currently this requires OpenSSL to
-build.  This has not seen much in the way of testing as I don&#39;t have
+build.  This has not seen much in the way of testing as I don't have
 regular access to a server which requires NTLM authentication for SMTP.
 However it does generate the correct responses for the test cases I have
 tried.  Feedback on the success or otherwise of this module is solicited.
@@ -284,15 +109,15 @@ Also Important:
 
 A horrible hack:
     Added tentative support/hack for the non-standard AUTH= syntax in
-    EHLO responses.  It might work.  Don&#39;t complain to me if it doesn&#39;t.
+    EHLO responses.  It might work.  Don't complain to me if it doesn't.
     You need to ./configure --enable-nsauth for this support.
       This syntax was only ever described in internet drafts and never
     made it into RFC 2554.  It should *never* have been deployed on the
     internet.  Internet drafts are deleted after 6 months and after
     publication of RFCs.  So there is *no* documentation for this syntax
-    and I can&#39;t even begin to guess what it is supposed to be or what
+    and I can't even begin to guess what it is supposed to be or what
     implementation errors there are wrt these unavailable documents.
-      My advice is if this hack doesn&#39;t work, complain to your ISP and
+      My advice is if this hack doesn't work, complain to your ISP and
     recommend that they deploy MTAs that are standards compliant.
     Documentation exists for standards and I am happy to make sure
     libESMTP complies with documents I can actually obtain.
@@ -331,11 +156,11 @@ A horrible hack:
     Reverted to autoconf 2.13
 
   o Removed support for gethostbyname resolver interface.  Please
-    refer to the &#39;Dependencies&#39; section in README.
+    refer to the 'Dependencies' section in README.
 
   o Enhancements to STARTTLS support.
 
-  o Calculation of current timezone&#39;s offset from GMT (UTC) is now
+  o Calculation of current timezone's offset from GMT (UTC) is now
     portable and thread safe.
 
 * libESMTP 0.8.4 development release.	2001-08-13
@@ -346,7 +171,7 @@ A horrible hack:
 
 - See ChangeLog for details.
 
-  o Support for sendmail&#39;s XUSR extension.
+  o Support for sendmail's XUSR extension.
 
   o Fixed a bad bug which caused connections to the server to be dropped
     depending on the amount of buffering provided by the server.
@@ -358,7 +183,7 @@ A horrible hack:
   o Added lots of assertions in the code.
 
   o Fixed a bad dangling pointer bug that could strike when sending
-    messages with lines &gt; 510 characters.
+    messages with lines > 510 characters.
 
   o Fixed a polling bug that could cause deadlock.
 
@@ -398,62 +223,11 @@ slow process.
 Many of the supported SMTP extensions have had only superficial testing
 mainly due to lack of access to servers supporting them.  Developers using
 libESMTP are encouraged to test extensions against servers to which they
-have access and to submit bug reports to &lt;brian@stafford.uklinux.net&gt;.
+have access and to submit bug reports to <brian@stafford.uklinux.net>.
 
 The libESMTP web site will be updated in the near future to set up
 (finally!)  mailing lists and bug tracking.  In addition the web site will
 link to projects using libESMTP.  If you would like a mention for your
-project, drop a line to &lt;brian@stafford.uklinux.net&gt; with the details.
-</pre></div>
-</div>
-</div>
+project, drop a line to <brian@stafford.uklinux.net> with the details.
 
-
-           </div>
-           
-          </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ChangeLog.html" class="btn btn-neutral float-right" title="ChangeLog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="oldfiles.html" class="btn btn-neutral float-left" title="Legacy Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Brian Stafford.
-
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
-</html>
+```

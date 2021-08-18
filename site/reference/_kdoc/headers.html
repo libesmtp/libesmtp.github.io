@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -123,6 +126,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../events.html">Event Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tlsevents.html">TLS Event Callback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../licence.html">Licence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../genindex.html">Index of Symbols</a></li>
 </ul>
@@ -255,8 +260,8 @@ from the message, if present.</p>
 <li><p>Original-Recipient:</p></li>
 </ul>
 <dl class="c function">
-<dt id="c.smtp_set_header">
-int <code class="sig-name descname">smtp_set_header</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, <em class="property">const</em> char *<em>header</em>, ...<span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_header" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_set_header">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">smtp_set_header</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_message_t</span></span><span class="w"> </span><span class="n"><span class="pre">message</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">header</span></span>, <span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_header" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set a message header</p>
 </dd></dl>
 
@@ -334,8 +339,8 @@ From mailbox.</p></td>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
 <dl class="c function">
-<dt id="c.smtp_set_header_option">
-int <code class="sig-name descname">smtp_set_header_option</code><span class="sig-paren">(</span>smtp_message_t <em>message</em>, <em class="property">const</em> char *<em>header</em>, <em class="property">enum</em> header_option <em>option</em>, ...<span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_header_option" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_set_header_option">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">smtp_set_header_option</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_message_t</span></span><span class="w"> </span><span class="n"><span class="pre">message</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">header</span></span>, <span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">header_option</span></span><span class="w"> </span><span class="n"><span class="pre">option</span></span>, <span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_set_header_option" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set a message header</p>
 </dd></dl>
 

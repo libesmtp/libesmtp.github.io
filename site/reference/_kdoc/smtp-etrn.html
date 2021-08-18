@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -117,6 +120,8 @@
 <li class="toctree-l2"><a class="reference internal" href="headers.html">Message Headers</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Remote Message Queue Starting (ETRN)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../events.html">Event Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tlsevents.html">TLS Event Callback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../licence.html">Licence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../genindex.html">Index of Symbols</a></li>
 </ul>
@@ -203,8 +208,8 @@ delivery queue for the specified domain.  If the application requests
 the use if the ETRN extension and the remote MTA does not list ETRN,
 libESMTP will use the event callback to notify the application.</p>
 <dl class="c function">
-<dt id="c.smtp_etrn_add_node">
-smtp_etrn_node_t <code class="sig-name descname">smtp_etrn_add_node</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, int <em>option</em>, <em class="property">const</em> char *<em>domain</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_add_node" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_etrn_add_node">
+<span class="n"><span class="pre">smtp_etrn_node_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">smtp_etrn_add_node</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">option</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">domain</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_add_node" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>create an ETRN node.</p>
 </dd></dl>
 
@@ -222,8 +227,8 @@ smtp_etrn_node_t <code class="sig-name descname">smtp_etrn_add_node</code><span 
 <p><strong>Return</strong></p>
 <p>An <code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">smtp_etrn_node_t</span></code> or <code class="docutils literal notranslate"><span class="pre">NULL</span></code> on failure.</p>
 <dl class="c function">
-<dt id="c.smtp_etrn_enumerate_nodes">
-int <code class="sig-name descname">smtp_etrn_enumerate_nodes</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, smtp_etrn_enumerate_nodecb_t <em>cb</em>, void *<em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_enumerate_nodes" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_etrn_enumerate_nodes">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">smtp_etrn_enumerate_nodes</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="n"><span class="pre">smtp_etrn_enumerate_nodecb_t</span></span><span class="w"> </span><span class="n"><span class="pre">cb</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_enumerate_nodes" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Call function for each ETRN node in session.</p>
 </dd></dl>
 
@@ -241,8 +246,8 @@ int <code class="sig-name descname">smtp_etrn_enumerate_nodes</code><span class=
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
 <dl class="c function">
-<dt id="c.smtp_etrn_node_status">
-<em class="property">const</em> smtp_status_t *<code class="sig-name descname">smtp_etrn_node_status</code><span class="sig-paren">(</span>smtp_etrn_node_t <em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_node_status" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_etrn_node_status">
+<span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">smtp_status_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">smtp_etrn_node_status</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_etrn_node_t</span></span><span class="w"> </span><span class="n"><span class="pre">node</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_node_status" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Retrieve ETRN status.</p>
 </dd></dl>
 
@@ -260,8 +265,8 @@ available and text from the server describing the status.</p>
 otherwise a pointer to the status information.  The pointer remains valid
 until the next call to libESMTP in the same thread.</p>
 <dl class="c function">
-<dt id="c.smtp_etrn_set_application_data">
-void *<code class="sig-name descname">smtp_etrn_set_application_data</code><span class="sig-paren">(</span>smtp_etrn_node_t <em>node</em>, void *<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_set_application_data" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_etrn_set_application_data">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">smtp_etrn_set_application_data</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_etrn_node_t</span></span><span class="w"> </span><span class="n"><span class="pre">node</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_set_application_data" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Associate data with an ETRN node.</p>
 </dd></dl>
 
@@ -279,8 +284,8 @@ Use smtp_etrn_set_application_data_release() instead.</p>
 <p><strong>Return</strong></p>
 <p>Previously set application data or <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 <dl class="c function">
-<dt id="c.smtp_etrn_set_application_data_release">
-void <code class="sig-name descname">smtp_etrn_set_application_data_release</code><span class="sig-paren">(</span>smtp_etrn_node_t <em>node</em>, void *<em>data</em>, void (*<em>release</em>)<span class="sig-paren">(</span>void*<span class="sig-paren">)</span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_set_application_data_release" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_etrn_set_application_data_release">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">smtp_etrn_set_application_data_release</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_etrn_node_t</span></span><span class="w"> </span><span class="n"><span class="pre">node</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">data</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">release</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_set_application_data_release" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Associate data with an ETRN node.</p>
 </dd></dl>
 
@@ -298,8 +303,8 @@ void <code class="sig-name descname">smtp_etrn_set_application_data_release</cod
 If <strong>release</strong> is non-NULL it is called to free or unreference data when
 changed or the session is destroyed.</p>
 <dl class="c function">
-<dt id="c.smtp_etrn_get_application_data">
-void *<code class="sig-name descname">smtp_etrn_get_application_data</code><span class="sig-paren">(</span>smtp_etrn_node_t <em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_get_application_data" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_etrn_get_application_data">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">smtp_etrn_get_application_data</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_etrn_node_t</span></span><span class="w"> </span><span class="n"><span class="pre">node</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_etrn_get_application_data" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Get data from an ETRN node.</p>
 </dd></dl>
 

@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>TLS Event Callback &mdash; libESMTP 1.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Licence" href="licence.html" />
+    <link rel="prev" title="Event Callback" href="events.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> libESMTP
+          
+
+          
+            
+            <img src="../_static/pillarbox.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../libesmtp.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-since-v1.0.6.html">Changes since v1.0.6</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programflow.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="certificates.html">TLS Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/libesmtp.html">libESMTP Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html">Core API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#delivery-status-notification-dsn">Delivery Status Notification (DSN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#size-extention">Size Extention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#bit-mime-transport-extension">8bit-MIME Transport Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#deliver-by-extension">Deliver By Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#id1">Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#smtp-protocol">SMTP Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#tear-down-session">Tear Down Session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#application-data">Application Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#miscellaneous-apis">Miscellaneous APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-tls.html">StartTLS Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-auth.html">Auth Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/auth-client.html">Auth Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/message-callbacks.html">Message Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/headers.html">Message Headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Event Callback</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TLS Event Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="licence.html">Licence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genindex.html">Index of Symbols</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../essays.html">Essays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oldfiles.html">Legacy Files</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/libesmtp/libESMTP/wiki">Wiki</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">libESMTP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">API Reference</a> &raquo;</li>
+        
+      <li>TLS Event Callback</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p id="tls-events"><strong>TLS Events</strong></p>
+<div class="section" id="tls-event-callback">
+<h1>TLS Event Callback<a class="headerlink" href="#tls-event-callback" title="Permalink to this headline">¶</a></h1>
+<p>TLS event callbacks are called by libESMTP when initialising or negotiating
+a TLS secure connection.</p>
+<p>The callback function signature varies depending on the event type described
+below.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.weak_cipher">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">weak_cipher</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">bits</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ok</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.weak_cipher" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_WEAK_CIPHER event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_WEAK_CIPHER</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">bits</span></code></dt><dd><p>Bits in cipher key</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*ok</span></code></dt><dd><p>Set zero to quit SMTP session, non-zero to continue.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Report that a weak cipher was negotiated. By default a key of 40 bits or
+less is considered weak and libESMTP will reject the connection. This cannot
+be the case when TLS is used, however an application may supply an SSL_CTX
+supporting legacy SSL versions.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.starttls_ok">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">starttls_ok</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="n"><span class="pre">SSL</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ssl</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">cipher</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">bits</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.starttls_ok" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_STARTTLS_OK event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_STARTTLS_OK</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">SSL</span> <span class="pre">*ssl</span></code></dt><dd><p>The OpenSSL TLS context.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*cipher</span></code></dt><dd><p>Name of negotiated cipher.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">bits</span></code></dt><dd><p>cipher key size in bits.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Report a successful TLS connection and the cipher details.  The OpenSSL
+context is passed so that the application may query further information.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.invalid_peer_certificate">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">invalid_peer_certificate</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n"><span class="pre">verify</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ok</span></span>, <span class="n"><span class="pre">SSL</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ssl</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.invalid_peer_certificate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_INVALID_PEER_CERTIFICATE event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_INVALID_PEER_CERTIFICATE</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">verify</span></code></dt><dd><p>Return value from SSL_get_verify_result().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*ok</span></code></dt><dd><p>Set zero to quit SMTP session, non-zero to continue.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">SSL</span> <span class="pre">*ssl</span></code></dt><dd><p>The OpenSSL TLS context.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Report an invalid peer certificate. The TLS context, <strong>ssl</strong>, and <strong>verify</strong>
+provide information on the reason for the invalid certificate. By default
+libESMTP will reject the connection.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.no_peer_certificate">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">no_peer_certificate</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ok</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.no_peer_certificate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_NO_PEER_CERTIFICATE event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_NO_PEER_CERTIFICATE</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*ok</span></code></dt><dd><p>Set zero to quit SMTP session, non-zero to continue.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Report that peer did not present a certficate. By default libESMTP will
+reject the connection.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.wrong_peer_certificate">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">wrong_peer_certificate</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ok</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">domain</span></span>, <span class="n"><span class="pre">SSL</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ssl</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.wrong_peer_certificate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_WRONG_PEER_CERTIFICATE event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_WRONG_PEER_CERTIFICATE</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*ok</span></code></dt><dd><p>Set zero to quit SMTP session, non-zero to continue.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*domain</span></code></dt><dd><p>Certificate domain.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">SSL</span> <span class="pre">*ssl</span></code></dt><dd><p>The OpenSSL TLS context.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Report that the server certificate is not valid for the domain name used to
+connect to the peer. The actual domain is provided in <strong>domain</strong> which may
+contain wildcards. By default libESMTP will reject the connection.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.no_client_certificate">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">no_client_certificate</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ok</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.no_client_certificate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_NO_CLIENT_CERTIFICATE event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_NO_CLIENT_CERTIFICATE</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*ok</span></code></dt><dd><p>Set zero to quit SMTP session, non-zero to continue.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Report that a private key could not be found for a certificate libESMTP
+has attempted to load when initialising an OpenSSL TLS context. By default
+libESMTP will not continue to set up the TLS connection.  Note that this
+is different to not providing a client certificate at all.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.unusable_client_certificate">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unusable_client_certificate</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">null</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.unusable_client_certificate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_UNUSABLE_CLIENT_CERTIFICATE event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_UNUSABLE_CLIENT_CERTIFICATE</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*null</span></code></dt><dd><p>always <code class="docutils literal notranslate"><span class="pre">NULL</span></code></p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Report a file error when attempting to load a client certificate.
+libESMTP will not make TLS connections until the error is corrected.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="licence.html" class="btn btn-neutral float-right" title="Licence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="events.html" class="btn btn-neutral float-left" title="Event Callback" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Brian Stafford.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

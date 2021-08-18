@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -117,6 +120,8 @@
 <li class="toctree-l2"><a class="reference internal" href="headers.html">Message Headers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../events.html">Event Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tlsevents.html">TLS Event Callback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../licence.html">Licence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../genindex.html">Index of Symbols</a></li>
 </ul>
@@ -204,8 +209,8 @@ reading from a file and reading from a string.  In both cases the message
 with the canonical CRLF sequence.  Furthermore, RFC 5321 line length
 limitations must be observed (1000 octets maximum).</p>
 <dl class="c function">
-<dt id="c._smtp_message_fp_cb">
-<em class="property">const</em> char *<code class="sig-name descname">_smtp_message_fp_cb</code><span class="sig-paren">(</span>void **<em>ctx</em>, int *<em>len</em>, void *<em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c._smtp_message_fp_cb" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c._smtp_message_fp_cb">
+<span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">_smtp_message_fp_cb</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">len</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c._smtp_message_fp_cb" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Read message from a file.</p>
 </dd></dl>
 
@@ -223,8 +228,8 @@ limitations must be observed (1000 octets maximum).</p>
 <p><strong>Return</strong></p>
 <p>A pointer to message data which remains valid until the next call.</p>
 <dl class="c function">
-<dt id="c._smtp_message_str_cb">
-<em class="property">const</em> char *<code class="sig-name descname">_smtp_message_str_cb</code><span class="sig-paren">(</span>void **<em>ctx</em>, int *<em>len</em>, void *<em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c._smtp_message_str_cb" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c._smtp_message_str_cb">
+<span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">_smtp_message_str_cb</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">len</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c._smtp_message_str_cb" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Read message from a string.</p>
 </dd></dl>
 

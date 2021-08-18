@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -125,6 +128,8 @@
 <li class="toctree-l2"><a class="reference internal" href="_kdoc/headers.html">Message Headers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_kdoc/errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Event Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tlsevents.html">TLS Event Callback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="licence.html">Licence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../genindex.html">Index of Symbols</a></li>
 </ul>
@@ -276,9 +281,9 @@ the internal detail of libESMTP structures is not made available to the
 application.  Object oriented programmers may wish to regard the pointers
 as instances of private classes within libESMTP.</p>
 <p>Three pointer types are declared as follows</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">smtp_session</span> <span class="o">*</span><span class="n">smtp_session_t</span><span class="p">;</span>
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">smtp_message</span> <span class="o">*</span><span class="n">smtp_message_t</span><span class="p">;</span>
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">smtp_recipient</span> <span class="o">*</span><span class="n">smtp_recipient_t</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">smtp_session</span> <span class="o">*</span><span class="n">smtp_session_t</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">smtp_message</span> <span class="o">*</span><span class="n">smtp_message_t</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">smtp_recipient</span> <span class="o">*</span><span class="n">smtp_recipient_t</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -305,7 +310,7 @@ during the protocol session.</p>
 <span class="kt">void</span>
 <span class="nf">ignore_sigpipe</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">struct</span> <span class="n">sigaction</span> <span class="n">sa</span><span class="p">;</span>
+  <span class="k">struct</span> <span class="nc">sigaction</span> <span class="n">sa</span><span class="p">;</span>
 
   <span class="n">sa</span><span class="p">.</span><span class="n">sa_handler</span> <span class="o">=</span> <span class="n">SIG_IGN</span><span class="p">;</span>
   <span class="n">sigemptyset</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">sa</span><span class="p">.</span><span class="n">sa_mask</span><span class="p">);</span>

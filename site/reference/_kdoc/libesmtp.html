@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -117,6 +120,8 @@
 <li class="toctree-l2"><a class="reference internal" href="headers.html">Message Headers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../events.html">Event Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tlsevents.html">TLS Event Callback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../licence.html">Licence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../genindex.html">Index of Symbols</a></li>
 </ul>
@@ -200,8 +205,8 @@
 <h1>libESMTP Types<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>The following types are defined by libESMTP.</p>
 <dl class="c macro">
-<dt id="c.smtp_enumerate_messagecb_t">
-<code class="sig-name descname">smtp_enumerate_messagecb_t</code><a class="headerlink" href="#c.smtp_enumerate_messagecb_t" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_enumerate_messagecb_t">
+<span class="sig-name descname"><span class="n"><span class="pre">smtp_enumerate_messagecb_t</span></span></span><a class="headerlink" href="#c.smtp_enumerate_messagecb_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><strong>Typedef</strong>: Message callback.</p>
 </dd></dl>
 
@@ -219,8 +224,8 @@
 <p><strong>Description</strong></p>
 <p>Callback function to handle a message.</p>
 <dl class="c macro">
-<dt id="c.smtp_enumerate_recipientcb_t">
-<code class="sig-name descname">smtp_enumerate_recipientcb_t</code><a class="headerlink" href="#c.smtp_enumerate_recipientcb_t" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_enumerate_recipientcb_t">
+<span class="sig-name descname"><span class="n"><span class="pre">smtp_enumerate_recipientcb_t</span></span></span><a class="headerlink" href="#c.smtp_enumerate_recipientcb_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><strong>Typedef</strong>: Recipient callback.</p>
 </dd></dl>
 
@@ -240,8 +245,8 @@
 <p><strong>Description</strong></p>
 <p>Callback to process a recipient.</p>
 <dl class="c enum">
-<dt id="c.rfc2822_timeouts">
-<em class="property">enum </em><code class="sig-name descname">rfc2822_timeouts</code><a class="headerlink" href="#c.rfc2822_timeouts" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.rfc2822_timeouts">
+<span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rfc2822_timeouts</span></span></span><a class="headerlink" href="#c.rfc2822_timeouts" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Specify timeout.</p>
 </dd></dl>
 
@@ -262,8 +267,8 @@
 <p>Timeout flags. In addition <code class="docutils literal notranslate"><span class="pre">Timeout_OVERRIDE_RFC2822_MINIMUM</span></code> may
 be bitwise-ORed with above to override recommended minimum timeouts.</p>
 <dl class="c enum">
-<dt id="c.ret_flags">
-<em class="property">enum </em><code class="sig-name descname">ret_flags</code><a class="headerlink" href="#c.ret_flags" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.ret_flags">
+<span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ret_flags</span></span></span><a class="headerlink" href="#c.ret_flags" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>DSN request flags.</p>
 </dd></dl>
 
@@ -279,8 +284,8 @@ be bitwise-ORed with above to override recommended minimum timeouts.</p>
 <p><strong>Description</strong></p>
 <p>DSN flags specifying requested notification.</p>
 <dl class="c enum">
-<dt id="c.notify_flags">
-<em class="property">enum </em><code class="sig-name descname">notify_flags</code><a class="headerlink" href="#c.notify_flags" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.notify_flags">
+<span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">notify_flags</span></span></span><a class="headerlink" href="#c.notify_flags" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>DSN notification conditions.</p>
 </dd></dl>
 
@@ -300,8 +305,8 @@ be bitwise-ORed with above to override recommended minimum timeouts.</p>
 <p><strong>Description</strong></p>
 <p>DSN notify flags.</p>
 <dl class="c enum">
-<dt id="c.e8bitmime_body">
-<em class="property">enum </em><code class="sig-name descname">e8bitmime_body</code><a class="headerlink" href="#c.e8bitmime_body" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.e8bitmime_body">
+<span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">e8bitmime_body</span></span></span><a class="headerlink" href="#c.e8bitmime_body" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Message body type.</p>
 </dd></dl>
 
@@ -319,8 +324,8 @@ be bitwise-ORed with above to override recommended minimum timeouts.</p>
 <p><strong>Description</strong></p>
 <p>8BITMIME extension flags.</p>
 <dl class="c enum">
-<dt id="c.by_mode">
-<em class="property">enum </em><code class="sig-name descname">by_mode</code><a class="headerlink" href="#c.by_mode" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.by_mode">
+<span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">by_mode</span></span></span><a class="headerlink" href="#c.by_mode" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Delivery flags.</p>
 </dd></dl>
 
@@ -336,8 +341,8 @@ be bitwise-ORed with above to override recommended minimum timeouts.</p>
 <p><strong>Description</strong></p>
 <p>DELIVERBY (RFC 2852) extension flags.</p>
 <dl class="c enum">
-<dt id="c.starttls_option">
-<em class="property">enum </em><code class="sig-name descname">starttls_option</code><a class="headerlink" href="#c.starttls_option" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.starttls_option">
+<span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">starttls_option</span></span></span><a class="headerlink" href="#c.starttls_option" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>TLS mode options</p>
 </dd></dl>
 
@@ -351,8 +356,8 @@ be bitwise-ORed with above to override recommended minimum timeouts.</p>
 </dd>
 </dl>
 <dl class="c macro">
-<dt id="c.smtp_starttls_passwordcb_t">
-<code class="sig-name descname">smtp_starttls_passwordcb_t</code><a class="headerlink" href="#c.smtp_starttls_passwordcb_t" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_starttls_passwordcb_t">
+<span class="sig-name descname"><span class="n"><span class="pre">smtp_starttls_passwordcb_t</span></span></span><a class="headerlink" href="#c.smtp_starttls_passwordcb_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><strong>Typedef</strong>: Password callback signature.</p>
 </dd></dl>
 

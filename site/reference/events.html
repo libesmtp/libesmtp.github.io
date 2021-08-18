@@ -1,0 +1,496 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Event Callback &mdash; libESMTP 1.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TLS Event Callback" href="tlsevents.html" />
+    <link rel="prev" title="Errors" href="_kdoc/errors.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> libESMTP
+          
+
+          
+            
+            <img src="../_static/pillarbox.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../libesmtp.html">Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-since-v1.0.6.html">Changes since v1.0.6</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programflow.html">API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="certificates.html">TLS Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/libesmtp.html">libESMTP Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html">Core API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#delivery-status-notification-dsn">Delivery Status Notification (DSN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#size-extention">Size Extention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#bit-mime-transport-extension">8bit-MIME Transport Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#deliver-by-extension">Deliver By Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#id1">Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#smtp-protocol">SMTP Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#tear-down-session">Tear Down Session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#application-data">Application Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-api.html#miscellaneous-apis">Miscellaneous APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-tls.html">StartTLS Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-auth.html">Auth Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/auth-client.html">Auth Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/message-callbacks.html">Message Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/headers.html">Message Headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_kdoc/errors.html">Errors</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Event Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tlsevents.html">TLS Event Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="licence.html">Licence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genindex.html">Index of Symbols</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bugreport.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../essays.html">Essays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oldfiles.html">Legacy Files</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/libesmtp/libESMTP/wiki">Wiki</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">libESMTP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">API Reference</a> &raquo;</li>
+        
+      <li>Event Callback</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p id="events"><strong>Events</strong></p>
+<div class="section" id="event-callback">
+<h1>Event Callback<a class="headerlink" href="#event-callback" title="Permalink to this headline">¶</a></h1>
+<p>The event callback is called by libESMTP as the SMTP protocol progresses.
+Some are informational whereas others may be used to alter certain default
+actions.</p>
+<p>The callback function signature varies depending on the event type described
+below.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.ev_connect_cb">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ev_connect_cb</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ev_connect_cb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_CONNECT event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_CONNECT</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>The smtp_session has successfully connected to the submission MTA.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.ev_disconnect_cb">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ev_disconnect_cb</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ev_disconnect_cb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_DISCONNECT event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_DISCONNECT</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>The smtp_session has successfully disconnected from the submission MTA.  In
+certain circumstances libESMTP may try connecting to an alternative MTA if
+the session was rejected. This may happen if multiple A or AAAA records are
+specified to load balance across multiple servers and an MTA is experiencing
+excessive load.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.ev_syntaxwarning_cb">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ev_syntaxwarning_cb</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">quit</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ev_syntaxwarning_cb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_SYNTAXWARNING event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_SYNTAXWARNING</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*quit</span></code></dt><dd><p>Set non-zero to quit SMTP session, zero to continue.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Issued if the MTA breaks SMTP protocol compliance.  Currently only reported
+if libESMTP is expecting enhanced status codes but does not find them in the
+server response. By default libESMTP will continue the session but the
+application can set <strong>quit</strong> to non-zero to quite the session.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.ev_extna_cb">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ev_extna_cb</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">quit</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ev_extna_cb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EXTNA_&lt;EXT&gt; extension not available event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>One of <code class="docutils literal notranslate"><span class="pre">SMTP_EV_EXTNA_DSN</span></code>, <code class="docutils literal notranslate"><span class="pre">SMTP_EV_EXTNA_CHUNKING</span></code> or <code class="docutils literal notranslate"><span class="pre">SMTP_EV_EXTNA_ETRN</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*quit</span></code></dt><dd><p>Set non-zero to quit SMTP session, zero to continue.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Issued if a requested SMTP extension is not supported by the MTA.
+<strong>event_no</strong> is one of SMTP_EV_EXTNA_DSN, SMTP_EV_EXTNA_CHUNKING or
+SMTP_EV_EXTNA_ETRN.  The value pointed to by <strong>quit</strong> may be used to determine
+whether the default action is to quit the protocol, and may be set to
+change this, non-zero means the protocol session will quit.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.ev_extna_2_cb">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ev_extna_2_cb</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ev_extna_2_cb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EXTNA_&lt;EXT&gt; extension not available event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>One of <code class="docutils literal notranslate"><span class="pre">SMTP_EV_EXTNA_BINARYMIME</span></code> or <code class="docutils literal notranslate"><span class="pre">SMTP_EV_EXTNA_8BITMIME</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Issued if a requested SMTP extension is not supported by the MTA.
+It is not possible to change default behavious in these cases since
+the message requires an eight-bit-clean transport which is not available
+unless one of these extensions are supported.</p>
+<p>If <strong>event_no</strong> is SMTP_EV_EXTNA_STARTTLS, the application has required the
+use of a TLS connection but this is not supported by the MTA.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.deliverby_expired">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deliverby_expired</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n"><span class="pre">expiry_difference</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">adjust</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.deliverby_expired" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_DELIVERBY_EXPIRED event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_DELIVERBY_EXPIRED</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">expiry_difference</span></code></dt><dd><p>difference in seconds between server and requested expiry</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*adjust</span></code></dt><dd><p>set deliver by time to server minimum plus <strong>adjust</strong> seconds.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Report that mail cannot be delivered by the requested time. Adjust can
+be used to request a later deliver by time if set greater than zero.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.mailstatus">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mailstatus</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">mailbox</span></span>, <span class="n"><span class="pre">smtp_message_t</span></span><span class="w"> </span><span class="n"><span class="pre">message</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.mailstatus" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_MAILSTATUS event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_MAILSTATUS</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*mailbox</span></code></dt><dd><p>The reverse path mailbox.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>The <strong>smtp_message_t</strong></p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Report MTA status for the MAIL FROM:&lt;&gt; command. The actual status code
+may be retrieved with smtp_reverse_path_status().</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.rcptstatus">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rcptstatus</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">mailbox</span></span>, <span class="n"><span class="pre">smtp_recipient_t</span></span><span class="w"> </span><span class="n"><span class="pre">recipient</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.rcptstatus" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_RCPTSTATUS event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_RCPTSTATUS</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*mailbox</span></code></dt><dd><p>The reverse path mailbox.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_recipient_t</span> <span class="pre">recipient</span></code></dt><dd><p>The <strong>smtp_recipient_t</strong></p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Report MTA status for the RCPT TO:&lt;&gt; command. The actual status code
+may be retrieved with smtp_recipient_status().</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.messagedata">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">messagedata</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="n"><span class="pre">smtp_message_t</span></span><span class="w"> </span><span class="n"><span class="pre">message</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.messagedata" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_MESSAGEDATA event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_MESSAGEDATA</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>the <strong>smtp_message_t</strong>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">len</span></code></dt><dd><p>octets transferred.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Report progress of message transfer to application. This event is emitted
+multiple times as the transfer progresses with <strong>len</strong> set to the octet count
+transferred so far.</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.messagesent">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">messagesent</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="n"><span class="pre">smtp_message_t</span></span><span class="w"> </span><span class="n"><span class="pre">message</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.messagesent" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_MESSAGESENT event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_MESSAGESENT</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_message_t</span> <span class="pre">message</span></code></dt><dd><p>the <strong>smtp_message_t</strong>.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Report completion of the message transfer. The associated ststus code from
+the MTA may be retrieved using smtp_message_transfer_status().</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.etrnstatus">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">etrnstatus</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">event_no</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">option</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">domain</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.etrnstatus" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>SMTP_EV_ETRNSTATUS event</p>
+</dd></dl>
+
+<p><strong>Parameters</strong></p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">smtp_session_t</span> <span class="pre">session</span></code></dt><dd><p>The session.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">event_no</span></code></dt><dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">SMTP_EV_ETRNSTATUS</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*arg</span></code></dt><dd><p>application data (closure) specified to smtp_set_eventcb().</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">option</span></code></dt><dd><p>the ETRN option character.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*domain</span></code></dt><dd><p>the ETRN domain name.</p>
+</dd>
+</dl>
+<p><strong>Description</strong></p>
+<p>Report ETRN status.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tlsevents.html" class="btn btn-neutral float-right" title="TLS Event Callback" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="_kdoc/errors.html" class="btn btn-neutral float-left" title="Errors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Brian Stafford.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -117,6 +120,8 @@
 <li class="toctree-l2"><a class="reference internal" href="headers.html">Message Headers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../events.html">Event Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tlsevents.html">TLS Event Callback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../licence.html">Licence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../genindex.html">Index of Symbols</a></li>
 </ul>
@@ -201,8 +206,8 @@
 <p>The auth client is a simple SASL implementation supporting the
 SMTP AUTH extension.</p>
 <dl class="c function">
-<dt id="c.auth_client_init">
-void <code class="sig-name descname">auth_client_init</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.auth_client_init" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.auth_client_init">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">auth_client_init</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_client_init" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Initialise the auth client.</p>
 </dd></dl>
 
@@ -215,8 +220,8 @@ void <code class="sig-name descname">auth_client_init</code><span class="sig-par
 <p>Perform any preparation necessary for the auth client modules.  Call this
 before any other auth client APIs.</p>
 <dl class="c function">
-<dt id="c.auth_client_exit">
-void <code class="sig-name descname">auth_client_exit</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.auth_client_exit" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.auth_client_exit">
+<span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">auth_client_exit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_client_exit" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Destroy the auth client.</p>
 </dd></dl>
 
@@ -230,8 +235,8 @@ void <code class="sig-name descname">auth_client_exit</code><span class="sig-par
 be created by the authentication modules.  Auth client APIs after this is
 called may fail unpredictably or crash.</p>
 <dl class="c function">
-<dt id="c.auth_create_context">
-auth_context_t <code class="sig-name descname">auth_create_context</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.auth_create_context" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.auth_create_context">
+<span class="n"><span class="pre">auth_context_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">auth_create_context</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_create_context" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Create an authentication context.</p>
 </dd></dl>
 
@@ -245,8 +250,8 @@ auth_context_t <code class="sig-name descname">auth_create_context</code><span c
 <p><strong>Return</strong></p>
 <p>The <code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">auth_context_t</span></code>.</p>
 <dl class="c function">
-<dt id="c.auth_destroy_context">
-int <code class="sig-name descname">auth_destroy_context</code><span class="sig-paren">(</span>auth_context_t <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_destroy_context" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.auth_destroy_context">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">auth_destroy_context</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">auth_context_t</span></span><span class="w"> </span><span class="n"><span class="pre">context</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_destroy_context" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Destroy an authentication context.</p>
 </dd></dl>
 
@@ -260,8 +265,8 @@ int <code class="sig-name descname">auth_destroy_context</code><span class="sig-
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
 <dl class="c function">
-<dt id="c.auth_set_mechanism_flags">
-int <code class="sig-name descname">auth_set_mechanism_flags</code><span class="sig-paren">(</span>auth_context_t <em>context</em>, unsigned <em>set</em>, unsigned <em>clear</em><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_set_mechanism_flags" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.auth_set_mechanism_flags">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">auth_set_mechanism_flags</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">auth_context_t</span></span><span class="w"> </span><span class="n"><span class="pre">context</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="n"><span class="pre">set</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="n"><span class="pre">clear</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_set_mechanism_flags" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set authentication flags.</p>
 </dd></dl>
 
@@ -281,8 +286,8 @@ allowable flags.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
 <dl class="c function">
-<dt id="c.auth_set_mechanism_ssf">
-int <code class="sig-name descname">auth_set_mechanism_ssf</code><span class="sig-paren">(</span>auth_context_t <em>context</em>, int <em>min_ssf</em><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_set_mechanism_ssf" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.auth_set_mechanism_ssf">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">auth_set_mechanism_ssf</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">auth_context_t</span></span><span class="w"> </span><span class="n"><span class="pre">context</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">min_ssf</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_set_mechanism_ssf" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set security factor.</p>
 </dd></dl>
 
@@ -299,8 +304,8 @@ security factor depends on the authentication type.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
 <dl class="c function">
-<dt id="c.auth_set_external_id">
-int <code class="sig-name descname">auth_set_external_id</code><span class="sig-paren">(</span>auth_context_t <em>context</em>, <em class="property">const</em> char *<em>identity</em><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_set_external_id" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.auth_set_external_id">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">auth_set_external_id</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">auth_context_t</span></span><span class="w"> </span><span class="n"><span class="pre">context</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">identity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_set_external_id" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the external id.</p>
 </dd></dl>
 
@@ -320,8 +325,8 @@ X.509 the identity is normally that used in the relevant certificate.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
 <dl class="c function">
-<dt id="c.auth_client_enabled">
-int <code class="sig-name descname">auth_client_enabled</code><span class="sig-paren">(</span>auth_context_t <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_client_enabled" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.auth_client_enabled">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">auth_client_enabled</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">auth_context_t</span></span><span class="w"> </span><span class="n"><span class="pre">context</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_client_enabled" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Check if mechanism is enabled.</p>
 </dd></dl>
 
@@ -337,8 +342,8 @@ negotiating a mechanism with the MTA.</p>
 <p><strong>Return</strong></p>
 <p>Non-zero if the SASL is usable, zero otherwise.</p>
 <dl class="c function">
-<dt id="c.auth_set_mechanism">
-int <code class="sig-name descname">auth_set_mechanism</code><span class="sig-paren">(</span>auth_context_t <em>context</em>, <em class="property">const</em> char *<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_set_mechanism" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.auth_set_mechanism">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">auth_set_mechanism</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">auth_context_t</span></span><span class="w"> </span><span class="n"><span class="pre">context</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.auth_set_mechanism" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Select authentication mechanism.</p>
 </dd></dl>
 

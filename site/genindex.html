@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -115,6 +118,8 @@
 <li class="toctree-l2"><a class="reference internal" href="reference/_kdoc/headers.html">Message Headers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/_kdoc/smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/_kdoc/errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/events.html">Event Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/tlsevents.html">TLS Event Callback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/licence.html">Licence</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Index of Symbols</a></li>
 </ul>
@@ -198,10 +203,15 @@
  <a href="#_"><strong>_</strong></a>
  | <a href="#A"><strong>A</strong></a>
  | <a href="#B"><strong>B</strong></a>
+ | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#W"><strong>W</strong></a>
  
 </div>
 <h2 id="_">_</h2>
@@ -250,10 +260,54 @@
   </ul></td>
 </tr></table>
 
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/events.html#c.deliverby_expired">deliverby_expired (C function)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/_kdoc/libesmtp.html#c.e8bitmime_body">e8bitmime_body (C enum)</a>
+</li>
+      <li><a href="reference/events.html#c.etrnstatus">etrnstatus (C function)</a>
+</li>
+      <li><a href="reference/events.html#c.ev_connect_cb">ev_connect_cb (C function)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/events.html#c.ev_disconnect_cb">ev_disconnect_cb (C function)</a>
+</li>
+      <li><a href="reference/events.html#c.ev_extna_2_cb">ev_extna_2_cb (C function)</a>
+</li>
+      <li><a href="reference/events.html#c.ev_extna_cb">ev_extna_cb (C function)</a>
+</li>
+      <li><a href="reference/events.html#c.ev_syntaxwarning_cb">ev_syntaxwarning_cb (C function)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/tlsevents.html#c.invalid_peer_certificate">invalid_peer_certificate (C function)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/events.html#c.mailstatus">mailstatus (C function)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/events.html#c.messagedata">messagedata (C function)</a>
+</li>
+      <li><a href="reference/events.html#c.messagesent">messagesent (C function)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -261,6 +315,12 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/tlsevents.html#c.no_client_certificate">no_client_certificate (C function)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/tlsevents.html#c.no_peer_certificate">no_peer_certificate (C function)</a>
+</li>
       <li><a href="reference/_kdoc/libesmtp.html#c.notify_flags">notify_flags (C enum)</a>
 </li>
   </ul></td>
@@ -269,10 +329,12 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/_kdoc/libesmtp.html#c.ret_flags">ret_flags (C enum)</a>
+      <li><a href="reference/events.html#c.rcptstatus">rcptstatus (C function)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/_kdoc/libesmtp.html#c.ret_flags">ret_flags (C enum)</a>
+</li>
       <li><a href="reference/_kdoc/libesmtp.html#c.rfc2822_timeouts">rfc2822_timeouts (C enum)</a>
 </li>
   </ul></td>
@@ -337,10 +399,10 @@
 </li>
       <li><a href="reference/_kdoc/smtp-api.html#c.smtp_message_set_application_data_release">smtp_message_set_application_data_release (C function)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/_kdoc/smtp-api.html#c.smtp_message_transfer_status">smtp_message_transfer_status (C function)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/_kdoc/smtp-api.html#c.smtp_option_require_all_recipients">smtp_option_require_all_recipients (C function)</a>
 </li>
       <li><a href="reference/_kdoc/smtp-api.html#c.smtp_recipient_check_complete">smtp_recipient_check_complete (C function)</a>
@@ -395,7 +457,29 @@
 </li>
       <li><a href="reference/_kdoc/smtp-api.html#c.smtp_version">smtp_version (C function)</a>
 </li>
+      <li><a href="reference/tlsevents.html#c.starttls_ok">starttls_ok (C function)</a>
+</li>
       <li><a href="reference/_kdoc/libesmtp.html#c.starttls_option">starttls_option (C enum)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/tlsevents.html#c.unusable_client_certificate">unusable_client_certificate (C function)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/tlsevents.html#c.weak_cipher">weak_cipher (C function)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/tlsevents.html#c.wrong_peer_certificate">wrong_peer_certificate (C function)</a>
 </li>
   </ul></td>
 </tr></table>

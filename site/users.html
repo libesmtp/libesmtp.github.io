@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -98,7 +101,18 @@
 <li class="toctree-l1"><a class="reference internal" href="reference/index.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bugreport.html">Reporting Bugs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Users</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Users</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#projects-using-libesmtp">Projects Using libESMTP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#balsa">Balsa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#esmtp">esmtp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#openwrt">OpenWrt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linknx">linknx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collectd">collectd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syslog-ng">syslog-ng</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="essays.html">Essays</a></li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Author</a></li>
 <li class="toctree-l1"><a class="reference internal" href="oldfiles.html">Legacy Files</a></li>
@@ -170,11 +184,52 @@
             
   <div class="section" id="users">
 <h1>Users<a class="headerlink" href="#users" title="Permalink to this headline">¶</a></h1>
-<p>Please leave a comment on issue #2 if your project uses libESMTP, preferably
-with a link to the project web site. A list of users will be added here at some
-point in the future.  It’s always good to know that this work is useful to the
-community; without knowing who uses libESMTP, it is impossible to judge whether
-and how much effort should be invested in its future.</p>
+<div class="section" id="projects-using-libesmtp">
+<h2>Projects Using libESMTP<a class="headerlink" href="#projects-using-libesmtp" title="Permalink to this headline">¶</a></h2>
+<p>libESMTP has been around for some time and, as well as being part of many Linux
+distributions, it has been adopted by a number of projects. Some of those are
+listed below. libESMTP is also available in <a class="reference external" href="https://www.freebsd.org/ports/">FreeBSD Ports</a>.</p>
+<div class="section" id="balsa">
+<h3>Balsa<a class="headerlink" href="#balsa" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://pawsa.fedorapeople.org/balsa/">Balsa</a>, a highly configurable email client for Gnome was an early adopter
+of libESMTP and its primary author contributed to libESMTP’s development. It
+may be obtained from <a class="reference external" href="https://pawsa.fedorapeople.org/balsa/">https://pawsa.fedorapeople.org/balsa/</a>.</p>
+</div>
+<div class="section" id="esmtp">
+<h3>esmtp<a class="headerlink" href="#esmtp" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://esmtp.sourceforge.net/">esmtp</a> is a fully <code class="docutils literal notranslate"><span class="pre">sendmail</span></code> command line compatible Mail Submission
+Agent.  Although the original project hosted at <a class="reference external" href="http://esmtp.sourceforge.net/">Sourceforge</a> is now
+unmaintained, it is maintained in various distributions, for instance Debian at
+<a class="reference external" href="https://tracker.debian.org/pkg/esmtp">https://tracker.debian.org/pkg/esmtp</a>.
+The original website for esmtp is at <a class="reference external" href="http://esmtp.sourceforge.net/">http://esmtp.sourceforge.net/</a>.</p>
+</div>
+<div class="section" id="openwrt">
+<h3>OpenWrt<a class="headerlink" href="#openwrt" title="Permalink to this headline">¶</a></h3>
+<p>libESMTP is available as part of the <a class="reference external" href="https://openwrt.org/">OpenWrt</a> Libraries at
+<a class="reference external" href="https://openwrt.org/packages/index/libraries">https://openwrt.org/packages/index/libraries</a>.</p>
+</div>
+<div class="section" id="linknx">
+<h3>linknx<a class="headerlink" href="#linknx" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/linknx/linknx">Linknx</a> is a service aimed at interacting with KNX home automation
+devices. It features a value cache to save bus bandwidth and exposes a rules
+engine allowing to automate actions based on powerful logical conditions and
+timers.  The GitHub page for linknx is at
+<a class="reference external" href="https://github.com/linknx/linknx">https://github.com/linknx/linknx</a>.</p>
+</div>
+<div class="section" id="collectd">
+<h3>collectd<a class="headerlink" href="#collectd" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">notify_email</span></code> plugin of <a class="reference external" href="https://collectd.org/">collectd</a> uses libESMTP:</p>
+<p><a class="reference external" href="https://collectd.org/wiki/index.php/Plugin:Notify_Email">https://collectd.org/wiki/index.php/Plugin:Notify_Email</a></p>
+</div>
+<div class="section" id="syslog-ng">
+<h3>syslog-ng<a class="headerlink" href="#syslog-ng" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">afsmtp</span></code> module of <a class="reference external" href="https://www.syslog-ng.com/">syslog-ng</a> uses libESMTP.</p>
+<hr class="docutils" />
+<p>Please leave a comment on <a class="reference external" href="https://github.com/libesmtp/libESMTP/issues/ESM">issue #2</a> if your project uses libESMTP,
+preferably with a link to the project web site. It’s always good to know that
+this work is useful to the community.</p>
+</div>
+</div>
 </div>
 
 

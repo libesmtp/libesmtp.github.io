@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -117,6 +120,8 @@
 <li class="toctree-l2"><a class="reference internal" href="headers.html">Message Headers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smtp-etrn.html">Remote Message Queue Starting (ETRN)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../events.html">Event Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tlsevents.html">TLS Event Callback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../licence.html">Licence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../genindex.html">Index of Symbols</a></li>
 </ul>
@@ -208,8 +213,8 @@ will always fail:</p>
 </ul>
 <p>See also: <a class="reference external" href="https://www.openssl.org/">OpenSSL</a>.</p>
 <dl class="c function">
-<dt id="c.smtp_starttls_set_password_cb">
-int <code class="sig-name descname">smtp_starttls_set_password_cb</code><span class="sig-paren">(</span><a class="reference internal" href="libesmtp.html#c.smtp_starttls_passwordcb_t" title="smtp_starttls_passwordcb_t">smtp_starttls_passwordcb_t</a> <em>cb</em>, void *<em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_starttls_set_password_cb" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_starttls_set_password_cb">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">smtp_starttls_set_password_cb</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="libesmtp.html#c.smtp_starttls_passwordcb_t" title="smtp_starttls_passwordcb_t"><span class="n"><span class="pre">smtp_starttls_passwordcb_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">cb</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_starttls_set_password_cb" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set OpenSSL password callback.</p>
 </dd></dl>
 
@@ -230,8 +235,8 @@ function.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
 <dl class="c function">
-<dt id="c.smtp_starttls_set_ctx">
-int <code class="sig-name descname">smtp_starttls_set_ctx</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, SSL_CTX *<em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_starttls_set_ctx" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_starttls_set_ctx">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">smtp_starttls_set_ctx</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="n"><span class="pre">SSL_CTX</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ctx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_starttls_set_ctx" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the SSL_CTX for the SMTP session.</p>
 </dd></dl>
 
@@ -243,16 +248,20 @@ int <code class="sig-name descname">smtp_starttls_set_ctx</code><span class="sig
 </dd>
 </dl>
 <p><strong>Description</strong></p>
-<p>Use an SSL_CTX created and initialised by the application.  The SSL_CTX
-must be created by the application which is assumed to have also initialised
-the OpenSSL library.</p>
-<p>If not used, or <strong>ctx</strong> is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, OpenSSL is automatically initialised before
+<p>Use an SSL_CTX created and initialised by the application. The SSL_CTX is up
+referenced by libESMTP and subsequently freed when the session is destroyed.
+This means that it is valid for an application to create an SSL_CTX and
+immediately free it after passing it to this call.</p>
+<p>This call is useful if an application must support older versions of SSL or
+TLS than are supported by libESMTP, or if it wishes to impose stricter
+conditions on the TLS version to be used for the session.</p>
+<p>If this call is not used OpenSSL is automatically initialised before
 calling any of the OpenSSL API functions.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>
 <dl class="c function">
-<dt id="c.smtp_starttls_enable">
-int <code class="sig-name descname">smtp_starttls_enable</code><span class="sig-paren">(</span>smtp_session_t <em>session</em>, <em class="property">enum</em> <a class="reference internal" href="libesmtp.html#c.starttls_option" title="starttls_option">starttls_option</a> <em>how</em><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_starttls_enable" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object c" id="c.smtp_starttls_enable">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">smtp_starttls_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">smtp_session_t</span></span><span class="w"> </span><span class="n"><span class="pre">session</span></span>, <span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="libesmtp.html#c.starttls_option" title="starttls_option"><span class="n"><span class="pre">starttls_option</span></span></a><span class="w"> </span><span class="n"><span class="pre">how</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.smtp_starttls_enable" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Enable STARTTLS verb.</p>
 </dd></dl>
 

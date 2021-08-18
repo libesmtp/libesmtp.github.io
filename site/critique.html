@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -561,7 +564,7 @@ property.  Even without accessors, this would still be possible but would
 require the glue code to shadow the appropriate value which is both wasteful
 and error prone.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">message</span><span class="o">.</span><span class="n">reverse_path</span> <span class="o">=</span> <span class="s1">&#39;brian@example.org&#39;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">reverse_path</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">reverse_path</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The lack of iterators makes adding Python iterators or generator expressions
@@ -570,9 +573,9 @@ recipient status something like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">session</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">messages</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;From:&#39;</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">reverse_path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;From:&#39;</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">reverse_path</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">recipient</span> <span class="ow">in</span> <span class="n">message</span><span class="o">.</span><span class="n">recipients</span><span class="p">():</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;To:&#39;</span><span class="p">,</span> <span class="n">recipient</span><span class="o">.</span><span class="n">mailbox</span><span class="p">,</span> <span class="n">recipient</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;To:&#39;</span><span class="p">,</span> <span class="n">recipient</span><span class="o">.</span><span class="n">mailbox</span><span class="p">,</span> <span class="n">recipient</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or even use a comprehension</p>
@@ -601,9 +604,9 @@ should be a good test that the design is correct.</p>
 <span class="n">session</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">messages</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;From:&#39;</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">reverse_path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;From:&#39;</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">reverse_path</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">recipient</span> <span class="ow">in</span> <span class="n">message</span><span class="o">.</span><span class="n">recipients</span><span class="p">():</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;To:&#39;</span><span class="p">,</span> <span class="n">recipient</span><span class="o">.</span><span class="n">mailbox</span><span class="p">,</span> <span class="n">recipient</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;To:&#39;</span><span class="p">,</span> <span class="n">recipient</span><span class="o">.</span><span class="n">mailbox</span><span class="p">,</span> <span class="n">recipient</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="c">

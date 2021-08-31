@@ -105,11 +105,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#projects-using-libesmtp">Projects Using libESMTP</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#balsa">Balsa</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#apache-log4cxx">Apache Log4cxx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sagan">Sagan</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#esmtp">esmtp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#openwrt">OpenWrt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#linknx">linknx</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#collectd">collectd</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#syslog-ng">syslog-ng</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#net-esmtp">Net::ESMTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#libesmtp-for-vicare">libESMTP for Vicare</a></li>
 </ul>
 </li>
 </ul>
@@ -193,43 +196,49 @@ listed below. libESMTP is also available in <a class="reference external" href="
 <div class="section" id="balsa">
 <h3>Balsa<a class="headerlink" href="#balsa" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://pawsa.fedorapeople.org/balsa/">Balsa</a>, a highly configurable email client for Gnome was an early adopter
-of libESMTP and its primary author contributed to libESMTP’s development. It
-may be obtained from <a class="reference external" href="https://pawsa.fedorapeople.org/balsa/">https://pawsa.fedorapeople.org/balsa/</a>.</p>
+of libESMTP and its primary author contributed to libESMTP’s development.</p>
 </div>
 <div class="section" id="apache-log4cxx">
 <h3>Apache Log4cxx<a class="headerlink" href="#apache-log4cxx" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://logging.apache.org/log4cxx/latest_stable/">Log4cxx</a> uses libESMTP since version 0.10.  Apache Log4cxx is a C++ port
 of Apache Log4j.</p>
 </div>
+<div class="section" id="sagan">
+<h3>Sagan<a class="headerlink" href="#sagan" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/quadrantsec/sagan">Sagan</a> is a log analysis engine. It was designed with a Security
+Operations Center (SOC) in mind.</p>
+</div>
 <div class="section" id="esmtp">
 <h3>esmtp<a class="headerlink" href="#esmtp" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://esmtp.sourceforge.net/">esmtp</a> is a fully <code class="docutils literal notranslate"><span class="pre">sendmail</span></code> command line compatible Mail Submission
-Agent.  Although the original project hosted at <a class="reference external" href="http://esmtp.sourceforge.net/">Sourceforge</a> is now
-unmaintained, it is maintained in various distributions, for instance Debian at
-<a class="reference external" href="https://tracker.debian.org/pkg/esmtp">https://tracker.debian.org/pkg/esmtp</a>.
-The original website for esmtp is at <a class="reference external" href="http://esmtp.sourceforge.net/">http://esmtp.sourceforge.net/</a>.</p>
+Agent.</p>
+<p>Although the original project hosted at <a class="reference external" href="http://esmtp.sourceforge.net/">Sourceforge</a> is now unmaintained,
+it is maintained in various distributions, for instance <a class="reference external" href="https://tracker.debian.org/pkg/esmtp">Debian</a>.</p>
 </div>
 <div class="section" id="openwrt">
 <h3>OpenWrt<a class="headerlink" href="#openwrt" title="Permalink to this headline">¶</a></h3>
-<p>libESMTP is available as part of the <a class="reference external" href="https://openwrt.org/">OpenWrt</a> Libraries at
-<a class="reference external" href="https://openwrt.org/packages/index/libraries">https://openwrt.org/packages/index/libraries</a>.</p>
+<p>libESMTP is available as part of the <a class="reference external" href="https://openwrt.org/">OpenWrt</a> project’s <a class="reference external" href="https://openwrt.org/packages/index/libraries">Libraries</a>.</p>
 </div>
 <div class="section" id="linknx">
 <h3>linknx<a class="headerlink" href="#linknx" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://github.com/linknx/linknx">Linknx</a> is a service aimed at interacting with KNX home automation
-devices. It features a value cache to save bus bandwidth and exposes a rules
-engine allowing to automate actions based on powerful logical conditions and
-timers.  The GitHub page for linknx is at
-<a class="reference external" href="https://github.com/linknx/linknx">https://github.com/linknx/linknx</a>.</p>
+devices.</p>
 </div>
 <div class="section" id="collectd">
 <h3>collectd<a class="headerlink" href="#collectd" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">notify_email</span></code> plugin of <a class="reference external" href="https://collectd.org/">collectd</a> uses libESMTP:</p>
-<p><a class="reference external" href="https://collectd.org/wiki/index.php/Plugin:Notify_Email">https://collectd.org/wiki/index.php/Plugin:Notify_Email</a></p>
+<p>The <a class="reference external" href="https://collectd.org/wiki/index.php/Plugin:Notify_Email">notify_email</a> plugin of <a class="reference external" href="https://collectd.org/">collectd</a> uses libESMTP.</p>
 </div>
 <div class="section" id="syslog-ng">
 <h3>syslog-ng<a class="headerlink" href="#syslog-ng" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">afsmtp</span></code> module of <a class="reference external" href="https://www.syslog-ng.com/">syslog-ng</a> uses libESMTP.</p>
+</div>
+<div class="section" id="net-esmtp">
+<h3>Net::ESMTP<a class="headerlink" href="#net-esmtp" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://metacpan.org/dist/Net-ESMTP/view/ESMTP.pod">Net::ESMTP</a> wraps libESMTP for Perl.</p>
+</div>
+<div class="section" id="libesmtp-for-vicare">
+<h3>libESMTP for Vicare<a class="headerlink" href="#libesmtp-for-vicare" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://marcomaggi.github.io/docs/vicare-libesmtp.html">libESMTP for Vicare</a> wraps libESMTP for Vicare Scheme.</p>
 <hr class="docutils" />
 <p>Please leave a comment on <a class="reference external" href="https://github.com/libesmtp/libESMTP/issues/ESM">issue #2</a> if your project uses libESMTP,
 preferably with a link to the project web site. It’s always good to know that

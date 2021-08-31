@@ -248,14 +248,10 @@ function.</p>
 </dd>
 </dl>
 <p><strong>Description</strong></p>
-<p>Use an SSL_CTX created and initialised by the application. The SSL_CTX is up
-referenced by libESMTP and subsequently freed when the session is destroyed.
-This means that it is valid for an application to create an SSL_CTX and
-immediately free it after passing it to this call.</p>
-<p>This call is useful if an application must support older versions of SSL or
-TLS than are supported by libESMTP, or if it wishes to impose stricter
-conditions on the TLS version to be used for the session.</p>
-<p>If this call is not used OpenSSL is automatically initialised before
+<p>Use an SSL_CTX created and initialised by the application.  The SSL_CTX
+must be created by the application which is assumed to have also initialised
+the OpenSSL library.</p>
+<p>If not used, or <strong>ctx</strong> is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, OpenSSL is automatically initialised before
 calling any of the OpenSSL API functions.</p>
 <p><strong>Return</strong></p>
 <p>Zero on failure, non-zero on success.</p>

@@ -12,6 +12,11 @@ listed below. libESMTP is also available in [FreeBSD Ports][BSD].
 of libESMTP and its primary author contributed to libESMTP's development. It
 may be obtained from [https://pawsa.fedorapeople.org/balsa/][BAL].
 
+### Apache Log4cxx
+
+[Log4cxx][L4C] uses libESMTP since version 0.10.  Apache Log4cxx is a C++ port
+of Apache Log4j.
+
 ### esmtp
 
 [esmtp][ESM] is a fully `sendmail` command line compatible Mail Submission
@@ -61,3 +66,4 @@ this work is useful to the community.
 [SYS]: https://www.syslog-ng.com/
 [WRL]: https://openwrt.org/packages/index/libraries
 [WRT]: https://openwrt.org/
+[L4C]: https://logging.apache.org/log4cxx/latest_stable/
